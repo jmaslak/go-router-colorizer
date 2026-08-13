@@ -50,6 +50,3 @@ var bgColors = []string{
 func colorize(text, color string) string {
 	return color + strings.Replace(text, reset, color, 1) + reset
 }
-
-// underline renders s underlined, leaving the rest of the line alone.
-func underline(s string) string { return underlineOn + s + underlineOff }

@@ -4,6 +4,16 @@ All notable changes to this project are documented here. The format is based on
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project uses
 [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
+## 0.2.1
+
+### Fixed
+
+- Text made of letters and `::` separators, such as the interface description
+  `IX::PROD::CAB`, is no longer partly colorized as an IPv6 address. A candidate
+  address must now start at the beginning of a token: any word character before
+  it, not just a hex digit, rules it out. Previously the `D::CAB` inside
+  `PROD::CAB` looked like an address, because `O` is not a hex digit.
+
 ## 0.2.0
 
 ### Changed

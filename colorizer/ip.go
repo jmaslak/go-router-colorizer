@@ -93,8 +93,15 @@ func matchIPv4(s string, pos int) int {
 // eight groups first, then the "::" forms, by ascending number of groups
 // before the "::" and descending number after it.
 func matchIPv6(s string, pos int) int {
-	if pos > 0 && strings.IndexByte("abcdefABCDEF0123456789:-", s[pos-1]) >= 0 {
-		return -1
+	// A candidate has to start at the beginning of a token. The Perl original
+	// only rejected a preceding hex digit, ":" or "-", which let a candidate
+	// start in the middle of a word made of letters: in "IX::PROD::CAB", the
+	// "D::CAB" that follows "PRO" looks like an address. Any preceding word
+	// character rules the candidate out.
+	if pos > 0 {
+		if c := s[pos-1]; isWord(c) || c == ':' || c == '-' {
+			return -1
+		}
 	}
 
 	if end, ok := matchIPv6Form(s, pos, 8, -1); ok {

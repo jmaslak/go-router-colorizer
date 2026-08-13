@@ -91,13 +91,18 @@ func TestMatchIPv6(t *testing.T) {
 
 func TestMatchIPv6RequiresDelimiter(t *testing.T) {
 	// The character before an address may not look like part of one.
-	for _, text := range []string{"a::1", "1::1", "-::1", ":::1"} {
+	for _, text := range []string{"a::1", "1::1", "-::1", ":::1", "z::1", "_::1"} {
 		if end := matchIPv6(text, 1); end >= 0 {
 			t.Errorf("matchIPv6(%q, 1) = %q, want no match", text, text[1:end])
 		}
 	}
 	if end := matchIPv6("x ::1", 2); end != 5 {
 		t.Errorf("matchIPv6(%q, 2) = %d, want 5", "x ::1", end)
+	}
+	// Interface descriptions full of "::" separators are not addresses, even
+	// where a suffix of a word happens to be made of hex digits.
+	if got := colorizeIPv6("IX::PROD::CAB"); got != "IX::PROD::CAB" {
+		t.Errorf("colorizeIPv6(%q) = %q, want it unchanged", "IX::PROD::CAB", got)
 	}
 }
 
