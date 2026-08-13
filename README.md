@@ -16,9 +16,9 @@ It also colors every IP address by hashing it, and underlines alternating
 groups of three digits in long numbers. Anything it does not recognize passes
 through untouched, so it is safe to leave in a pipeline permanently.
 
-This is a Go port of [App::RouterColorizer][perl], and produces the same
-colorization as the Perl original.  The port was made utilizing a LLM
-for machine translation between languages.
+This is a Go port of [App::RouterColorizer][perl], which has now
+replaced the Perl version. The port was made utilizing a LLM for machine
+translation between languages.
 
 [perl]: https://github.com/jmaslak/App-RouterColorizer
 
@@ -199,47 +199,14 @@ go test -bench . ./colorizer
 
 The bulk of the test suite is golden files under `colorizer/testdata`: captured
 device output paired with its expected colorization, one line per test case, so
-a failure names the line that changed. Those files are shared verbatim with the
-Perl implementation.
-
-## Differences from App::RouterColorizer
-
-The port is bit-for-bit compatible on device output — the shared golden files
-pass unchanged, and the two implementations agree byte for byte on hundreds of
-kilobytes of captured and fuzzed input. Three fixes are intentional, and none
-of them changes the colorization of any captured output in the test suite:
-
-- **Nested colorization always restores the outer color.** When a rule colors
-  a region that already contains a color, the inner region's reset has to be
-  rewritten to the outer color, or the rest of the line reverts to the terminal
-  default. The Perl original only rewrites that reset when it happens to be
-  surrounded by spaces, because the substitution that does it is missing the
-  `/x` flag that the rest of the module uses. This port rewrites it in every
-  case. The two differ only when already-colorized text is colorized again.
-
-- **An alarm severity may be padded on either side.** The severity column of
-  Ciena's `alarm show` is written `\s*(?:critical|major|minor|warning|info)\s*`.
-  In the Perl the alternation binds loosely, so leading whitespace is only
-  allowed for the serious severities and trailing whitespace only for `info`;
-  a device that pads the column on both sides gets no color at all. This port
-  accepts padding on either side of any severity.
-
-- **A colon is not part of an interface name.** Several Junos interface
-  patterns, and the Cisco `(connected)` suffix, are written `(:? ...)` in the
-  Perl, which is a capture group containing an optional colon rather than the
-  intended non-capturing group. This port matches the intent: `gr-1/2/3` and
-  `fti0` are interface names, `gr:-1/2/3` and `:fti0` are not.
-
-One rule also covers more than the Perl does: the Junos ethernet interface
-family here is `ge-`, `xe-`, and `et-`, and a channelized port's channel and
-logical unit are part of the name, as in `et-0/0/1:0.0`. The Perl recognizes
-only `ge-` and `xe-`, and no channel.
+a failure names the line that changed.
 
 ## Throughput
 
-Colorizing is about 4.5 MB/s per core. That is far more than any session
-produces, so it only matters when piping a large capture, and for that the work
-is divided across cores. On a 16-core machine, 820 KB of captured Arista output:
+Colorizing is about 4.5 MB/s per core on a 2025 Macbook Pro. That is far more
+than most sessions produce, so throughput only matters when piping a large
+capture, and for that the work is divided across cores. On a 16-core
+Macbook, 820 KB of captured Arista output:
 
 | | Time | Throughput |
 | --- | --- | --- |
