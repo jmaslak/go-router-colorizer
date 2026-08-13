@@ -4,6 +4,18 @@ All notable changes to this project are documented here. The format is based on
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project uses
 [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
+## 0.3.0
+
+### Added
+
+- `-cmd` runs a command directly and colorizes its standard output and
+  standard error as they arrive, instead of requiring a shell pipeline.
+  Arguments `router-colorizer` does not recognize are forwarded to the
+  command, so `router-colorizer -cmd ssh router.example.com` replaces
+  `ssh router.example.com | router-colorizer`. Standard input is passed
+  through to the command unchanged, and the command's exit code becomes
+  `router-colorizer`'s exit code.
+
 ## 0.2.1
 
 ### Fixed

@@ -78,6 +78,16 @@ sshr() {
 
 Then `sshr router.example.com`.
 
+`-cmd` does the same thing without a pipeline: it runs the given command,
+forwarding any arguments `router-colorizer` does not recognize, and colorizes
+its standard output and standard error as they arrive. Standard input passes
+through to the command, and the command's exit code becomes
+`router-colorizer`'s.
+
+```sh
+router-colorizer -cmd ssh router.example.com
+```
+
 ### What gets colorized
 
 The colors assume a terminal with a **dark background**.

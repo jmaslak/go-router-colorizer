@@ -1,6 +1,7 @@
 # Build output
 /router-colorizer
 /dist/
+/build/
 
 # Test output
 *.test
