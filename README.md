@@ -24,8 +24,8 @@ for machine translation between languages.
 
 ## Install
 
-For Linux (amd64 or arm64) or macOS (Apple silicon), install a prebuilt
-release binary with:
+For Linux (amd64, arm64, or riscv64), macOS (amd64 or arm64), or FreeBSD
+(amd64 or arm64), install a prebuilt release binary with:
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/jmaslak/go-router-colorizer/main/install.sh | sh
@@ -34,6 +34,11 @@ curl -fsSL https://raw.githubusercontent.com/jmaslak/go-router-colorizer/main/in
 This installs to `/usr/local/bin`, falling back to `~/.local/bin` if that is
 not writable. Once installed, `router-colorizer -selfupdate` fetches and
 installs any later release in place.
+
+Windows (amd64 or arm64) builds are also published on the
+[releases page][releases], but `install.sh` is a POSIX shell script and does
+not run there; download the `.exe` directly, or use `-selfupdate` once it is
+in place.
 
 With a Go toolchain instead:
 
@@ -260,6 +265,7 @@ email to <jmaslak@antelope.net> before disclosing it publicly, so there is a
 chance to fix it first.
 
 [issues]: https://github.com/jmaslak/go-router-colorizer/issues
+[releases]: https://github.com/jmaslak/go-router-colorizer/releases
 
 ## Author
 

@@ -4,6 +4,24 @@ All notable changes to this project are documented here. The format is based on
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project uses
 [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
+## 0.2.0
+
+### Added
+
+- Release builds for linux/riscv64, darwin/amd64, windows/amd64,
+  windows/arm64, freebsd/amd64, and freebsd/arm64, in addition to the existing
+  linux/amd64, linux/arm64, and darwin/arm64. `install.sh` now installs the
+  darwin/amd64, linux/riscv64, and freebsd builds too; Windows builds are
+  published but must be downloaded manually, since `install.sh` is a POSIX
+  shell script.
+
+### Fixed
+
+- `-selfupdate` now requests `router-colorizer_windows_<arch>.exe`, matching
+  the `.exe` suffix GoReleaser adds to Windows release assets. Previously it
+  would have looked for an asset without the suffix and always reported no
+  build available.
+
 ## 0.1.0
 
 ### Added

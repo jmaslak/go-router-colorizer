@@ -60,6 +60,9 @@ func selfUpdate() error {
 	}
 
 	assetName := fmt.Sprintf("router-colorizer_%s_%s", runtime.GOOS, runtime.GOARCH)
+	if runtime.GOOS == "windows" {
+		assetName += ".exe"
+	}
 	binURL, ok := rel.assetURL(assetName)
 	if !ok {
 		return fmt.Errorf("release %s has no build for %s/%s", rel.TagName, runtime.GOOS, runtime.GOARCH)

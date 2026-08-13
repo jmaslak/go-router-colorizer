@@ -14,8 +14,9 @@ os=$(uname -s)
 case "$os" in
 	Linux) os=linux ;;
 	Darwin) os=darwin ;;
+	FreeBSD) os=freebsd ;;
 	*)
-		echo "install.sh: unsupported OS: $os (only Linux and macOS builds are published)" >&2
+		echo "install.sh: unsupported OS: $os (only Linux, macOS, and FreeBSD builds are published)" >&2
 		exit 1
 		;;
 esac
@@ -24,14 +25,15 @@ arch=$(uname -m)
 case "$arch" in
 	x86_64 | amd64) arch=amd64 ;;
 	aarch64 | arm64) arch=arm64 ;;
+	riscv64) arch=riscv64 ;;
 	*)
 		echo "install.sh: unsupported architecture: $arch" >&2
 		exit 1
 		;;
 esac
 
-if [ "$os" = "darwin" ] && [ "$arch" = "amd64" ]; then
-	echo "install.sh: no darwin/amd64 build is published (Mac Arm64 only)" >&2
+if { [ "$os" = "darwin" ] || [ "$os" = "freebsd" ]; } && [ "$arch" = "riscv64" ]; then
+	echo "install.sh: no $os/riscv64 build is published" >&2
 	exit 1
 fi
 

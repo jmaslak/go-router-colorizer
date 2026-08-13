@@ -2,8 +2,9 @@
 
 Tagging and pushing a `v*` tag is what ships a release. It triggers
 `.github/workflows/release.yml`, which runs GoReleaser and publishes a GitHub
-Release with binaries for linux/amd64, linux/arm64, and darwin/arm64, plus
-`checksums.txt`.
+Release with binaries for linux/amd64, linux/arm64, linux/riscv64,
+darwin/amd64, darwin/arm64, windows/amd64, windows/arm64, freebsd/amd64, and
+freebsd/arm64, plus `checksums.txt`.
 
 ## Before tagging
 

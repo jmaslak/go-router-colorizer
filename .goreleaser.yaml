@@ -17,12 +17,19 @@ builds:
     goos:
       - darwin
       - linux
+      - windows
+      - freebsd
     goarch:
       - amd64
       - arm64
+      - riscv64
     ignore:
       - goos: darwin
-        goarch: amd64
+        goarch: riscv64
+      - goos: windows
+        goarch: riscv64
+      - goos: freebsd
+        goarch: riscv64
 
 # Ship raw binaries, not archives: the self-update code in cmd/router-colorizer
 # downloads an asset named after the binary directly and expects it to already

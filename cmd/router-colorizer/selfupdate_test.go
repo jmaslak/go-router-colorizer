@@ -48,6 +48,13 @@ func TestInstallOver(t *testing.T) {
 		t.Errorf("installOver: target contains %q, want %q", got, "new")
 	}
 
+	if runtime.GOOS == "windows" {
+		// Windows has no POSIX executable bit: os.Chmod only toggles the
+		// read-only attribute, so os.Stat always reports 0666 for a
+		// writable file regardless of the mode passed to Chmod.
+		return
+	}
+
 	info, err := os.Stat(target)
 	if err != nil {
 		t.Fatalf("stat target: %v", err)
@@ -59,6 +66,9 @@ func TestInstallOver(t *testing.T) {
 
 func TestSelfUpdate(t *testing.T) {
 	assetName := fmt.Sprintf("router-colorizer_%s_%s", runtime.GOOS, runtime.GOARCH)
+	if runtime.GOOS == "windows" {
+		assetName += ".exe"
+	}
 	const binContent = "pretend-binary"
 	// sha256("pretend-binary")
 	const binSum = "45a99ba009be499ca30636f95de8bd2f743a4b800015c4b4a812484b9cc02de4"
