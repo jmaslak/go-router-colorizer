@@ -1,0 +1,6 @@
+# Normalize source to LF in the repository.
+* text=auto eol=lf
+
+# The test data is captured device output: its carriage returns and escape
+# sequences are the thing under test, so git must not touch line endings.
+colorizer/testdata/** -text

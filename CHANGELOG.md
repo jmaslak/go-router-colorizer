@@ -1,0 +1,45 @@
+# Changelog
+
+All notable changes to this project are documented here. The format is based on
+[Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project uses
+[semantic versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+### Added
+
+- Initial Go port of [App::RouterColorizer][perl] 1.242880, colorizing output
+  from Arista EOS, Cisco IOS, Juniper Junos, VyOS, and Ciena devices.
+- `colorizer.FormatText`, which colorizes a string or any fragment of a stream.
+- `colorizer.FormatTextParallel`, which returns what `FormatText` returns while
+  dividing the text at line endings across goroutines. `Filter` uses it for
+  blocks large enough to be worth dividing, which excludes everything a live
+  session produces, so interactive latency is unchanged.
+- `colorizer.Filter`, which colorizes an `io.Reader` onto an `io.Writer` and
+  writes out a partial line once it has gone idle, so that interactive prompts
+  are not held back.
+- `router-colorizer` command, a standard input to standard output filter, with
+  `-flush-delay` and `-version`.
+- Test suite sharing its golden files with the Perl implementation, plus unit
+  tests, a property fuzz target, and a benchmark.
+- Recognition of `et-` Junos interface names, and of a channelized port's
+  channel and logical unit, as in `et-0/0/1:0.0`. The Perl original colorizes
+  neither.
+
+### Fixed
+
+Three defects in the Perl original are corrected here. None of them changes the
+colorization of any captured output in the test suite.
+
+- Nested colorization now restores the outer color in every case, rather than
+  only when the inner reset happens to be surrounded by spaces. This affects
+  re-colorizing already-colorized text.
+- A Ciena alarm severity may now be padded with whitespace on either side. The
+  Perl allows leading whitespace only for `critical`, `major`, `minor`, and
+  `warning`, and trailing whitespace only for `info`, so an alarm padded on
+  both sides is not colorized at all.
+- Junos interface names and the Cisco `(connected)` suffix no longer accept a
+  stray leading colon, which the Perl allows by writing `(:?` where `(?:` was
+  meant.
+
+[perl]: https://github.com/jmaslak/App-RouterColorizer

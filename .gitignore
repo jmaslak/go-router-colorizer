@@ -1,0 +1,15 @@
+# Build output
+/router-colorizer
+/dist/
+
+# Test output
+*.test
+*.out
+/colorizer/testdata/fuzz/
+
+# Editors and platform noise
+*~
+.DS_Store
+
+# AI stuff
+.claude
