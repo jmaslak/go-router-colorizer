@@ -19,7 +19,10 @@ All notable changes to this project are documented here. The format is based on
   writes out a partial line once it has gone idle, so that interactive prompts
   are not held back.
 - `router-colorizer` command, a standard input to standard output filter, with
-  `-flush-delay` and `-version`.
+  `-flush-delay`, `-version`, and `-selfupdate`.
+- Release builds for linux/amd64, linux/arm64, and darwin/arm64, published via
+  GoReleaser on every `v*` tag, plus `install.sh` for installing the latest
+  release with `curl | sh`.
 - Test suite sharing its golden files with the Perl implementation, plus unit
   tests, a property fuzz target, and a benchmark.
 - Recognition of `et-` Junos interface names, and of a channelized port's

@@ -33,11 +33,19 @@ func main() {
 	delay := flag.Duration("flush-delay", colorizer.DefaultFlushDelay,
 		"how long to wait for the rest of a partial line before writing it")
 	showVersion := flag.Bool("version", false, "print the version and exit")
+	update := flag.Bool("selfupdate", false, "update to the latest release and exit")
 	flag.Usage = usage
 	flag.Parse()
 
 	if *showVersion {
 		fmt.Printf("router-colorizer %s\n", version)
+		return
+	}
+	if *update {
+		if err := selfUpdate(); err != nil {
+			fmt.Fprintf(os.Stderr, "router-colorizer: %v\n", err)
+			os.Exit(1)
+		}
 		return
 	}
 	if flag.NArg() > 0 {
@@ -70,4 +78,5 @@ Options:
 `)
 	flag.PrintDefaults()
 	fmt.Fprintf(out, "\nThe default flush delay is %s.\n", colorizer.DefaultFlushDelay)
+	fmt.Fprint(out, "\nRun with -selfupdate to fetch and install the latest release in place.\n")
 }

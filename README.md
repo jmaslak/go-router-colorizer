@@ -24,6 +24,19 @@ for machine translation between languages.
 
 ## Install
 
+For Linux (amd64 or arm64) or macOS (Apple silicon), install a prebuilt
+release binary with:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/jmaslak/go-router-colorizer/main/install.sh | sh
+```
+
+This installs to `/usr/local/bin`, falling back to `~/.local/bin` if that is
+not writable. Once installed, `router-colorizer -selfupdate` fetches and
+installs any later release in place.
+
+With a Go toolchain instead:
+
 ```sh
 go install github.com/jmaslak/go-router-colorizer/cmd/router-colorizer@latest
 ```
@@ -34,8 +47,7 @@ Or build from a checkout:
 go build ./cmd/router-colorizer
 ```
 
-The only requirement is a Go toolchain; the program has no dependencies
-outside the standard library.
+The program has no dependencies outside the standard library.
 
 ## Use
 

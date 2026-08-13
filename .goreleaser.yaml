@@ -1,0 +1,40 @@
+version: 2
+
+project_name: router-colorizer
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: router-colorizer
+    main: ./cmd/router-colorizer
+    binary: router-colorizer
+    env:
+      - CGO_ENABLED=0
+    ldflags:
+      - -s -w -X main.version={{.Version}}
+    goos:
+      - darwin
+      - linux
+    goarch:
+      - amd64
+      - arm64
+    ignore:
+      - goos: darwin
+        goarch: amd64
+
+# Ship raw binaries, not archives: the self-update code in cmd/router-colorizer
+# downloads an asset named after the binary directly and expects it to already
+# be the executable, with no tar.gz/zip to unpack.
+archives:
+  - id: router-colorizer
+    formats:
+      - binary
+    name_template: "{{ .Binary }}_{{ .Os }}_{{ .Arch }}"
+
+checksum:
+  name_template: checksums.txt
+
+changelog:
+  disable: true
