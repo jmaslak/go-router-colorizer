@@ -66,10 +66,8 @@ go test -fuzz FuzzFormatText -fuzztime 2m ./colorizer
 
 ## Relationship to the Perl version
 
-This is a port of [App::RouterColorizer][perl], and the two share their test
-data. A change to the colorization rules ideally goes to both, so that the
-files stay interchangeable. If you only want to do one of them, do that one and
-say so in the pull request.
+This is a port of [App::RouterColorizer][perl]. The Perl version has
+been deprecated when the code was migrated from Perl to Go.
 
 [perl]: https://github.com/jmaslak/App-RouterColorizer
 
