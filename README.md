@@ -72,7 +72,7 @@ A shell function makes it convenient. In `~/.bashrc` or `~/.zshrc`:
 
 ```sh
 sshr() {
-    ssh "$@" | router-colorizer
+    router-colorizer --cmd ssh "$@"
 }
 ```
 
