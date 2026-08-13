@@ -6,6 +6,14 @@ All notable changes to this project are documented here. The format is based on
 
 ## 0.2.0
 
+### Changed
+
+- CI and release workflows now use `actions/checkout@v6`, `actions/setup-go@v6`,
+  `actions/upload-artifact@v6`, and `goreleaser/goreleaser-action@v7`, all of
+  which run on Node.js 24, ahead of GitHub's removal of Node.js 20 from
+  Actions runners. `setup-go` caching is disabled, since the module has no
+  dependencies and thus no `go.sum` to key a cache on.
+
 ### Added
 
 - Release builds for linux/riscv64, darwin/amd64, windows/amd64,
