@@ -72,7 +72,7 @@ A shell function makes it convenient. In `~/.bashrc` or `~/.zshrc`:
 
 ```sh
 sshr() {
-    router-colorizer --cmd ssh "$@"
+    router-colorizer --cmd ssh -- "$@"
 }
 ```
 
@@ -85,7 +85,7 @@ through to the command, and the command's exit code becomes
 `router-colorizer`'s.
 
 ```sh
-router-colorizer -cmd ssh router.example.com
+router-colorizer -cmd ssh -- router.example.com
 ```
 
 ### What gets colorized
