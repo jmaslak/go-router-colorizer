@@ -23,7 +23,8 @@ func TestGroupDigits(t *testing.T) {
 		{"", ""},
 		{"1", "1"},
 		{"123", "123"},
-		{"1234", u("1") + "234"},
+		{"1234", "1234"},
+		{"12345", u("12") + "345"},
 		{"123456", u("123") + "456"},
 		{"1234567", "1" + u("234") + "567"},
 		{"100000000", "100" + u("000") + "000"},
@@ -46,7 +47,7 @@ func TestColorizeNumbers(t *testing.T) {
 		want string
 	}{
 		{"short numbers are left alone", "Number 333 in a string", "Number 333 in a string"},
-		{"long number", "Number 3333", "Number " + u("3") + "333"},
+		{"a four-digit number is left alone", "Number 3333", "Number 3333"},
 		{"only the integer part", "100000001.992933", "100" + u("000") + "001.992933"},
 		{"already grouped by commas", "1,000,000", "1,000,000"},
 		{"a time is not a number", "12:345678:9", "12:345678:9"},
@@ -60,7 +61,8 @@ func TestColorizeNumbers(t *testing.T) {
 			"\x1b[32m1234567",
 			"\x1b[32m1" + u("234") + "567",
 		},
-		{"several numbers", "1234 and 5678", u("1") + "234 and " + u("5") + "678"},
+		{"several numbers", "1234 and 5678", "1234 and 5678"},
+		{"several numbers", "12345 and 67890", u("12") + "345 and " + u("67") + "890"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

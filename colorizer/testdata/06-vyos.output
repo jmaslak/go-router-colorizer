@@ -5,7 +5,7 @@ individual files in /usr/share/doc/*/copyright.
 
 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
-Last login: Tue Aug 17 19:07:08 [4m2[24m021 from sandbox.antelope.net
+Last login: Tue Aug 17 19:07:08 2021 from sandbox.antelope.net
 user@vyo.s123:~$ show ip bgp neighbors [30m[45m192.0.2.174[0m
 [?1h=[36mBGP neighbor is [30m[45m192.0.2.174[0m, remote AS [4m65[24m000, local AS [4m65[24m001, external link[m[0m
  Member of peer-group FOOBAR for session parameters[m
@@ -26,9 +26,9 @@ user@vyo.s123:~$ show ip bgp neighbors [30m[45m192.0.2.174[0m
     Inq depth is 0[m
     Outq depth is 0[m
                          Sent       Rcvd[m
-    Opens:               [4m5[24m080       [4m4[24m517[m
+    Opens:               5080       4517[m
     Notifications:          8         32[m
-    Updates:             [4m2[24m341       [4m2[24m507[m
+    Updates:             2341       2507[m
     Keepalives:        [4m478[24m391     [4m546[24m145[m
     Route Refresh:          0          0[m
     Capability:             0          0[m
@@ -38,7 +38,7 @@ user@vyo.s123:~$ show ip bgp neighbors [30m[45m192.0.2.174[0m
 [m
  For address family: IPv4 Unicast[m
 [36m  FOOBAR peer-group member[m[0m
-  Update group [4m9[24m620, subgroup [4m9[24m639[m
+  Update group 9620, subgroup 9639[m
   Packet Queue length 0[m
   Inbound soft reconfiguration allowed[m
   Community attribute sent to this neighbor(all)[m
@@ -48,7 +48,7 @@ user@vyo.s123:~$ show ip bgp neighbors [30m[45m192.0.2.174[0m
 [36m  Route map for outgoing advertisements is *OUT-LIST-FOO[m[0m
 [36m  12 accepted prefixes[m[0m
 [m
-  Connections established [4m4[24m516; dropped [4m4[24m515[m
+  Connections established 4516; dropped 4515[m
   Last reset 3d10h04m,  No AFI/SAFI activated for peer[m
 [36mLocal host: [37m[44m192.0.2.173[0m, Local port: 179[m[0m
 [36mForeign host: [30m[45m192.0.2.174[0m, Foreign port: [4m34[24m351[m[0m
@@ -57,7 +57,7 @@ Nexthop global: [31m[43mf00:ba7::1:1[0m[m
 Nexthop local: [31m[43m::[0m[m
 BGP connection: shared network[m
 BGP Connect Retry Timer in Seconds: 120[m
-Estimated round trip time: [4m7[24m289 ms[m
+Estimated round trip time: 7289 ms[m
 Read thread: on  Write thread: on  FD used: 33[m
 [m
   BFD: Type: single hop[m
@@ -65,3 +65,26 @@ Read thread: on  Write thread: on  FD used: 33[m
     Status: Up, Last update: 3:10:02:43[m
 [m
 [K[?1l>user@vyo.s123:~$ logout
+
+jmaslak@fw1.gld1:~$ show version
+Version:          VyOS 2026.12.31-1111-rolling
+Release train:    rolling
+Release flavor:   generic
+
+Built by:         autobuild@vyos.net
+Built on:         Tue 31 Dec 2026 00:01 UTC
+Build UUID:       aaaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee
+Build commit ID:  ffffffffffffff
+
+Architecture:     x86_64
+Boot via:         installed image
+System type:      VMware guest
+Secure Boot:      n/a (BIOS)
+
+Hardware vendor:  VMware, Inc.
+Hardware model:   VMware Virtual Platform
+Hardware S/N:     VMware-56 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+Hardware UUID:    11[4m111[24m111-2222-3333-4444-[4m555[24m555[4m555[24m555
+
+Copyright:        VyOS maintainers and contributors
+

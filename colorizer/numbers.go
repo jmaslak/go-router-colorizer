@@ -65,11 +65,15 @@ func groupable(s string, start, end int) bool {
 
 // writeGroupedDigits writes s to b, underlining every other group of three
 // digits, counting the groups from the right and leaving the rightmost one
-// alone. A number of three digits or fewer is written unchanged.
+// alone. A number of four digits or fewer is written unchanged.
 //
 // The leftmost group is short whenever the length is not a multiple of three,
 // which is why the groups are indexed from the right.
 func writeGroupedDigits(b *strings.Builder, s string) {
+	if len(s) <= 4 {
+		b.WriteString(s)
+		return
+	}
 	for group := (len(s)+2)/3 - 1; group >= 0; group-- {
 		start := max(len(s)-3*(group+1), 0)
 		end := len(s) - 3*group

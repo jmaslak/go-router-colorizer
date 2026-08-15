@@ -65,3 +65,26 @@ Read thread: on  Write thread: on  FD used: 33[m
     Status: Up, Last update: 3:10:02:43[m
 [m
 [K[?1l>user@vyo.s123:~$ logout
+
+jmaslak@fw1.gld1:~$ show version
+Version:          VyOS 2026.12.31-1111-rolling
+Release train:    rolling
+Release flavor:   generic
+
+Built by:         autobuild@vyos.net
+Built on:         Tue 31 Dec 2026 00:01 UTC
+Build UUID:       aaaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee
+Build commit ID:  ffffffffffffff
+
+Architecture:     x86_64
+Boot via:         installed image
+System type:      VMware guest
+Secure Boot:      n/a (BIOS)
+
+Hardware vendor:  VMware, Inc.
+Hardware model:   VMware Virtual Platform
+Hardware S/N:     VMware-56 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+Hardware UUID:    11111111-2222-3333-4444-555555555555
+
+Copyright:        VyOS maintainers and contributors
+

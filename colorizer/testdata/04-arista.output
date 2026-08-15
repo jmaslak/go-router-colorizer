@@ -1,4 +1,4 @@
-Last login: Tue Aug 17 12:05:09 [4m2[24m021 from [30m[100m192.0.2.12[0m
+Last login: Tue Aug 17 12:05:09 2021 from [30m[100m192.0.2.12[0m
 [5nkswXX#\swXX#bogusinput
 % Invalid input
 kswXX#\swXX#show ip bgp neighswXX#show ip bgp neighbors 
@@ -76,7 +76,7 @@ TCP Socket Information:
     Explicit Congestion Notification (ECN) enabled: no
   Socket Statistics:
     Window Scale (wscale): 0,0
-    Retransmission Timeout (rto): [4m1[24m000.0ms
+    Retransmission Timeout (rto): 1000.0ms
     Round-trip Time (rtt/rtvar): 0.0ms/250.0ms
     Delayed Ack Timeout (ato): 0.0ms
     Congestion Window (cwnd): 10
@@ -142,8 +142,8 @@ TCP Socket Information:
 Local AS is [4m65[24m000, local router ID [30m[45m192.0.2.24[0m
 TTL is 255
 [36mLocal TCP address is [30m[45m192.0.2.24[0m[0m
-[36mRemote TCP address is [90m[47m192.0.2.1[0m, remote port is [4m1[24m180[0m
-Configured remote port is [4m1[24m180
+[36mRemote TCP address is [90m[47m192.0.2.1[0m, remote port is 1180[0m
+Configured remote port is 1180
 ! Sending extended community not configured, updates will be sent without extended communities or route targets
 TCP Socket Information:
   TCP state is SYN-SENT
@@ -239,7 +239,7 @@ TCP Socket Information:
   TCP state is ESTABLISHED
   Recv-Q: 0/[4m32[24m768
   Send-Q: 0/[4m32[24m768
-  Outgoing Maximum Segment Size (MSS): [4m1[24m448
+  Outgoing Maximum Segment Size (MSS): 1448
   Total Number of TCP retransmissions: 4
   Options:
     Timestamps enabled: yes
@@ -290,7 +290,7 @@ TCP Socket Information:
                          Sent      Rcvd
     Opens:                  4         4
     Notifications:          0         0
-    Updates:                0      [4m1[24m300
+    Updates:                0      1300
     Keepalives:        [4m343[24m161    [4m333[24m862
     Route Refresh:          0         0
     Total messages:    [4m343[24m165    [4m335[24m166
@@ -330,7 +330,7 @@ TCP Socket Information:
   TCP state is ESTABLISHED
   Recv-Q: 0/[4m32[24m768
   Send-Q: 0/[4m32[24m768
-  Outgoing Maximum Segment Size (MSS): [4m1[24m448
+  Outgoing Maximum Segment Size (MSS): 1448
   Total Number of TCP retransmissions: 2
   Options:
     Timestamps enabled: yes
@@ -353,7 +353,7 @@ TCP Socket Information:
   Hardware is Ethernet, address is 012d.456e.7114 (bia 012d.456e.7114)
 [36m  Description: sw05 port 1[0m
   Member of Port-Channel3
-  Ethernet MTU [4m9[24m214 bytes, BW 1[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 1[4m000[24m000 kbit
   Full-duplex, 1Gb/s, auto negotiation: on, uni-link: n/a
 [32m  Up 52 days, 4 hours, 49 minutes, 2 seconds[0m
   Loopback Mode : None
@@ -369,12 +369,12 @@ TCP Socket Information:
      [4m1[24m206[4m673[24m156 packets output, 1[4m297[24m024[4m675[24m317 bytes
      Sent 49[4m950[24m350 broadcasts, 153[4m223[24m150 multicast
 [32m     0 output errors, 0 collisions[0m
-[1;31m     0 late collision, 0 deferred, [4m3[24m387 output discards[0m
+[1;31m     0 late collision, 0 deferred, 3387 output discards[0m
 [36m     0 PAUSE output[0m
 [32mEthernet2 is up, line protocol is up (connected)[0m
   Hardware is Ethernet, address is 012d.456e.7115 (bia 012d.456e.7115)
 [36m  Description: Closet AP[0m
-  Ethernet MTU [4m9[24m214 bytes, BW 1[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 1[4m000[24m000 kbit
   Full-duplex, 1Gb/s, auto negotiation: on, uni-link: n/a
 [32m  Up 36 days, 4 hours, 32 minutes, 12 seconds[0m
   Loopback Mode : None
@@ -396,7 +396,7 @@ TCP Socket Information:
   Hardware is Ethernet, address is 012d.456e.7116 (bia 012d.456e.7116)
 [36m  Description: sw05 unusued[0m
   Member of Port-Channel3
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: on, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -417,7 +417,7 @@ TCP Socket Information:
 [32mEthernet4 is up, line protocol is up (connected)[0m
   Hardware is Ethernet, address is 012d.456e.7117 (bia 012d.456e.7117)
 [36m  Description: Closet Camera[0m
-  Ethernet MTU [4m9[24m214 bytes, BW [4m100[24m000 kbit
+  Ethernet MTU 9214 bytes, BW [4m100[24m000 kbit
   Full-duplex, 100Mb/s, auto negotiation: on, uni-link: n/a
 [32m  Up 110 days, 23 hours, 30 minutes, 36 seconds[0m
   Loopback Mode : None
@@ -438,7 +438,7 @@ TCP Socket Information:
 [32mEthernet5 is up, line protocol is up (connected)[0m
   Hardware is Ethernet, address is 012d.456e.7118 (bia 012d.456e.7118)
 [36m  Description: Another Office PC[0m
-  Ethernet MTU [4m9[24m214 bytes, BW [4m100[24m000 kbit
+  Ethernet MTU 9214 bytes, BW [4m100[24m000 kbit
   Full-duplex, 100Mb/s, auto negotiation: on, uni-link: n/a
 [32m  Up 202 days, 21 hours, 26 minutes, 52 seconds[0m
   Loopback Mode : None
@@ -458,7 +458,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet6 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.7119 (bia 012d.456e.7119)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -479,7 +479,7 @@ TCP Socket Information:
 [32mEthernet7 is up, line protocol is up (connected)[0m
   Hardware is Ethernet, address is 012d.456e.711a (bia 012d.456e.711a)
 [36m  Description: Another Office Printer[0m
-  Ethernet MTU [4m9[24m214 bytes, BW [4m100[24m000 kbit
+  Ethernet MTU 9214 bytes, BW [4m100[24m000 kbit
   Full-duplex, 100Mb/s, auto negotiation: on, uni-link: n/a
 [32m  Up 47 days, 12 hours, 25 minutes, 56 seconds[0m
   Loopback Mode : None
@@ -499,7 +499,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet8 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.711b (bia 012d.456e.711b)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -520,7 +520,7 @@ TCP Socket Information:
 [32mEthernet9 is up, line protocol is up (connected)[0m
   Hardware is Ethernet, address is 012d.456e.711c (bia 012d.456e.711c)
 [36m  Description: Another Router[0m
-  Ethernet MTU [4m9[24m214 bytes, BW 1[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 1[4m000[24m000 kbit
   Full-duplex, 1Gb/s, auto negotiation: on, uni-link: n/a
 [32m  Up 3 days, 9 hours, 32 minutes, 8 seconds[0m
   Loopback Mode : None
@@ -540,7 +540,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet10 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.711d (bia 012d.456e.711d)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -562,7 +562,7 @@ TCP Socket Information:
   Hardware is Ethernet, address is 012d.456e.711e (bia 012d.456e.711e)
 [36m  Description: Uplink to switch ge-something[0m
   Member of Port-Channel5
-  Ethernet MTU [4m9[24m214 bytes, BW 1[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 1[4m000[24m000 kbit
   Full-duplex, 1Gb/s, auto negotiation: on, uni-link: n/a
 [32m  Up 202 days, 21 hours, 26 minutes, 52 seconds[0m
   Loopback Mode : None
@@ -582,7 +582,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet12 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.711f (bia 012d.456e.711f)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -603,7 +603,7 @@ TCP Socket Information:
 [32mEthernet13 is up, line protocol is up (connected)[0m
   Hardware is Ethernet, address is 012d.456e.7120 (bia 012d.456e.7120)
 [36m  Description: Router Eth1 DSL[0m
-  Ethernet MTU [4m9[24m214 bytes, BW 1[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 1[4m000[24m000 kbit
   Full-duplex, 1Gb/s, auto negotiation: on, uni-link: n/a
 [32m  Up 23 days, 14 hours, 40 minutes, 7 seconds[0m
   Loopback Mode : None
@@ -623,7 +623,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet14 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.7121 (bia 012d.456e.7121)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -644,7 +644,7 @@ TCP Socket Information:
 [32mEthernet15 is up, line protocol is up (connected)[0m
   Hardware is Ethernet, address is 012d.456e.7122 (bia 012d.456e.7122)
 [36m  Description: Router Et2 Unused[0m
-  Ethernet MTU [4m9[24m214 bytes, BW 1[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 1[4m000[24m000 kbit
   Full-duplex, 1Gb/s, auto negotiation: on, uni-link: n/a
 [32m  Up 23 days, 14 hours, 40 minutes, 7 seconds[0m
   Loopback Mode : None
@@ -665,7 +665,7 @@ TCP Socket Information:
 [32mEthernet16 is up, line protocol is up (connected)[0m
   Hardware is Ethernet, address is 012d.456e.7123 (bia 012d.456e.7123)
 [36m  Description: Router[0m
-  Ethernet MTU [4m9[24m214 bytes, BW 1[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 1[4m000[24m000 kbit
   Full-duplex, 1Gb/s, auto negotiation: on, uni-link: n/a
 [32m  Up 23 days, 14 hours, 40 minutes, 1 second[0m
   Loopback Mode : None
@@ -686,7 +686,7 @@ TCP Socket Information:
 [32mEthernet17 is up, line protocol is up (connected)[0m
   Hardware is Ethernet, address is 012d.456e.7124 (bia 012d.456e.7124)
 [36m  Description: Router Et3 Unused[0m
-  Ethernet MTU [4m9[24m214 bytes, BW 1[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 1[4m000[24m000 kbit
   Full-duplex, 1Gb/s, auto negotiation: on, uni-link: n/a
 [32m  Up 23 days, 14 hours, 40 minutes, 7 seconds[0m
   Loopback Mode : None
@@ -707,7 +707,7 @@ TCP Socket Information:
 [32mEthernet18 is up, line protocol is up (connected)[0m
   Hardware is Ethernet, address is 012d.456e.7125 (bia 012d.456e.7125)
 [36m  Description: Router Et4 Unusued[0m
-  Ethernet MTU [4m9[24m214 bytes, BW 1[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 1[4m000[24m000 kbit
   Full-duplex, 1Gb/s, auto negotiation: on, uni-link: n/a
 [32m  Up 23 days, 14 hours, 40 minutes, 7 seconds[0m
   Loopback Mode : None
@@ -728,7 +728,7 @@ TCP Socket Information:
 [32mEthernet19 is up, line protocol is up (connected)[0m
   Hardware is Ethernet, address is 012d.456e.7126 (bia 012d.456e.7126)
 [36m  Description: pc1.site1.example.com[0m
-  Ethernet MTU [4m9[24m214 bytes, BW 1[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 1[4m000[24m000 kbit
   Full-duplex, 1Gb/s, auto negotiation: on, uni-link: n/a
 [32m  Up 202 days, 21 hours, 26 minutes, 52 seconds[0m
   Loopback Mode : None
@@ -736,8 +736,8 @@ TCP Socket Information:
   Last clearing of "show interface" counters 202 days, 21:32:06 ago
 [36m  30 seconds input rate 0 bps (0.0% with framing overhead), 0 packets/sec[0m
 [36m  30 seconds output rate 2.70 kbps (0.0% with framing overhead), 4 packets/sec[0m
-     [4m6[24m200 packets input, [4m514[24m676 bytes
-     Received [4m1[24m034 broadcasts, 0 multicast
+     6200 packets input, [4m514[24m676 bytes
+     Received 1034 broadcasts, 0 multicast
 [32m     0 runts, 0 giants[0m
 [32m     0 input errors, 0 CRC, 0 alignment, 0 symbol, 0 input discards[0m
 [36m     0 PAUSE input[0m
@@ -748,7 +748,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet20 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.7127 (bia 012d.456e.7127)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -768,7 +768,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet21 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.7128 (bia 012d.456e.7128)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -788,7 +788,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet22 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.7129 (bia 012d.456e.7129)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -808,7 +808,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet23 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.712a (bia 012d.456e.712a)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -828,7 +828,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet24 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.712b (bia 012d.456e.712b)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -848,7 +848,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet25 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.712c (bia 012d.456e.712c)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -868,7 +868,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet26 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.712d (bia 012d.456e.712d)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -888,7 +888,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet27 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.712e (bia 012d.456e.712e)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -908,7 +908,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet28 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.712f (bia 012d.456e.712f)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -928,7 +928,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet29 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.7130 (bia 012d.456e.7130)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -948,7 +948,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet30 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.7131 (bia 012d.456e.7131)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -968,7 +968,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet31 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.7132 (bia 012d.456e.7132)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -988,7 +988,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet32 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.7133 (bia 012d.456e.7133)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -1008,7 +1008,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet33 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.7134 (bia 012d.456e.7134)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -1028,7 +1028,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet34 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.7135 (bia 012d.456e.7135)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -1048,7 +1048,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet35 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.7136 (bia 012d.456e.7136)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -1068,7 +1068,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet36 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.7137 (bia 012d.456e.7137)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -1088,7 +1088,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet37 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.7138 (bia 012d.456e.7138)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -1108,7 +1108,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet38 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.7139 (bia 012d.456e.7139)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -1128,7 +1128,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet39 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.713a (bia 012d.456e.713a)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -1148,7 +1148,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet40 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.713b (bia 012d.456e.713b)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -1168,7 +1168,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet41 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.713c (bia 012d.456e.713c)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -1190,7 +1190,7 @@ TCP Socket Information:
   Hardware is Ethernet, address is 012d.456e.713d (bia 012d.456e.713d)
 [36m  Description: pc1.site1.example.com vmnic8[0m
   Member of Port-Channel6
-  Ethernet MTU [4m9[24m214 bytes, BW 10[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 10[4m000[24m000 kbit
   Full-duplex, 10Gb/s, auto negotiation: on, uni-link: n/a
 [32m  Up 197 days, 20 hours, 46 minutes, 32 seconds[0m
   Loopback Mode : None
@@ -1212,7 +1212,7 @@ TCP Socket Information:
   Hardware is Ethernet, address is 012d.456e.713e (bia 012d.456e.713e)
 [36m  Description: pc1.site1.example.com vmnic9[0m
   Member of Port-Channel6
-  Ethernet MTU [4m9[24m214 bytes, BW 10[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 10[4m000[24m000 kbit
   Full-duplex, 10Gb/s, auto negotiation: on, uni-link: n/a
 [32m  Up 92 days, 23 hours, 49 minutes, 58 seconds[0m
   Loopback Mode : None
@@ -1234,7 +1234,7 @@ TCP Socket Information:
   Hardware is Ethernet, address is 012d.456e.713f (bia 012d.456e.713f)
 [36m  Description: Foo Another Connection[0m
   Member of Port-Channel1
-  Ethernet MTU [4m9[24m214 bytes, BW 10[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 10[4m000[24m000 kbit
   Full-duplex, 10Gb/s, auto negotiation: on, uni-link: n/a
 [32m  Up 52 days, 4 hours, 45 minutes, 56 seconds[0m
   Loopback Mode : None
@@ -1255,7 +1255,7 @@ TCP Socket Information:
 [32mEthernet45 is up, line protocol is up (connected)[0m
   Hardware is Ethernet, address is 012d.456e.7140 (bia 012d.456e.7140)
 [36m  Description: Mid-span POE Injector Management[0m
-  Ethernet MTU [4m9[24m214 bytes, BW [4m100[24m000 kbit
+  Ethernet MTU 9214 bytes, BW [4m100[24m000 kbit
   Full-duplex, 100Mb/s, auto negotiation: on, uni-link: n/a
 [32m  Up 202 days, 21 hours, 26 minutes, 52 seconds[0m
   Loopback Mode : None
@@ -1276,7 +1276,7 @@ TCP Socket Information:
 [32mEthernet46 is up, line protocol is up (connected)[0m
   Hardware is Ethernet, address is 012d.456e.7141 (bia 012d.456e.7141)
 [36m  Description: Closet UPS Management[0m
-  Ethernet MTU [4m9[24m214 bytes, BW [4m100[24m000 kbit
+  Ethernet MTU 9214 bytes, BW [4m100[24m000 kbit
   Full-duplex, 100Mb/s, auto negotiation: on, uni-link: n/a
 [32m  Up 85 days, 19 hours, 38 minutes, 38 seconds[0m
   Loopback Mode : None
@@ -1296,7 +1296,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet47 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.7142 (bia 012d.456e.7142)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -1316,7 +1316,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet48 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.7143 (bia 012d.456e.7143)
-  Ethernet MTU [4m9[24m214 bytes
+  Ethernet MTU 9214 bytes
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -1338,7 +1338,7 @@ TCP Socket Information:
   Hardware is Ethernet, address is 012d.456e.7144 (bia 012d.456e.7144)
 [36m  Description: Uplink to sw07 te1/0/2[0m
   Member of Port-Channel2
-  Ethernet MTU [4m9[24m214 bytes, BW 10[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 10[4m000[24m000 kbit
   Full-duplex, 10Gb/s, auto negotiation: off, uni-link: n/a
 [32m  Up 4 days, 3 hours, 8 minutes, 1 second[0m
   Loopback Mode : None
@@ -1359,7 +1359,7 @@ TCP Socket Information:
 [32mEthernet49/2 is up, line protocol is up (connected)[0m
   Hardware is Ethernet, address is 012d.456e.7145 (bia 012d.456e.7145)
 [36m  Description: pc2.site1.example.com[0m
-  Ethernet MTU [4m9[24m214 bytes, BW 10[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 10[4m000[24m000 kbit
   Full-duplex, 10Gb/s, auto negotiation: off, uni-link: n/a
 [32m  Up 26 days, 15 hours, 12 minutes, 50 seconds[0m
   Loopback Mode : None
@@ -1380,7 +1380,7 @@ TCP Socket Information:
 [32mEthernet49/3 is up, line protocol is up (connected)[0m
   Hardware is Ethernet, address is 012d.456e.7146 (bia 012d.456e.7146)
 [36m  Description: Baz Desktop[0m
-  Ethernet MTU [4m9[24m214 bytes, BW 10[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 10[4m000[24m000 kbit
   Full-duplex, 10Gb/s, auto negotiation: off, uni-link: n/a
 [32m  Up 10 days, 16 hours, 36 minutes, 47 seconds[0m
   Loopback Mode : None
@@ -1402,7 +1402,7 @@ TCP Socket Information:
   Hardware is Ethernet, address is 012d.456e.7147 (bia 012d.456e.7147)
 [36m  Description: Uplink to sw01 sfp-sfpplus1[0m
   Member of Port-Channel4
-  Ethernet MTU [4m9[24m214 bytes, BW 10[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 10[4m000[24m000 kbit
   Full-duplex, 10Gb/s, auto negotiation: off, uni-link: n/a
 [32m  Up 198 days, 15 hours, 5 minutes, 28 seconds[0m
   Loopback Mode : None
@@ -1424,7 +1424,7 @@ TCP Socket Information:
   Hardware is Ethernet, address is 012d.456e.7148 (bia 012d.456e.7148)
 [36m  Description: Uplink to sw07 te1/0/1[0m
   Member of Port-Channel2
-  Ethernet MTU [4m9[24m214 bytes, BW 10[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 10[4m000[24m000 kbit
   Full-duplex, 10Gb/s, auto negotiation: off, uni-link: n/a
 [32m  Up 4 days, 3 hours, 19 minutes, 54 seconds[0m
   Loopback Mode : None
@@ -1446,7 +1446,7 @@ TCP Socket Information:
   Hardware is Ethernet, address is 012d.456e.7149 (bia 012d.456e.7149)
 [36m  Description: Uplink to sw01 sfp-sfpplus2[0m
   Member of Port-Channel4
-  Ethernet MTU [4m9[24m214 bytes, BW 10[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 10[4m000[24m000 kbit
   Full-duplex, 10Gb/s, auto negotiation: off, uni-link: n/a
 [32m  Up 198 days, 15 hours, 5 minutes, 25 seconds[0m
   Loopback Mode : None
@@ -1468,7 +1468,7 @@ TCP Socket Information:
   Hardware is Ethernet, address is 012d.456e.714a (bia 012d.456e.714a)
 [36m  Description: pc2.example.com[0m
   Member of Port-Channel7
-  Ethernet MTU [4m9[24m214 bytes, BW 10[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 10[4m000[24m000 kbit
   Full-duplex, 10Gb/s, auto negotiation: off, uni-link: n/a
 [32m  Up 99 days, 23 hours, 1 minute, 52 seconds[0m
   Loopback Mode : None
@@ -1488,7 +1488,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [1;31mEthernet49/8 is down, line protocol is down (notconnect)[0m
   Hardware is Ethernet, address is 012d.456e.7113
-  IP MTU [4m1[24m500 bytes (default), BW 10[4m000[24m000 kbit
+  IP MTU 1500 bytes (default), BW 10[4m000[24m000 kbit
   Full-duplex, 10Gb/s, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -1508,7 +1508,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [1;31mEthernet49/9 is down, line protocol is down (notconnect)[0m
   Hardware is Ethernet, address is 012d.456e.7113
-  IP MTU [4m1[24m500 bytes (default), BW 10[4m000[24m000 kbit
+  IP MTU 1500 bytes (default), BW 10[4m000[24m000 kbit
   Full-duplex, 10Gb/s, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -1528,7 +1528,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [1;31mEthernet49/10 is down, line protocol is down (notconnect)[0m
   Hardware is Ethernet, address is 012d.456e.7113
-  IP MTU [4m1[24m500 bytes (default), BW 10[4m000[24m000 kbit
+  IP MTU 1500 bytes (default), BW 10[4m000[24m000 kbit
   Full-duplex, 10Gb/s, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -1548,7 +1548,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [1;31mEthernet49/11 is down, line protocol is down (notconnect)[0m
   Hardware is Ethernet, address is 012d.456e.7113
-  IP MTU [4m1[24m500 bytes (default), BW 10[4m000[24m000 kbit
+  IP MTU 1500 bytes (default), BW 10[4m000[24m000 kbit
   Full-duplex, 10Gb/s, auto negotiation: off, uni-link: n/a
 [1;31m  Down 187 days, 22 hours, 24 minutes, 38 seconds[0m
   Loopback Mode : None
@@ -1556,19 +1556,19 @@ TCP Socket Information:
   Last clearing of "show interface" counters 202 days, 21:32:06 ago
 [36m  30 seconds input rate 0 bps (0.0% with framing overhead), 0 packets/sec[0m
 [36m  30 seconds output rate 0 bps (0.0% with framing overhead), 0 packets/sec[0m
-     [4m1[24m979 packets input, [4m387[24m884 bytes
-     Received 0 broadcasts, [4m1[24m979 multicast
+     1979 packets input, [4m387[24m884 bytes
+     Received 0 broadcasts, 1979 multicast
 [32m     0 runts, 0 giants[0m
 [32m     0 input errors, 0 CRC, 0 alignment, 0 symbol, 0 input discards[0m
 [36m     0 PAUSE input[0m
-     [4m1[24m979 packets output, [4m387[24m884 bytes
-     Sent 0 broadcasts, [4m1[24m979 multicast
+     1979 packets output, [4m387[24m884 bytes
+     Sent 0 broadcasts, 1979 multicast
 [32m     0 output errors, 0 collisions[0m
 [32m     0 late collision, 0 deferred, 0 output discards[0m
 [36m     0 PAUSE output[0m
 [32mEthernet49/12 is up, line protocol is up (connected)[0m
   Hardware is Ethernet, address is 012d.456e.7113
-  IP MTU [4m1[24m500 bytes (default), BW 10[4m000[24m000 kbit
+  IP MTU 1500 bytes (default), BW 10[4m000[24m000 kbit
   Full-duplex, 10Gb/s, auto negotiation: off, uni-link: n/a
 [32m  Up 186 days, 1 hour, 12 minutes, 16 seconds[0m
   Loopback Mode : None
@@ -1588,7 +1588,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet50/1 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.7150 (bia 012d.456e.7150)
-  Ethernet MTU [4m9[24m214 bytes, BW 40[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 40[4m000[24m000 kbit
   Full-duplex, 40Gb/s, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -1608,7 +1608,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet50/5 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.7154 (bia 012d.456e.7154)
-  Ethernet MTU [4m9[24m214 bytes, BW 40[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 40[4m000[24m000 kbit
   Full-duplex, 40Gb/s, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -1628,7 +1628,7 @@ TCP Socket Information:
 [36m     0 PAUSE output[0m
 [33mEthernet50/9 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.7158 (bia 012d.456e.7158)
-  Ethernet MTU [4m9[24m214 bytes, BW 40[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 40[4m000[24m000 kbit
   Full-duplex, 40Gb/s, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 27 minutes, 1 second[0m
   Loopback Mode : None
@@ -1654,7 +1654,7 @@ TCP Socket Information:
 [32m  Up 202 days, 21 hours, 28 minutes, 14 seconds[0m
 [33mManagement1 is administratively down, line protocol is down (disabled)[0m
   Hardware is Ethernet, address is 012d.456e.7112 (bia 012d.456e.7112)
-  IP MTU [4m1[24m500 bytes (default)
+  IP MTU 1500 bytes (default)
   Auto-duplex, Auto-speed, auto negotiation: off, uni-link: n/a
 [1;31m  Down 202 days, 21 hours, 28 minutes, 11 seconds[0m
   Loopback Mode : None
@@ -1675,7 +1675,7 @@ TCP Socket Information:
 [32mPort-Channel1 is up, line protocol is up (connected)[0m
   Hardware is Port-Channel, address is 012d.456e.713f
 [36m  Description: To Foo[0m
-  Ethernet MTU [4m9[24m214 bytes, BW 10[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 10[4m000[24m000 kbit
   Full-duplex, 10Gb/s 
   Active members in this channel: 1
   ... Ethernet44 , Full-duplex, 10Gb/s
@@ -1694,7 +1694,7 @@ TCP Socket Information:
 [32mPort-Channel2 is up, line protocol is up (connected)[0m
   Hardware is Port-Channel, address is 012d.456e.7144
 [36m  Description: sw07 po1[0m
-  Ethernet MTU [4m9[24m214 bytes, BW 20[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 20[4m000[24m000 kbit
   Full-duplex, 20Gb/s 
   Active members in this channel: 2
   ... Ethernet49/1 , Full-duplex, 10Gb/s
@@ -1714,7 +1714,7 @@ TCP Socket Information:
 [32mPort-Channel3 is up, line protocol is up (connected)[0m
   Hardware is Port-Channel, address is 012d.456e.7114
 [36m  Description: To sw05 (A Room)[0m
-  Ethernet MTU [4m9[24m214 bytes, BW 1[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 1[4m000[24m000 kbit
   Full-duplex, 1Gb/s 
   Active members in this channel: 1
   ... Ethernet1 , Full-duplex, 1Gb/s
@@ -1729,11 +1729,11 @@ TCP Socket Information:
 [32m     0 input errors, 0 input discards[0m
      [4m1[24m206[4m707[24m417 packets output, 1[4m297[24m030[4m169[24m953 bytes
      Sent 49[4m951[24m461 broadcasts, 153[4m224[24m296 multicast
-[1;31m     0 output errors, [4m3[24m387 output discards[0m
+[1;31m     0 output errors, 3387 output discards[0m
 [32mPort-Channel4 is up, line protocol is up (connected)[0m
   Hardware is Port-Channel, address is 012d.456e.7147
 [36m  Description: sw01 bond1[0m
-  Ethernet MTU [4m9[24m214 bytes, BW 20[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 20[4m000[24m000 kbit
   Full-duplex, 20Gb/s 
   Active members in this channel: 2
   ... Ethernet49/4 , Full-duplex, 10Gb/s
@@ -1753,7 +1753,7 @@ TCP Socket Information:
 [32mPort-Channel5 is up, line protocol is up (connected)[0m
   Hardware is Port-Channel, address is 012d.456e.711e
 [36m  Description: LAG to sw02[0m
-  Ethernet MTU [4m9[24m214 bytes, BW 1[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 1[4m000[24m000 kbit
   Full-duplex, 1Gb/s 
   Active members in this channel: 1
   ... Ethernet11 , Full-duplex, 1Gb/s
@@ -1772,7 +1772,7 @@ TCP Socket Information:
 [32mPort-Channel6 is up, line protocol is up (connected)[0m
   Hardware is Port-Channel, address is 012d.456e.713d
 [36m  Description: LAG to pc1.site1.example.com vswitch0[0m
-  Ethernet MTU [4m9[24m214 bytes, BW 20[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 20[4m000[24m000 kbit
   Full-duplex, 20Gb/s 
   Active members in this channel: 2
   ... Ethernet42 , Full-duplex, 10Gb/s
@@ -1792,7 +1792,7 @@ TCP Socket Information:
 [32mPort-Channel7 is up, line protocol is up (connected)[0m
   Hardware is Port-Channel, address is 012d.456e.714a
 [36m  Description: LAG to pc2.example.com[0m
-  Ethernet MTU [4m9[24m214 bytes, BW 10[4m000[24m000 kbit
+  Ethernet MTU 9214 bytes, BW 10[4m000[24m000 kbit
   Full-duplex, 10Gb/s 
   Active members in this channel: 1
   ... Ethernet49/7 , Full-duplex, 10Gb/s
@@ -1812,13 +1812,13 @@ TCP Socket Information:
   Hardware is Vlan, address is 012d.456e.7113 (bia 012d.456e.7113)
   Internet address is [30m[100m192.0.2.61/28[0m
   Broadcast address is [90m[47m255.255.255.255[0m
-  IP MTU [4m1[24m500 bytes (default)
+  IP MTU 1500 bytes (default)
 [32m  Up 202 days, 21 hours, 26 minutes, 52 seconds[0m
 [32mVlan210 is up, line protocol is up (connected)[0m
   Hardware is Vlan, address is 012d.456e.7113 (bia 012d.456e.7113)
   Internet address is [37m[45m192.0.2.3/24[0m
   Broadcast address is [90m[47m255.255.255.255[0m
-  IP MTU [4m1[24m500 bytes (default)
+  IP MTU 1500 bytes (default)
 [32m  Up 197 days, 20 hours, 55 minutes, 48 seconds[0m
 [K[?1l>kswXX#\swXX#  
 kswXX#\swXX#
@@ -1887,7 +1887,7 @@ TCP Socket Information:
 [33mEt50/1                                             disabled     1        full   40G    100GBASE-SR10                    [0m
 [33mEt50/5                                             disabled     1        full   40G    100GBASE-SR10                    [0m
 [33mEt50/9                                             disabled     1        full   40G    100GBASE-SR10                    [0m
-[33mMa1                                                disabled     routed   auto   auto   10/100/[4m1[24m000                      [0m
+[33mMa1                                                disabled     routed   auto   auto   10/100/1000                      [0m
 [32mPo1        To Foo                                  connected    trunk    full   10G    N/A                              [0m
 [32mPo2        sw07 po1                                connected    trunk    full   20G    N/A                              [0m
 [32mPo3        To sw05 (A Room)                        connected    trunk    full   1G     N/A                              [0m
@@ -2010,34 +2010,34 @@ Port      (Celsius)  (Volts)   (mA)      (dBm)     (dBm)     Last Update
 sw08#show spanning-tree
 VL1
   Spanning tree enabled protocol rapid-pvst
-  Root ID    Priority    [4m4[24m097
+  Root ID    Priority    4097
              Address     444c.1234.5678
              This bridge is the root
 
-  Bridge ID  Priority     [4m4[24m097  (priority [4m4[24m096 sys-id-ext 1)
+  Bridge ID  Priority     4097  (priority 4096 sys-id-ext 1)
              Address     444c.1234.5678
              Hello Time  2.000 sec  Max Age 20 sec  Forward Delay 15 sec
 
 Interface        Role       State      Cost      Prio.Nbr Type
 ---------------- ---------- ---------- --------- -------- --------------------
-[32mEt1              designated forwarding [4m2[24m000      128.1    P2p[0m
-[1;31mEt7/2            designated discarding [4m2[24m000      128.30   P2p Edge *BA_Inc[0m
-[32mEt7/3            designated forwarding [4m2[24m000      128.85   P2p Edge[0m
-[32mEt9/3            designated forwarding [4m2[24m000      128.49   P2p Edge[0m
-[32mEt9/4            designated forwarding [4m2[24m000      128.65   P2p Edge[0m
-[32mPo2              designated forwarding [4m1[24m999      128.128  P2p[0m
-[32mPo3              designated forwarding [4m1[24m999      128.129  P2p[0m
-[32mPo4              designated forwarding [4m1[24m999      128.127  P2p Edge[0m
-[32mPo5              designated forwarding [4m1[24m999      128.132  P2p[0m
-[32mPo6              designated forwarding [4m1[24m999      128.130  P2p Edge[0m
+[32mEt1              designated forwarding 2000      128.1    P2p[0m
+[1;31mEt7/2            designated discarding 2000      128.30   P2p Edge *BA_Inc[0m
+[32mEt7/3            designated forwarding 2000      128.85   P2p Edge[0m
+[32mEt9/3            designated forwarding 2000      128.49   P2p Edge[0m
+[32mEt9/4            designated forwarding 2000      128.65   P2p Edge[0m
+[32mPo2              designated forwarding 1999      128.128  P2p[0m
+[32mPo3              designated forwarding 1999      128.129  P2p[0m
+[32mPo4              designated forwarding 1999      128.127  P2p Edge[0m
+[32mPo5              designated forwarding 1999      128.132  P2p[0m
+[32mPo6              designated forwarding 1999      128.130  P2p Edge[0m
 [32mPo8              designated forwarding [4m19[24m999     128.133  P2p Edge[0m
 
 [30m[46m1.2.3.4[0m:
-Host: [30m[46m1.2.3.4[0m port [4m1[24m000
+Host: [30m[46m1.2.3.4[0m port 1000
 VRF: default
-Refresh interval: [4m3[24m600 seconds
+Refresh interval: 3600 seconds
 Retry interval: 600 seconds
-Expire interval: [4m7[24m200 seconds
+Expire interval: 7200 seconds
 Preference: 5
 Protocol version: 1
 [32mState: synced[0m

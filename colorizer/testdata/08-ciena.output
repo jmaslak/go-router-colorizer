@@ -21,7 +21,7 @@ xxxxx.xxxxxx$ xcvr show xcvr 2/1
 | Vendor PN                     | XXXXXXXXXXXXXXXX  XXXXX                      |
 | Vendor Revision               | 9                                            |
 | Vendor SN                     | XXXXXXXXXXXX                                 |
-| Date (year/week)              | [4m2[24m022/29                                      |
+| Date (year/week)              | 2022/29                                      |
 |-------------------------------+----------------------------------------------|
 | Connector Type                | LC                                           |
 |-------------------------------+----------------------------------------------|
@@ -32,8 +32,8 @@ xxxxx.xxxxxx$ xcvr show xcvr 2/1
 |  - EDFA                       | Yes                                          |
 |-------------------------------+----------------------------------------------|
 | Bit Rate, Nominal             | OTUC4                                        |
-| Wavelength Min (nm)           | [4m1[24m528.71                                      |
-| Wavelength Max (nm)           | [4m1[24m566.78                                      |
+| Wavelength Min (nm)           | 1528.71                                      |
+| Wavelength Max (nm)           | 1566.78                                      |
 | Wavelength Tolerance          | N/A                                          |
 | Frequency Min (GHz)           | [4m191[24m342.5                                     |
 | Frequency Max (GHz)           | [4m196[24m107.5                                     |
@@ -120,7 +120,7 @@ xxxxx.xxxxxx$ xcvr show xcvr 11/1[1D [1D[1D [1D[1D [1D/11
 +--------------------------+--------------------+------------------------------+
 | Ciena Item Number        | XXXXXXXXXXXXXXXX                                  |
 | Revision                 | 01                                                |
-| Description              | Trcvr, 1.25 Gbit/s 36 dB CWDM [4m1[24m511 nm SFP Module  |
+| Description              | Trcvr, 1.25 Gbit/s 36 dB CWDM 1511 nm SFP Module  |
 +--------------------------+--------------------+------------------------------+
 | Vendor Name              | Ciena              |                              |
 | Vendor OUI               |                    |                              |
@@ -134,10 +134,10 @@ xxxxx.xxxxxx$ xcvr show xcvr 11/1[1D [1D[1D [1D[1D [1D/11
 | Connector                | 0x7                | LC                           |
 +--------------------------+--------------------+------------------------------+
 | Transceiver Codes        | 0x[4m0[24m101[4m108[24m000[4m000[24m000 |                              |
-|  - SONET Compliance      | 0x[4m0[24m000             |                              |
+|  - SONET Compliance      | 0x0000             |                              |
 |  - Ethernet Compliance   | 0x00               |                              |
 |  - Link Length           | 0x80               | Very long distance (V)       |
-|  - Transmitter Technology| 0x[4m1[24m080             | Electrical intra-enclosure (EL)|
+|  - Transmitter Technology| 0x1080             | Electrical intra-enclosure (EL)|
 |  - Transmission Media    | 0x01               | Single Mode (SM)             |
 |  - Channel speed         | 0x01               | 100 MBytes/Sec               |
 +--------------------------+--------------------+------------------------------+
@@ -150,7 +150,7 @@ xxxxx.xxxxxx$ xcvr show xcvr 11/1[1D [1D[1D [1D[1D [1D/11
 | Length(62.5um) 10m       | 0                  | 0m                           |
 | Length(copper) 1m        | 0                  | 0m                           |
 |--------------------------+--------------------+------------------------------|
-| Wavelength               | [4m1[24m511               | [4m1[24m511.00 nm                   |
+| Wavelength               | 1511               | 1511.00 nm                   |
 |--------------------------+--------------------+------------------------------|
 | Options                  | 0x1a00             |                              |
 |--------------------------+--------------------+------------------------------|
@@ -160,7 +160,7 @@ xxxxx.xxxxxx$ xcvr show xcvr 11/1[1D [1D[1D [1D[1D [1D/11
 | Diag Monitor Type        | 0x68               |                              |
 |  - Rx power measurement  | Bit 3              | Avg                          |
 |--------------------------+--------------------+------------------------------|
-| SFF-[4m8[24m472 Compliance      | 0x2                | Rev 9.5                      |
+| SFF-8472 Compliance      | 0x2                | Rev 9.5                      |
 +--------------------------+--------------------+------------------------------+
 
 
@@ -266,9 +266,9 @@ xxxxx.xxxxxx$ ptp show ptp 1/1 status
 |      |[36m Actual Power (dBm)                 [0m|[36m 4.50                      [0m|[1;31m -45.00                    [0m|
 |      |[36m Actual Power (dBm)                 [0m|[1;31m -45.00                    [0m|[1;31m -45.00                    [0m|
 |      |    Maximum (dBm)                   | 4.50                      | -1.10                     |
-|      |    Time Recorded                   | Thu Sep 15 17:12:28 [4m2[24m022  | Thu Sep 15 17:13:53 [4m2[24m022  |
+|      |    Time Recorded                   | Thu Sep 15 17:12:28 2022  | Thu Sep 15 17:13:53 2022  |
 |      |    Minimum (dBm)                   | 4.40                      | -4.90                     |
-|      |    Time Recorded                   | Thu Sep 15 17:26:26 [4m2[24m022  | Thu Sep 22 20:26:26 [4m2[24m022  |
+|      |    Time Recorded                   | Thu Sep 15 17:26:26 2022  | Thu Sep 22 20:26:26 2022  |
 |      |------------------------------------+---------------------------+---------------------------|
 |      |    Loss of Signal                  |  No                       |                           |
 +------+------------------------------------+---------------------------+---------------------------+
@@ -286,7 +286,7 @@ xxxxx.xxxxxx$  [1D [1Dptp show ptp 1/1 status[23D                       [23D
 | Transmitter State                          |[32m Enabled               [0m|[32m Enabled [0m              |
 | Transmitter State                          |[32m Enabled               [0m|[1;31m Fault                 [0m|
 | Transmitter State                          |[33m Disabled              [0m|[33m Disabled              [0m|
-| Transmitter Wavelength (nm)                | [4m1[24m538.98               | [4m1[24m538.98               |
+| Transmitter Wavelength (nm)                | 1538.98               | 1538.98               |
 +--------------------------------------------+-----------------------------------------------+
 | Forward Error Correction                   | Enabled               | Enabled               |
 +--------------------------------------------+-----------------------------------------------+
@@ -311,7 +311,7 @@ xxxxx.xxxxxx$  [1D [1Dptp show ptp 1/1 status[23D                       [23D
 +--------------------------------------------+-----------------------------------------------+
 | Advanced Configuration                     |                                               |
 |   Class                                    | Terrestrial           | Terrestrial           |
-|   Reach Limit (km)                         | [4m1[24m000                  | 67                    |
+|   Reach Limit (km)                         | 1000                  | 67                    |
 |   Link Optimization Mode                   | Standard              | Standard              |
 |   Laser Control                            |                                               |
 |     Tuning Mode                            | Normal                | Normal                |
@@ -352,7 +352,7 @@ xxxxx.xxxxxx$ ptp show ptp 2/1 status
 | Tx Power Value (dBm)                      |   4.00                                                |
 +-------------------------------------------+-------------------------------------------------------+
 | Band Plan Channel Number                  |                                                       |
-| Actual Wavelength (nm)                    | [4m1[24m538.98                                               |
+| Actual Wavelength (nm)                    | 1538.98                                               |
 | Actual Frequency (GHz)                    | [4m194[24m800.0                                              |
 +-------------------------------------------+-------------------------------------------------------+
 | Minimum Spectral Width (GHz)              | 59.00                                                 |
@@ -367,9 +367,9 @@ xxxxx.xxxxxx$ ptp show ptp 2/1 status
 +-------------------------------------------+---------------------------+---------------------------+
 | Actual Optical Channel Power (dBm)        | -0.90                     |                           |
 |    Maximum (dBm)                          | 0.00                      |                           |
-|    Time Recorded                          | Thu Jan  1 00:00:00 [4m1[24m970  |                           |
+|    Time Recorded                          | Thu Jan  1 00:00:00 1970  |                           |
 |    Minimum (dBm)                          | 0.00                      |                           |
-|    Time Recorded                          | Thu Jan  1 00:00:00 [4m1[24m970  |                           |
+|    Time Recorded                          | Thu Jan  1 00:00:00 1970  |                           |
 |    Loss of Opt. Channel                   | No                        |                           |
 +-------------------------------------------+---------------------------+---------------------------+
 | Actual Link Dispersion (ps/nm)            | 652                       | 661                       |
@@ -382,9 +382,9 @@ xxxxx.xxxxxx$ ptp show ptp 2/1 status
 +------+------------------------------------+---------------------------+---------------------------+
 |  1   |[36m Actual Power (dBm)                 [0m|[36m -0.90                     [0m|[36m 3.90                      [0m|
 |      |    Maximum (dBm)                   | -0.80                     | 4.00                      |
-|      |    Time Recorded                   | Thu Sep 22 01:31:55 [4m2[24m022  | Thu Sep 15 17:12:25 [4m2[24m022  |
+|      |    Time Recorded                   | Thu Sep 22 01:31:55 2022  | Thu Sep 15 17:12:25 2022  |
 |      |    Minimum (dBm)                   | -0.90                     | 3.90                      |
-|      |    Time Recorded                   | Thu Sep 15 17:12:25 [4m2[24m022  | Thu Sep 15 17:12:30 [4m2[24m022  |
+|      |    Time Recorded                   | Thu Sep 15 17:12:25 2022  | Thu Sep 15 17:12:30 2022  |
 |      |    High - Alarm   (Threshold)      | No  (10.50)               | No  (4.00)                |
 |      |    Low - Alarm    (Threshold)      | No  (-19.50)              | No  (-9.00)               |
 |      |    High - Warning (Threshold)      | No  (N/A)                 | No  (N/A)                 |
@@ -428,9 +428,9 @@ xxxxx.xxxxxx$ ptp show ptp 1/11 status
 |      |------------------------------------+---------------------------+---------------------------|
 |      |[36m Actual Power (dBm)                 [0m|[36m -16.00                    [0m|[36m 4.40                      [0m|
 |      |    Maximum (dBm)                   | -15.90                    | 4.40                      |
-|      |    Time Recorded                   | Thu Sep 15 17:12:37 [4m2[24m022  | Thu Sep 15 17:12:37 [4m2[24m022  |
+|      |    Time Recorded                   | Thu Sep 15 17:12:37 2022  | Thu Sep 15 17:12:37 2022  |
 |      |    Minimum (dBm)                   | -40.00                    | -40.00                    |
-|      |    Time Recorded                   | Thu Sep 15 17:12:28 [4m2[24m022  | Thu Sep 15 17:12:28 [4m2[24m022  |
+|      |    Time Recorded                   | Thu Sep 15 17:12:28 2022  | Thu Sep 15 17:12:28 2022  |
 |      |------------------------------------+---------------------------+---------------------------|
 |      |    Loss of Signal                  |  No                       |                           |
 +------+------------------------------------+---------------------------+---------------------------+
@@ -475,28 +475,28 @@ xxxxx.xxxxxx$ ptp show ptp 1/13 status
 |      |------------------------------------+---------------------------+---------------------------|
 |      |[36m Span Loss (dB)                     [0m|[36m 19.30                     [0m|[36m 20.70                     [0m|
 |      |    Maximum (dB)                    | 19.40                     | 20.70                     |
-|      |    Time Recorded                   | Thu Sep 22 18:28:15 [4m2[24m022  | Mon Sep 19 06:28:47 [4m2[24m022  |
+|      |    Time Recorded                   | Thu Sep 22 18:28:15 2022  | Mon Sep 19 06:28:47 2022  |
 |      |    Minimum (dB)                    | N/A                       | N/A                       |
-|      |    Time Recorded                   | Thu Sep 15 17:12:28 [4m2[24m022  | Thu Sep 15 17:12:28 [4m2[24m022  |
+|      |    Time Recorded                   | Thu Sep 15 17:12:28 2022  | Thu Sep 15 17:12:28 2022  |
 |      |------------------------------------+---------------------------+---------------------------|
 |      |[36m Actual Power (dBm)                 [0m|[36m -15.80                    [0m|[36m 3.60                      [0m|
 |      |    Maximum (dBm)                   | -15.70                    | 3.60                      |
-|      |    Time Recorded                   | Thu Sep 22 09:33:12 [4m2[24m022  | Thu Sep 15 17:12:28 [4m2[24m022  |
+|      |    Time Recorded                   | Thu Sep 22 09:33:12 2022  | Thu Sep 15 17:12:28 2022  |
 |      |    Minimum (dBm)                   | -19.50                    | 3.50                      |
-|      |    Time Recorded                   | Thu Sep 22 20:26:26 [4m2[24m022  | Thu Sep 15 17:12:42 [4m2[24m022  |
+|      |    Time Recorded                   | Thu Sep 22 20:26:26 2022  | Thu Sep 15 17:12:42 2022  |
 |      |[36m Actual Aggregate Power (dBm)       [0m|[36m -12.90                    [0m|[36m 7.00                      [0m|
 |      |    Maximum (dBm)                   | -12.80                    | 7.00                      |
-|      |    Time Recorded                   | Thu Sep 15 17:13:53 [4m2[24m022  | Thu Sep 15 17:12:37 [4m2[24m022  |
+|      |    Time Recorded                   | Thu Sep 15 17:13:53 2022  | Thu Sep 15 17:12:37 2022  |
 |      |    Minimum (dBm)                   | -15.80                    | 3.60                      |
-|      |    Time Recorded                   | Thu Sep 15 17:12:28 [4m2[24m022  | Thu Sep 15 17:12:28 [4m2[24m022  |
+|      |    Time Recorded                   | Thu Sep 15 17:12:28 2022  | Thu Sep 15 17:12:28 2022  |
 |      |------------------------------------+---------------------------+---------------------------|
 |      |[32m Optical Return Loss (dB)[0m           | [32m34.20[0m                                                 |
 |      |[33m Optical Return Loss (dB)[0m           | [33m24.20[0m                                                 |
 |      |[1;31m Optical Return Loss (dB)[0m           | [1;31m14.20[0m                                                 |
 |      |    Maximum (dB)                    | 39.50                                                 |
-|      |    Time Recorded                   | Thu Sep 22 20:26:26 [4m2[24m022                              |
+|      |    Time Recorded                   | Thu Sep 22 20:26:26 2022                              |
 |      |    Minimum (dB)                    | 33.90                                                 |
-|      |    Time Recorded                   | Thu Sep 15 19:57:49 [4m2[24m022                              |
+|      |    Time Recorded                   | Thu Sep 15 19:57:49 2022                              |
 |      |------------------------------------+---------------------------+---------------------------|
 |      |    Loss of Signal                  |  No                       |                           |
 +------+------------------------------------+---------------------------+---------------------------+
@@ -523,19 +523,19 @@ xxxxx.xxxxxx$ e[1D [1Dalarm show
 +---------------------------------------------- ACTIVE ALARMS --------------------------------------------------------------+
 |IID  |Ack|Int|ATID |Severity| Date & Time (Local)      | Instance             | Description                                |
 +-----+---+---+-----+--------+--------------------------+----------------------+--------------------------------------------+
-|[33m    2[0m|[33m Y [0m|[33m   [0m|[33m   51[0m|[33mcritical[0m|[33m Thu Sep 15 17:12:30 [4m2[24m022 [0m|[33m               PTP-1/2[0m|[33m Rx Loss of Signal                          [0m|
-|[33m    3[0m|[33m Y [0m|[33m   [0m|[33m   51[0m|[33mcritical[0m|[33m Thu Sep 15 17:12:30 [4m2[24m022 [0m|[33m               PTP-1/4[0m|[33m Rx Loss of Signal                          [0m|
-|[33m    4[0m|[33m Y [0m|[33m   [0m|[33m   51[0m|[33mcritical[0m|[33m Thu Sep 15 17:12:30 [4m2[24m022 [0m|[33m               PTP-1/5[0m|[33m Rx Loss of Signal                          [0m|
-|[1;31m    4[0m|[1;31m   [0m|[1;31m   [0m|[1;31m   51[0m|[1;31mcritical[0m|[1;31m Thu Sep 15 17:12:30 [4m2[24m022 [0m|[1;31m               PTP-1/5[0m|[1;31m Rx Loss of Signal                          [0m|
-|[33m    5[0m|[33m Y [0m|[33m   [0m|[33m   51[0m|[33mcritical[0m|[33m Thu Sep 15 17:12:30 [4m2[24m022 [0m|[33m               PTP-1/6[0m|[33m Rx Loss of Signal                          [0m|
-|[33m    6[0m|[33m Y [0m|[33m   [0m|[33m   51[0m|[33mcritical[0m|[33m Thu Sep 15 17:12:30 [4m2[24m022 [0m|[33m               PTP-1/7[0m|[33m Rx Loss of Signal                          [0m|
-|[33m    7[0m|[33m Y [0m|[33m   [0m|[33m   51[0m|[33mcritical[0m|[33m Thu Sep 15 17:12:30 [4m2[24m022 [0m|[33m               PTP-1/8[0m|[33m Rx Loss of Signal                          [0m|
-|[33m    8[0m|[33m Y [0m|[33m   [0m|[33m   51[0m|[33mcritical[0m|[33m Thu Sep 15 17:12:30 [4m2[24m022 [0m|[33m               PTP-1/9[0m|[33m Rx Loss of Signal                          [0m|
-|[33m    9[0m|[33m Y [0m|[33m   [0m|[33m   51[0m|[33mcritical[0m|[33m Thu Sep 15 17:12:30 [4m2[24m022 [0m|[33m              PTP-1/10[0m|[33m Rx Loss of Signal                          [0m|
-|[36m    9[0m|[36m Y [0m|[36m   [0m|[36m   51[0m|[36m   info [0m|[36m Thu Sep 15 17:12:30 [4m2[24m022 [0m|[36m              PTP-1/10[0m|[36m Rx Loss of Signal                          [0m|
-|[33m    9[0m|[33m   [0m|[33m   [0m|[33m   51[0m|[33mcritical[0m|[33m Thu Sep 15 17:12:30 [4m2[24m022 [0m|[33m              Port-2/4[0m|[33m Rx Remote Fault                            [0m|
-|[33m    9[0m|[33m   [0m|[33m   [0m|[33m   51[0m|[33mcritical[0m|[33m Thu Sep 15 17:12:30 [4m2[24m022 [0m|[33m         Channel-2/1.2[0m|[33m Far End Client Signal Fail                 [0m|
-|[33m[4m99[24m999[0m|[33m   [0m|[33m   [0m|[33m   51[0m|[33m   major[0m|[33m Thu Sep 15 17:12:30 [4m2[24m022 [0m|[33m         Channel-2/1.2[0m|[33m Far End Client Signal Fail                 [0m|
+|[33m    2[0m|[33m Y [0m|[33m   [0m|[33m   51[0m|[33mcritical[0m|[33m Thu Sep 15 17:12:30 2022 [0m|[33m               PTP-1/2[0m|[33m Rx Loss of Signal                          [0m|
+|[33m    3[0m|[33m Y [0m|[33m   [0m|[33m   51[0m|[33mcritical[0m|[33m Thu Sep 15 17:12:30 2022 [0m|[33m               PTP-1/4[0m|[33m Rx Loss of Signal                          [0m|
+|[33m    4[0m|[33m Y [0m|[33m   [0m|[33m   51[0m|[33mcritical[0m|[33m Thu Sep 15 17:12:30 2022 [0m|[33m               PTP-1/5[0m|[33m Rx Loss of Signal                          [0m|
+|[1;31m    4[0m|[1;31m   [0m|[1;31m   [0m|[1;31m   51[0m|[1;31mcritical[0m|[1;31m Thu Sep 15 17:12:30 2022 [0m|[1;31m               PTP-1/5[0m|[1;31m Rx Loss of Signal                          [0m|
+|[33m    5[0m|[33m Y [0m|[33m   [0m|[33m   51[0m|[33mcritical[0m|[33m Thu Sep 15 17:12:30 2022 [0m|[33m               PTP-1/6[0m|[33m Rx Loss of Signal                          [0m|
+|[33m    6[0m|[33m Y [0m|[33m   [0m|[33m   51[0m|[33mcritical[0m|[33m Thu Sep 15 17:12:30 2022 [0m|[33m               PTP-1/7[0m|[33m Rx Loss of Signal                          [0m|
+|[33m    7[0m|[33m Y [0m|[33m   [0m|[33m   51[0m|[33mcritical[0m|[33m Thu Sep 15 17:12:30 2022 [0m|[33m               PTP-1/8[0m|[33m Rx Loss of Signal                          [0m|
+|[33m    8[0m|[33m Y [0m|[33m   [0m|[33m   51[0m|[33mcritical[0m|[33m Thu Sep 15 17:12:30 2022 [0m|[33m               PTP-1/9[0m|[33m Rx Loss of Signal                          [0m|
+|[33m    9[0m|[33m Y [0m|[33m   [0m|[33m   51[0m|[33mcritical[0m|[33m Thu Sep 15 17:12:30 2022 [0m|[33m              PTP-1/10[0m|[33m Rx Loss of Signal                          [0m|
+|[36m    9[0m|[36m Y [0m|[36m   [0m|[36m   51[0m|[36m   info [0m|[36m Thu Sep 15 17:12:30 2022 [0m|[36m              PTP-1/10[0m|[36m Rx Loss of Signal                          [0m|
+|[33m    9[0m|[33m   [0m|[33m   [0m|[33m   51[0m|[33mcritical[0m|[33m Thu Sep 15 17:12:30 2022 [0m|[33m              Port-2/4[0m|[33m Rx Remote Fault                            [0m|
+|[33m    9[0m|[33m   [0m|[33m   [0m|[33m   51[0m|[33mcritical[0m|[33m Thu Sep 15 17:12:30 2022 [0m|[33m         Channel-2/1.2[0m|[33m Far End Client Signal Fail                 [0m|
+|[33m[4m99[24m999[0m|[33m   [0m|[33m   [0m|[33m   51[0m|[33m   major[0m|[33m Thu Sep 15 17:12:30 2022 [0m|[33m         Channel-2/1.2[0m|[33m Far End Client Signal Fail                 [0m|
 +-----+---+---+-----+--------+--------------------------+----------------------+--------------------------------------------+
 | |              \---------> ATID : Alarm Table ID                                                                          |
 | \------------------------> IID  : Alarm Instance ID                                                                       |
@@ -636,10 +636,10 @@ wdm03*$ chassis power show
 +-------------------------------------- POWER SUPPLY STATUS -----------------------------------------------------+
 | Slot   | Admin    | Oper   | Type    | Model                            | Serial Number | Part Number / Rev    |
 +--------+----------+--------+---------+----------------------------------+---------------+----------------------+
-|[32m PSU-1  [0m|[32m Enabled  [0m|[32m Up     [0m|[32m AC/240VDC [0m|[32m Waveserver Ai AC/DC Power Module [0m|[32m ABCDEFGH      [0m|[32m    186-[4m1[24m510-901/001  [0m|
+|[32m PSU-1  [0m|[32m Enabled  [0m|[32m Up     [0m|[32m AC/240VDC [0m|[32m Waveserver Ai AC/DC Power Module [0m|[32m ABCDEFGH      [0m|[32m    186-1510-901/001  [0m|
 +--------+----------+--------+---------+----------------------------------+---------------+----------------------+
-|[33m PSU-2  [0m|[33m Disabled [0m|[33m Something [0m|[33m AC/240VDC [0m|[33m Waveserver Ai AC/DC Power Module [0m|[33m ABCDEFGH      [0m|[33m    186-[4m1[24m510-901/001  [0m|
+|[33m PSU-2  [0m|[33m Disabled [0m|[33m Something [0m|[33m AC/240VDC [0m|[33m Waveserver Ai AC/DC Power Module [0m|[33m ABCDEFGH      [0m|[33m    186-1510-901/001  [0m|
 +--------+----------+--------+---------+----------------------------------+---------------+----------------------+
-|[1;31m PSU-2  [0m|[1;31m Enabled  [0m|[1;31m Faulted [0m|[1;31m AC/240VDC [0m|[1;31m Waveserver Ai AC/DC Power Module [0m|[1;31m ABCDEFGH      [0m|[1;31m    186-[4m1[24m510-901/001  [0m|
+|[1;31m PSU-2  [0m|[1;31m Enabled  [0m|[1;31m Faulted [0m|[1;31m AC/240VDC [0m|[1;31m Waveserver Ai AC/DC Power Module [0m|[1;31m ABCDEFGH      [0m|[1;31m    186-1510-901/001  [0m|
 +--------+----------+--------+---------+----------------------------------+---------------+----------------------+
 
