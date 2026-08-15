@@ -18,6 +18,15 @@ const (
 	underlineOff = "\x1b[24m"
 )
 
+// Exported names for the palette above, used by cmd/router-colorizer for its
+// own messages. Aliases, so each escape value is defined exactly once.
+const (
+	Green  = green
+	Cyan   = info
+	Yellow = orange
+	Reset  = reset
+)
+
 // bgColors holds the color pairs used to highlight IP addresses. An address is
 // hashed onto one of these entries, so a given address always renders in the
 // same color and a transposed digit shows up as a color change.

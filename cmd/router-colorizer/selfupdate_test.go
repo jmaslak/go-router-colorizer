@@ -14,6 +14,8 @@ import (
 	"runtime"
 	"testing"
 	"time"
+
+	"github.com/jmaslak/go-router-colorizer/colorizer"
 )
 
 func TestChecksumFor(t *testing.T) {
@@ -197,6 +199,13 @@ func TestNotifyUpdateAvailable_StaleCacheNotifies(t *testing.T) {
 	}
 	if !bytes.Contains(buf.Bytes(), []byte("-selfupdate")) {
 		t.Errorf("notifyUpdateAvailable: got %q, want it to mention -selfupdate", buf.String())
+	}
+	wantPrefix := colorizer.Green + "router-colorizer" + colorizer.Cyan + ":" + colorizer.Yellow
+	if !bytes.HasPrefix(buf.Bytes(), []byte(wantPrefix)) {
+		t.Errorf("notifyUpdateAvailable: got %q, want the green/cyan/yellow colored prefix", buf.String())
+	}
+	if !bytes.HasSuffix(bytes.TrimRight(buf.Bytes(), "\n"), []byte(colorizer.Reset)) {
+		t.Errorf("notifyUpdateAvailable: got %q, want it to end with a color reset", buf.String())
 	}
 }
 

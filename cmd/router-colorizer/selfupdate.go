@@ -15,6 +15,8 @@ import (
 	"runtime"
 	"strings"
 	"time"
+
+	"github.com/jmaslak/go-router-colorizer/colorizer"
 )
 
 // releasesURL points at the GitHub API's "latest release" endpoint for this
@@ -224,7 +226,8 @@ func notifyUpdateAvailable(w io.Writer) {
 	if ok && c.Latest != "" {
 		latest := strings.TrimPrefix(c.Latest, "v")
 		if latest != strings.TrimPrefix(version, "v") {
-			fmt.Fprintf(w, "router-colorizer: update available: %s -> run 'router-colorizer -selfupdate' to install\n", c.Latest)
+			fmt.Fprintf(w, colorizer.Green+"router-colorizer"+colorizer.Cyan+":"+colorizer.Yellow+
+				" update available: %s -> run 'router-colorizer -selfupdate' to install"+colorizer.Reset+"\n", c.Latest)
 		}
 	}
 

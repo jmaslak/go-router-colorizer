@@ -9,6 +9,7 @@ All notable changes to this project are documented here. The format is based on
 ### Added
 
 - Additional colorizing of some Arista errors
+- Colorize version check (in router-colorizer itself)
 
 ## 0.4.1
 
