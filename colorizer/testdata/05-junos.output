@@ -1,4 +1,5 @@
-Last login: Mon Aug 16 14:48:18 2021 from [90m[41m192.0.2.18[0m
+Last login: Mon Aug 16 14:48:18 2021 from [90m[41m192.0.2.18[0m
+
 JUNOS tip:
 Use '#' in the beginning of a line in command scripts to cause the
 rest of the line to be ignored.
@@ -6,7 +7,7 @@ rest of the line to be ignored.
 No alarms currently active
 
 {master:1}
-user@swXX> show interfaces 
+user@swXX> show interfaces
 [32mPhysical interface: vcp-255/1/0, Enabled, Physical link is Up[0m
   Interface index: 66, SNMP ifIndex: 101
   Link-level type: Virtual-Chassis-Interface, MTU: 1514, LAN-PHY mode, Speed: 1000mbps,
@@ -80,7 +81,9 @@ user@swXX> show interfaces
   Interface flags: SNMP-Traps Internal: 0x4000
   Link flags     : None
   CoS queues     : 8 supported, 8 maximum usable queues
----(more)---                                          Current address: 30:7c:5e:14:a1:44, Hardware address: 30:7c:5e:14:a1:44
+---(more)---
+
+  Current address: 30:7c:5e:14:a1:44, Hardware address: 30:7c:5e:14:a1:44
 [36m  Last flapped   : 2021-07-26 17:00:19 MDT (3w0d 20:18 ago)[0m
 [36m  Input rate     : 0 bps (0 pps)[0m
 [36m  Output rate    : 3768 bps (3 pps)[0m
@@ -153,7 +156,9 @@ user@swXX> show interfaces
   Link-level type: Ethernet, MTU: 1514, LAN-PHY mode, Speed: Auto, Duplex: Auto,
   BPDU Error: None, MAC-REWRITE Error: None, Loopback: Disabled, Source filtering: Disabled,
   Flow control: Enabled, Auto-negotiation: Enabled, Remote fault: Online, Media type: Copper,
----(more)---                                          IEEE 802.3az Energy Efficient Ethernet: Disabled
+---(more)---
+
+  IEEE 802.3az Energy Efficient Ethernet: Disabled
   Device flags   : Present Running
   Interface flags: SNMP-Traps Internal: 0x4000
   Link flags     : None
@@ -226,7 +231,9 @@ user@swXX> show interfaces
   BPDU Error: None, MAC-REWRITE Error: None, Loopback: Disabled, Source filtering: Disabled,
   Flow control: Enabled, Auto-negotiation: Enabled, Remote fault: Online, Media type: Copper,
   IEEE 802.3az Energy Efficient Ethernet: Disabled
----(more)---                                          Device flags   : Present Running
+---(more)---
+
+  Device flags   : Present Running
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Link flags     : None
   CoS queues     : 8 supported, 8 maximum usable queues
@@ -299,7 +306,9 @@ user@swXX> show interfaces
 [36m  Description: pc2.example.com[0m
   Link-level type: Ethernet, MTU: 1514, LAN-PHY mode, Speed: 1000mbps, Duplex: Auto,
   BPDU Error: None, MAC-REWRITE Error: None, Loopback: Disabled, Source filtering: Disabled,
----(more)---                                          Flow control: Disabled, Auto-negotiation: Enabled, Remote fault: Online, Media type: Copper,
+---(more)---
+
+  Flow control: Disabled, Auto-negotiation: Enabled, Remote fault: Online, Media type: Copper,
   IEEE 802.3az Energy Efficient Ethernet: Disabled
   Device flags   : Present Running
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
@@ -372,7 +381,9 @@ user@swXX> show interfaces
 [32mPhysical interface: ge-1/0/1, Enabled, Physical link is Up[0m
   Interface index: 135, SNMP ifIndex: 542
 [36m  Description: pc3.example.com[0m
----(more)---                                          Link-level type: Ethernet, MTU: 1514, LAN-PHY mode, Speed: Auto, Duplex: Auto,
+---(more)---
+
+  Link-level type: Ethernet, MTU: 1514, LAN-PHY mode, Speed: Auto, Duplex: Auto,
   BPDU Error: None, MAC-REWRITE Error: None, Loopback: Disabled, Source filtering: Disabled,
   Flow control: Enabled, Auto-negotiation: Enabled, Remote fault: Online, Media type: Copper,
   IEEE 802.3az Energy Efficient Ethernet: Disabled
@@ -445,7 +456,9 @@ user@swXX> show interfaces
 [36m    Input packets : 0[0m
 [36m    Output packets: 0[0m
     Protocol eth-switch
----(more)---                                              Flags: None
+---(more)---
+
+      Flags: None
 
 [32mPhysical interface: ge-1/0/4, Enabled, Physical link is Up[0m
   Interface index: 138, SNMP ifIndex: 552
@@ -518,7 +531,9 @@ user@swXX> show interfaces
 [32m  Active defects : None[0m
   Interface transmit statistics: Disabled
 
----(more)---                                        [36m  Logical interface ge-1/0/6.0 (Index 81) (SNMP ifIndex 557)[0m
+---(more)---
+
+[36m  Logical interface ge-1/0/6.0 (Index 81) (SNMP ifIndex 557)[0m
     Flags: Up SNMP-Traps 0x4000 Encapsulation: ENET2
 [36m    Input packets : [4m120[24m010[0m
 [36m    Output packets: 9[4m063[24m998[0m
@@ -591,7 +606,9 @@ user@swXX> show interfaces
   Current address: 12:35:67:89:68:4c, Hardware address: 12:35:67:89:68:4c
 [36m  Last flapped   : Never[0m
 [36m  Input rate     : 0 bps (0 pps)[0m
----(more 61%)---                                        [36m  Output rate    : 0 bps (0 pps)[0m
+---(more 61%)---
+
+[36m  Output rate    : 0 bps (0 pps)[0m
 [1;31m  Active alarms  : LINK[0m
 [1;31m  Active defects : LINK[0m
   Interface transmit statistics: Disabled
@@ -664,7 +681,9 @@ user@swXX> show interfaces
   Device flags   : Present Running
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Current address: 12:35:67:89:68:43, Hardware address: 12:35:67:89:68:43
----(more 69%)---                                        [36m  Last flapped   : 2021-01-25 20:00:19 MST (29w0d 16:18 ago)[0m
+---(more 69%)---
+
+[36m  Last flapped   : 2021-01-25 20:00:19 MST (29w0d 16:18 ago)[0m
 [36m  Input rate     : 0 bps (0 pps)[0m
 [36m  Output rate    : 0 bps (0 pps)[0m
 
@@ -737,7 +756,9 @@ user@swXX> show interfaces
   Interface index: 131, SNMP ifIndex: 536
 [36m  Description: Temporary Trunk[0m
   Link-level type: Ethernet, MTU: 8018, Speed: Unspecified, BPDU Error: None,
----(more 76%)---                                          MAC-REWRITE Error: None, Loopback: Disabled, Source filtering: Disabled,
+---(more 76%)---
+
+  MAC-REWRITE Error: None, Loopback: Disabled, Source filtering: Disabled,
   Flow control: Disabled, Minimum links needed: 1, Minimum bandwidth needed: 1bps
   Device flags   : Present Running
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
@@ -810,7 +831,9 @@ user@swXX> show interfaces
   Device flags   : Present Running
   Interface flags: Point-To-Point SNMP-Traps
 [36m    Input packets : 0[0m
----(more 84%)---                                        [36m    Output packets: 0[0m
+---(more 84%)---
+
+[36m    Output packets: 0[0m
 
 [32mPhysical interface: ipip, Enabled, Physical link is Up[0m
   Interface index: 11, SNMP ifIndex: 9
@@ -883,7 +906,9 @@ user@swXX> show interfaces
 [36m    Input packets : 0[0m
 [36m    Output packets: 0[0m
     Protocol eth-switch
----(more 92%)---                                              Flags: Is-Primary
+---(more 92%)---
+
+      Flags: Is-Primary
 
 [32mPhysical interface: mtun, Enabled, Physical link is Up[0m
   Interface index: 65, SNMP ifIndex: 12
@@ -956,17 +981,19 @@ user@swXX> show interfaces
   Link type      : Full-Duplex
   Link flags     : None
   Current address: 12:35:67:89:68:42, Hardware address: 12:35:67:89:68:42
----(more 99%)---                                        [36m  Last flapped   : Never[0m
+---(more 99%)---
+
+[36m  Last flapped   : Never[0m
 [36m    Input packets : 0[0m
 [36m    Output packets: 0[0m
 
 {master:1}
-user@swXX> show interfaces terse 
+user@swXX> show interfaces terse
 Interface               Admin Link Proto    Local                 Remote
 [32mvcp-255/1/0             up    up[0m
-[32mvcp-255/1/0.32768       up    up  [0m
+[32mvcp-255/1/0.32768       up    up[0m
 [32mvcp-255/1/1             up    up[0m
-[32mvcp-255/1/1.32768       up    up  [0m
+[32mvcp-255/1/1.32768       up    up[0m
 [1;31mge-0/0/0                up    down[0m
 [1;31mge-0/0/0.0              up    down eth-switch[0m
 [32mge-0/0/1                up    up[0m
@@ -1024,18 +1051,20 @@ Interface               Admin Link Proto    Local                 Remote
 [1;31mae4                     up    down[0m
 [1;31mae4.0                   up    down eth-switch[0m
 [32mbme0                    up    up[0m
-[32mbme0.32768              up    up   inet     [37m[45m128.0.0.1/2[0m     [0m
-                                            [30m[46m128.0.0.17/2[0m    
-                                            [30m[46m128.0.0.32/2[0m    
-                                   tnp      0x11            
+[32mbme0.32768              up    up   inet     [37m[45m128.0.0.1/2[0m[0m
+                                            [30m[46m128.0.0.17/2[0m
+                                            [30m[46m128.0.0.32/2[0m
+                                   tnp      0x11
 [33mbme0.32769              down  up   eth-switch[0m
 [32mdsc                     up    up[0m
 [32mgre                     up    up[0m
 [32mipip                    up    up[0m
 [32mjsrv                    up    up[0m
-[32mjsrv.1                  up    up   inet     [90m[47m128.0.0.127/2[0m   [0m
+[32mjsrv.1                  up    up   inet     [90m[47m128.0.0.127/2[0m[0m
 [32mlo0                     up    up[0m
----(more)---                                        [32mlo0.16384               up    up   inet     [30m[45m127.0.0.1[0m           --> 0/0[0m
+---(more)---
+
+[32mlo0.16384               up    up   inet     [30m[45m127.0.0.1[0m           --> 0/0[0m
 [32mlsi                     up    up[0m
 [1;31mme0                     up    down[0m
 [1;31mme0.0                   up    down eth-switch[0m
@@ -1050,14 +1079,15 @@ Interface               Admin Link Proto    Local                 Remote
 [1;31mvme                     up    down[0m
 
 {master:1}
-user@swXX> show interfaces brief
+
+user@swXX> show interfaces brief
 [32mPhysical interface: vcp-255/1/0, Enabled, Physical link is Up[0m
   Link-level type: Virtual-Chassis-Interface, MTU: 1514, LAN-PHY mode, Speed: 1000mbps,
   Media type: Copper
   Device flags   : Present Running
   Link flags     : None
 
-[36m  Logical interface vcp-255/1/0.32768 [0m
+[36m  Logical interface vcp-255/1/0.32768[0m
     Flags: Encapsulation: Unspecified
 
 [32mPhysical interface: vcp-255/1/1, Enabled, Physical link is Up[0m
@@ -1066,7 +1096,7 @@ Interface               Admin Link Proto    Local                 Remote
   Device flags   : Present Running
   Link flags     : None
 
-[36m  Logical interface vcp-255/1/1.32768 [0m
+[36m  Logical interface vcp-255/1/1.32768[0m
     Flags: Encapsulation: Unspecified
 
 [1;31mPhysical interface: ge-0/0/0, Enabled, Physical link is Down[0m
@@ -1078,7 +1108,7 @@ Interface               Admin Link Proto    Local                 Remote
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-[36m  Logical interface ge-0/0/0.0 [0m
+[36m  Logical interface ge-0/0/0.0[0m
     Flags: Device-Down SNMP-Traps 0x40[4m004[24m000 Encapsulation: ENET2
     eth-switch
 
@@ -1091,7 +1121,7 @@ Interface               Admin Link Proto    Local                 Remote
   Interface flags: SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-[36m  Logical interface ge-0/0/1.0 [0m
+[36m  Logical interface ge-0/0/1.0[0m
     Flags: Up SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
@@ -1104,7 +1134,7 @@ Interface               Admin Link Proto    Local                 Remote
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-[36m  Logical interface ge-0/0/2.0 [0m
+[36m  Logical interface ge-0/0/2.0[0m
     Flags: Device-Down SNMP-Traps 0x40[4m004[24m000 Encapsulation: ENET2
     eth-switch
 
@@ -1117,20 +1147,22 @@ Interface               Admin Link Proto    Local                 Remote
   Interface flags: SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-[36m  Logical interface ge-0/0/3.0 [0m
+[36m  Logical interface ge-0/0/3.0[0m
     Flags: Up SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
 [32mPhysical interface: ge-0/0/4, Enabled, Physical link is Up[0m
   Link-level type: Ethernet, MTU: 1514, LAN-PHY mode, Speed: Auto, Duplex: Auto,
   Loopback: Disabled, Source filtering: Disabled, Flow control: Enabled,
----(more)---                                          Auto-negotiation: Enabled, Remote fault: Online, Media type: Copper,
+---(more)---
+
+  Auto-negotiation: Enabled, Remote fault: Online, Media type: Copper,
   IEEE 802.3az Energy Efficient Ethernet: Disabled
   Device flags   : Present Running
   Interface flags: SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-[36m  Logical interface ge-0/0/4.0 [0m
+[36m  Logical interface ge-0/0/4.0[0m
     Flags: Up SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
@@ -1143,7 +1175,7 @@ Interface               Admin Link Proto    Local                 Remote
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-[36m  Logical interface ge-0/0/5.0 [0m
+[36m  Logical interface ge-0/0/5.0[0m
     Flags: Device-Down 0x4000 Encapsulation: ENET2
     aenet
 
@@ -1156,7 +1188,7 @@ Interface               Admin Link Proto    Local                 Remote
   Interface flags: SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-[36m  Logical interface ge-0/0/6.0 [0m
+[36m  Logical interface ge-0/0/6.0[0m
     Flags: Up 0x4000 Encapsulation: ENET2
     aenet
 
@@ -1169,7 +1201,7 @@ Interface               Admin Link Proto    Local                 Remote
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-[36m  Logical interface ge-0/0/7.0 [0m
+[36m  Logical interface ge-0/0/7.0[0m
     Flags: Device-Down SNMP-Traps 0x40[4m004[24m000 Encapsulation: ENET2
     eth-switch
 
@@ -1182,7 +1214,7 @@ Interface               Admin Link Proto    Local                 Remote
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-[36m  Logical interface ge-0/0/8.0 [0m
+[36m  Logical interface ge-0/0/8.0[0m
     Flags: Device-Down SNMP-Traps 0x40[4m004[24m000 Encapsulation: ENET2
     eth-switch
 
@@ -1195,9 +1227,11 @@ Interface               Admin Link Proto    Local                 Remote
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-[36m  Logical interface ge-0/0/9.0 [0m
+[36m  Logical interface ge-0/0/9.0[0m
     Flags: Device-Down 0x4000 Encapsulation: ENET2
----(more)---                                            aenet
+---(more)---
+
+    aenet
 
 [1;31mPhysical interface: ge-0/0/10, Enabled, Physical link is Down[0m
   Link-level type: Ethernet, MTU: 1514, LAN-PHY mode, Speed: 1000mbps, Duplex: Auto,
@@ -1208,7 +1242,7 @@ Interface               Admin Link Proto    Local                 Remote
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-[36m  Logical interface ge-0/0/10.0 [0m
+[36m  Logical interface ge-0/0/10.0[0m
     Flags: Device-Down 0x4000 Encapsulation: ENET2
     aenet
 
@@ -1221,7 +1255,7 @@ Interface               Admin Link Proto    Local                 Remote
   Interface flags: SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-[36m  Logical interface ge-0/0/11.0 [0m
+[36m  Logical interface ge-0/0/11.0[0m
     Flags: Up SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
@@ -1234,7 +1268,7 @@ Interface               Admin Link Proto    Local                 Remote
   Interface flags: SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-[36m  Logical interface ge-1/0/0.0 [0m
+[36m  Logical interface ge-1/0/0.0[0m
     Flags: Up SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
@@ -1247,7 +1281,7 @@ Interface               Admin Link Proto    Local                 Remote
   Interface flags: SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-[36m  Logical interface ge-1/0/1.0 [0m
+[36m  Logical interface ge-1/0/1.0[0m
     Flags: Up SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
@@ -1260,7 +1294,7 @@ Interface               Admin Link Proto    Local                 Remote
   Interface flags: SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-[36m  Logical interface ge-1/0/2.0 [0m
+[36m  Logical interface ge-1/0/2.0[0m
     Flags: Up SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
@@ -1270,10 +1304,12 @@ Interface               Admin Link Proto    Local                 Remote
   Auto-negotiation: Enabled, Remote fault: Online, Media type: Copper,
   IEEE 802.3az Energy Efficient Ethernet: Disabled
   Device flags   : Present Running
----(more)---                                          Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
+---(more)---
+
+  Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-[36m  Logical interface ge-1/0/3.0 [0m
+[36m  Logical interface ge-1/0/3.0[0m
     Flags: Device-Down SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
@@ -1286,7 +1322,7 @@ Interface               Admin Link Proto    Local                 Remote
   Interface flags: SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-[36m  Logical interface ge-1/0/4.0 [0m
+[36m  Logical interface ge-1/0/4.0[0m
     Flags: Up SNMP-Traps 0x40[4m004[24m000 Encapsulation: ENET2
     eth-switch
 
@@ -1299,7 +1335,7 @@ Interface               Admin Link Proto    Local                 Remote
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-[36m  Logical interface ge-1/0/5.0 [0m
+[36m  Logical interface ge-1/0/5.0[0m
     Flags: Device-Down SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
@@ -1312,7 +1348,7 @@ Interface               Admin Link Proto    Local                 Remote
   Interface flags: SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-[36m  Logical interface ge-1/0/6.0 [0m
+[36m  Logical interface ge-1/0/6.0[0m
     Flags: Up SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
@@ -1325,7 +1361,7 @@ Interface               Admin Link Proto    Local                 Remote
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-[36m  Logical interface ge-1/0/7.0 [0m
+[36m  Logical interface ge-1/0/7.0[0m
     Flags: Device-Down SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
@@ -1338,12 +1374,14 @@ Interface               Admin Link Proto    Local                 Remote
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-[36m  Logical interface ge-1/0/8.0 [0m
+[36m  Logical interface ge-1/0/8.0[0m
     Flags: Device-Down SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
 [1;31mPhysical interface: ge-1/0/9, Enabled, Physical link is Down[0m
----(more)---                                          Link-level type: Ethernet, MTU: 1514, LAN-PHY mode, Speed: Auto, Duplex: Auto,
+---(more)---
+
+  Link-level type: Ethernet, MTU: 1514, LAN-PHY mode, Speed: Auto, Duplex: Auto,
   Loopback: Disabled, Source filtering: Disabled, Flow control: Enabled,
   Auto-negotiation: Enabled, Remote fault: Online, Media type: Copper,
   IEEE 802.3az Energy Efficient Ethernet: Disabled
@@ -1351,7 +1389,7 @@ Interface               Admin Link Proto    Local                 Remote
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-[36m  Logical interface ge-1/0/9.0 [0m
+[36m  Logical interface ge-1/0/9.0[0m
     Flags: Device-Down SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
@@ -1364,7 +1402,7 @@ Interface               Admin Link Proto    Local                 Remote
   Interface flags: SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-[36m  Logical interface ge-1/0/10.0 [0m
+[36m  Logical interface ge-1/0/10.0[0m
     Flags: Up SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
@@ -1377,7 +1415,7 @@ Interface               Admin Link Proto    Local                 Remote
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-[36m  Logical interface ge-1/0/11.0 [0m
+[36m  Logical interface ge-1/0/11.0[0m
     Flags: Device-Down SNMP-Traps 0x40[4m004[24m000 Encapsulation: ENET2
     eth-switch
 
@@ -1387,7 +1425,7 @@ Interface               Admin Link Proto    Local                 Remote
   Device flags   : Present Running
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
 
-[36m  Logical interface ae0.0 [0m
+[36m  Logical interface ae0.0[0m
     Flags: Hardware-Down Device-Down SNMP-Traps 0x40[4m004[24m000 Encapsulation: ENET2
     eth-switch
 
@@ -1397,7 +1435,7 @@ Interface               Admin Link Proto    Local                 Remote
   Device flags   : Present Running
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
 
-[36m  Logical interface ae1.0 [0m
+[36m  Logical interface ae1.0[0m
     Flags: Hardware-Down Device-Down SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
@@ -1407,7 +1445,7 @@ Interface               Admin Link Proto    Local                 Remote
   Device flags   : Present Running
   Interface flags: SNMP-Traps Internal: 0x4000
 
-[36m  Logical interface ae3.0 [0m
+[36m  Logical interface ae3.0[0m
     Flags: Up SNMP-Traps 0x40[4m004[24m000 Encapsulation: ENET2
     eth-switch
 
@@ -1416,8 +1454,10 @@ Interface               Admin Link Proto    Local                 Remote
   Source filtering: Disabled, Flow control: Disabled
   Device flags   : Present Running
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
----(more)---                                        
-[36m  Logical interface ae4.0 [0m
+---(more)---
+
+
+[36m  Logical interface ae4.0[0m
     Flags: Hardware-Down Device-Down SNMP-Traps 0x40[4m004[24m000 Encapsulation: ENET2
     eth-switch
 
@@ -1426,14 +1466,14 @@ Interface               Admin Link Proto    Local                 Remote
   Speed: Unspecified
   Device flags   : Present Running
 
-[36m  Logical interface bme0.32768 [0m
+[36m  Logical interface bme0.32768[0m
     Flags: Up Encapsulation: ENET2
-    inet  [37m[45m128.0.0.1/2[0m     
-          [30m[46m128.0.0.17/2[0m    
-          [30m[46m128.0.0.32/2[0m    
-    tnp   0x11            
+    inet  [37m[45m128.0.0.1/2[0m
+          [30m[46m128.0.0.17/2[0m
+          [30m[46m128.0.0.32/2[0m
+    tnp   0x11
 
-[36m  Logical interface bme0.32769 [0m
+[36m  Logical interface bme0.32769[0m
     Flags: Down 0x20[4m000[24m000 LinkAddress 0-0 Encapsulation: unknown
     eth-switch
 
@@ -1457,9 +1497,9 @@ Interface               Admin Link Proto    Local                 Remote
   Type: VLAN, Link-level type: VLAN, MTU: 1518, Clocking: Unspecified, Speed: 1000mbps
   Device flags   : Present Running
 
-[36m  Logical interface jsrv.1 [0m
+[36m  Logical interface jsrv.1[0m
     Flags: Up 0x20[4m004[24m000 Encapsulation: unknown
-    inet  [90m[47m128.0.0.127/2[0m   
+    inet  [90m[47m128.0.0.127/2[0m
 
 [32mPhysical interface: lo0, Enabled, Physical link is Up[0m
   Type: Loopback, Link-level type: Unspecified, MTU: Unlimited, Clocking: Unspecified,
@@ -1467,7 +1507,7 @@ Interface               Admin Link Proto    Local                 Remote
   Device flags   : Present Running Loopback
   Interface flags: SNMP-Traps
 
-[36m  Logical interface lo0.16384 [0m
+[36m  Logical interface lo0.16384[0m
     Flags: Encapsulation: Unspecified
     inet  [30m[45m127.0.0.1[0m        --> 0/0
 
@@ -1482,14 +1522,16 @@ Interface               Admin Link Proto    Local                 Remote
   Device flags   : Present Running
   Interface flags: Hardware-Down SNMP-Traps
 
-[36m  Logical interface me0.0 [0m
+[36m  Logical interface me0.0[0m
     Flags: Device-Down SNMP-Traps Encapsulation: ENET2
     eth-switch
 
 [32mPhysical interface: mtun, Enabled, Physical link is Up[0m
   Type: Multicast-GRE, Link-level type: GRE, MTU: Unlimited, Speed: Unlimited
   Device flags   : Present Running
----(more)---                                          Interface flags: SNMP-Traps
+---(more)---
+
+  Interface flags: SNMP-Traps
 
 [32mPhysical interface: pimd, Enabled, Physical link is Up[0m
   Type: PIMD, Link-level type: PIM-Decapsulator, MTU: Unlimited, Speed: Unlimited
@@ -1509,7 +1551,7 @@ Interface               Admin Link Proto    Local                 Remote
   Type: VLAN, Link-level type: VLAN, MTU: 8018, Clocking: Unspecified, Speed: 1000mbps
   Device flags   : Present Running
 
-[36m  Logical interface vlan.102 [0m
+[36m  Logical interface vlan.102[0m
     Flags: Up SNMP-Traps 0x4000 Encapsulation: ENET2
     inet  [35m[47m192.0.2.49/28[0m
     inet6 [30m[42mf00:ba7::5/120[0m
@@ -1520,7 +1562,9 @@ Interface               Admin Link Proto    Local                 Remote
   Speed: 1000mbps
   Device flags   : Present Running
   Interface flags: Hardware-Down SNMP-Traps
----(more 100%)---                                        
+---(more 100%)---
+
+
 
 [32mPhysical interface: xe-0/0/0, Enabled, Physical link is Up[0m
   Interface index: 135, SNMP ifIndex: 509
@@ -1547,7 +1591,7 @@ Interface               Admin Link Proto    Local                 Remote
   Interface transmit statistics: Disabled
 
 {master:1}
-jmaslak@swXX> show interfaces diagnostics optics 
+jmaslak@swXX> show interfaces diagnostics optics
 [36mPhysical interface: ge-0/1/1[0m
     Laser bias current                        :  9.502 mA
 [36m    Laser output power                        :  0.2760 mW / -5.59 dBm[0m
@@ -1626,7 +1670,9 @@ jmaslak@swXX> show interfaces diagnostics optics
     Laser bias current high warning threshold :  90.000 mA
     Laser bias current low warning threshold  :  0.100 mA
     Laser output power high alarm threshold   :  0.6310 mW / -2.00 dBm
----(more)---                                            Laser output power low alarm threshold    :  0.1000 mW / -10.00 dBm
+---(more)---
+
+    Laser output power low alarm threshold    :  0.1000 mW / -10.00 dBm
     Laser output power high warning threshold :  0.5010 mW / -3.00 dBm
     Laser output power low warning threshold  :  0.1250 mW / -9.03 dBm
     Module temperature high alarm threshold   :  90 degrees C / 194 degrees F
@@ -1641,22 +1687,24 @@ jmaslak@swXX> show interfaces diagnostics optics
     Laser rx power low alarm threshold        :  0.0126 mW / -19.00 dBm
     Laser rx power high warning threshold     :  1.0000 mW / 0.00 dBm
     Laser rx power low warning threshold      :  0.0158 mW / -18.01 dBm
----(more 100%)---                                        
+---(more 100%)---
+
+
 {master:1}
-jmaslak@swXX> exit 
+jmaslak@swXX> exit
 
 --- JUNOS 20.2R3.9 Kernel 32-bit  JNPR-11.0-20[4m210[24m212.420a184_buil
 {master:0}
-foobar@xxxx.xxxxxx> show interfaces terse 
+foobar@xxxx.xxxxxx> show interfaces terse
 Interface               Admin Link Proto    Local                 Remote
 [1;31mge-0/0/0                up    down[0m
 [1;31mge-0/0/0.0              up    down eth-switch[0m
 [32mpfe-0/0/0               up    up[0m
-[32mpfe-0/0/0.16383         up    up   inet    [0m
-                                   inet6   
+[32mpfe-0/0/0.16383         up    up   inet[0m
+                                   inet6
 [32mpfh-0/0/0               up    up[0m
-[32mpfh-0/0/0.16383         up    up   inet    [0m
-[32mpfh-0/0/0.16384         up    up   inet    [0m
+[32mpfh-0/0/0.16383         up    up   inet[0m
+[32mpfh-0/0/0.16384         up    up   inet[0m
 [1;31mge-0/0/1                up    down[0m
 [1;31mge-0/0/1.0              up    down eth-switch[0m
 [32mge-0/0/2                up    up[0m
@@ -1683,7 +1731,9 @@ Interface               Admin Link Proto    Local                 Remote
 [32mge-0/0/12.0             up    up   eth-switch[0m
 [32mge-0/0/13               up    up[0m
 [32mge-0/0/13.0             up    up   eth-switch[0m
----(more)---                                        [1;31mge-0/0/14               up    down[0m
+---(more)---
+
+[1;31mge-0/0/14               up    down[0m
 [1;31mge-0/0/14.0             up    down eth-switch[0m
 [1;31mge-0/0/15               up    down[0m
 [1;31mge-0/0/15.0             up    down eth-switch[0m
@@ -1706,21 +1756,23 @@ Interface               Admin Link Proto    Local                 Remote
 [32mge-0/1/0                up    up[0m
 [32mge-0/1/0.0              up    up   eth-switch[0m
 [32mbme0                    up    up[0m
-[32mbme0.0                  up    up   inet     [37m[45m128.0.0.1/2[0m     [0m
-                                            [97m[100m128.0.0.4/2[0m     
-                                            [37m[45m128.0.0.16/2[0m    
-                                            [30m[100m128.0.0.63/2[0m    
+[32mbme0.0                  up    up   inet     [37m[45m128.0.0.1/2[0m[0m
+                                            [97m[100m128.0.0.4/2[0m
+                                            [37m[45m128.0.0.16/2[0m
+                                            [30m[100m128.0.0.63/2[0m
 [32mcbp0                    up    up[0m
 [32mdsc                     up    up[0m
 [32mesi                     up    up[0m
 [32mgre                     up    up[0m
 [32mipip                    up    up[0m
 [32mirb                     up    up[0m
-[32mirb.80                  up    up   inet     [37m[45m10.1.2.3/25[0m  [0m
+[32mirb.80                  up    up   inet     [37m[45m10.1.2.3/25[0m[0m
 [32mjsrv                    up    up[0m
----(more 84%)---                                        [32mjsrv.1                  up    up   inet     [90m[47m128.0.0.127/2[0m   [0m
+---(more 84%)---
+
+[32mjsrv.1                  up    up   inet     [90m[47m128.0.0.127/2[0m[0m
 [32mlo0                     up    up[0m
-[32mlo0.16385               up    up   inet    [0m
+[32mlo0.16385               up    up   inet[0m
 [32mlsi                     up    up[0m
 [1;31mme0                     up    down[0m
 [1;31mme0.0                   up    down eth-switch[0m
@@ -1751,15 +1803,26 @@ Interface               Admin Link Proto    Local                 Remote
 [32mpime                    up    up[0m
 [32mpp0                     up    up[0m
 [32mppd0                    up    up[0m
-[32mppe0                    up    up        [0m
+[32mppe0                    up    up[0m
 [32mrbeb                    up    up[0m
 [32mst0                     up    up[0m
-[1;31mst0.1000                up    down inet     [35m[47m192.0.2.1/31[0m [0m
+[1;31mst0.1000                up    down inet     [35m[47m192.0.2.1/31[0m[0m
 
 
 {master:0}
-foobar@xxxx.xxxxxx> exit 
+foobar@xxxx.xxxxxx> exit
 
 [1;31m    Laser receiver power                      :  0.0000 mW / - Inf dBm[0m
 [36m    Laser receiver power                      :  0.2520 mW / -5.99 dBm[0m
 
+jmaslak@sw02> show version
+fpc0:
+--------------------------------------------------------------------------
+Hostname: sw02
+[36mModel: ex2200-c-12p-2g[0m
+[36mJunos: 15.1R5.5[0m
+JUNOS EX  Software Suite [15.1R5.5]
+JUNOS FIPS mode utilities [15.1R5.5]
+JUNOS Online Documentation [15.1R5.5]
+JUNOS EX 2200 Software Suite [15.1R5.5]
+JUNOS Web Management Platform Package [15.1R5.5]

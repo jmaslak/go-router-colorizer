@@ -1,4 +1,5 @@
-Last login: Mon Aug 16 14:48:18 2021 from 192.0.2.18
+Last login: Mon Aug 16 14:48:18 2021 from 192.0.2.18
+
 JUNOS tip:
 Use '#' in the beginning of a line in command scripts to cause the
 rest of the line to be ignored.
@@ -6,7 +7,7 @@ rest of the line to be ignored.
 No alarms currently active
 
 {master:1}
-user@swXX> show interfaces 
+user@swXX> show interfaces
 Physical interface: vcp-255/1/0, Enabled, Physical link is Up
   Interface index: 66, SNMP ifIndex: 101
   Link-level type: Virtual-Chassis-Interface, MTU: 1514, LAN-PHY mode, Speed: 1000mbps,
@@ -80,7 +81,9 @@ Physical interface: ge-0/0/1, Enabled, Physical link is Up
   Interface flags: SNMP-Traps Internal: 0x4000
   Link flags     : None
   CoS queues     : 8 supported, 8 maximum usable queues
----(more)---                                          Current address: 30:7c:5e:14:a1:44, Hardware address: 30:7c:5e:14:a1:44
+---(more)---
+
+  Current address: 30:7c:5e:14:a1:44, Hardware address: 30:7c:5e:14:a1:44
   Last flapped   : 2021-07-26 17:00:19 MDT (3w0d 20:18 ago)
   Input rate     : 0 bps (0 pps)
   Output rate    : 3768 bps (3 pps)
@@ -153,7 +156,9 @@ Physical interface: ge-0/0/4, Enabled, Physical link is Up
   Link-level type: Ethernet, MTU: 1514, LAN-PHY mode, Speed: Auto, Duplex: Auto,
   BPDU Error: None, MAC-REWRITE Error: None, Loopback: Disabled, Source filtering: Disabled,
   Flow control: Enabled, Auto-negotiation: Enabled, Remote fault: Online, Media type: Copper,
----(more)---                                          IEEE 802.3az Energy Efficient Ethernet: Disabled
+---(more)---
+
+  IEEE 802.3az Energy Efficient Ethernet: Disabled
   Device flags   : Present Running
   Interface flags: SNMP-Traps Internal: 0x4000
   Link flags     : None
@@ -226,7 +231,9 @@ Physical interface: ge-0/0/7, Enabled, Physical link is Down
   BPDU Error: None, MAC-REWRITE Error: None, Loopback: Disabled, Source filtering: Disabled,
   Flow control: Enabled, Auto-negotiation: Enabled, Remote fault: Online, Media type: Copper,
   IEEE 802.3az Energy Efficient Ethernet: Disabled
----(more)---                                          Device flags   : Present Running
+---(more)---
+
+  Device flags   : Present Running
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Link flags     : None
   CoS queues     : 8 supported, 8 maximum usable queues
@@ -299,7 +306,9 @@ Physical interface: ge-0/0/10, Enabled, Physical link is Down
   Description: pc2.example.com
   Link-level type: Ethernet, MTU: 1514, LAN-PHY mode, Speed: 1000mbps, Duplex: Auto,
   BPDU Error: None, MAC-REWRITE Error: None, Loopback: Disabled, Source filtering: Disabled,
----(more)---                                          Flow control: Disabled, Auto-negotiation: Enabled, Remote fault: Online, Media type: Copper,
+---(more)---
+
+  Flow control: Disabled, Auto-negotiation: Enabled, Remote fault: Online, Media type: Copper,
   IEEE 802.3az Energy Efficient Ethernet: Disabled
   Device flags   : Present Running
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
@@ -372,7 +381,9 @@ Physical interface: ge-1/0/0, Enabled, Physical link is Up
 Physical interface: ge-1/0/1, Enabled, Physical link is Up
   Interface index: 135, SNMP ifIndex: 542
   Description: pc3.example.com
----(more)---                                          Link-level type: Ethernet, MTU: 1514, LAN-PHY mode, Speed: Auto, Duplex: Auto,
+---(more)---
+
+  Link-level type: Ethernet, MTU: 1514, LAN-PHY mode, Speed: Auto, Duplex: Auto,
   BPDU Error: None, MAC-REWRITE Error: None, Loopback: Disabled, Source filtering: Disabled,
   Flow control: Enabled, Auto-negotiation: Enabled, Remote fault: Online, Media type: Copper,
   IEEE 802.3az Energy Efficient Ethernet: Disabled
@@ -445,7 +456,9 @@ Physical interface: ge-1/0/3, Enabled, Physical link is Down
     Input packets : 0
     Output packets: 0
     Protocol eth-switch
----(more)---                                              Flags: None
+---(more)---
+
+      Flags: None
 
 Physical interface: ge-1/0/4, Enabled, Physical link is Up
   Interface index: 138, SNMP ifIndex: 552
@@ -518,7 +531,9 @@ Physical interface: ge-1/0/6, Enabled, Physical link is Up
   Active defects : None
   Interface transmit statistics: Disabled
 
----(more)---                                          Logical interface ge-1/0/6.0 (Index 81) (SNMP ifIndex 557)
+---(more)---
+
+  Logical interface ge-1/0/6.0 (Index 81) (SNMP ifIndex 557)
     Flags: Up SNMP-Traps 0x4000 Encapsulation: ENET2
     Input packets : 120010
     Output packets: 9063998
@@ -591,7 +606,9 @@ Physical interface: ge-1/0/9, Enabled, Physical link is Down
   Current address: 12:35:67:89:68:4c, Hardware address: 12:35:67:89:68:4c
   Last flapped   : Never
   Input rate     : 0 bps (0 pps)
----(more 61%)---                                          Output rate    : 0 bps (0 pps)
+---(more 61%)---
+
+  Output rate    : 0 bps (0 pps)
   Active alarms  : LINK
   Active defects : LINK
   Interface transmit statistics: Disabled
@@ -664,7 +681,9 @@ Physical interface: ae0, Enabled, Physical link is Down
   Device flags   : Present Running
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Current address: 12:35:67:89:68:43, Hardware address: 12:35:67:89:68:43
----(more 69%)---                                          Last flapped   : 2021-01-25 20:00:19 MST (29w0d 16:18 ago)
+---(more 69%)---
+
+  Last flapped   : 2021-01-25 20:00:19 MST (29w0d 16:18 ago)
   Input rate     : 0 bps (0 pps)
   Output rate    : 0 bps (0 pps)
 
@@ -737,7 +756,9 @@ Physical interface: ae4, Enabled, Physical link is Down
   Interface index: 131, SNMP ifIndex: 536
   Description: Temporary Trunk
   Link-level type: Ethernet, MTU: 8018, Speed: Unspecified, BPDU Error: None,
----(more 76%)---                                          MAC-REWRITE Error: None, Loopback: Disabled, Source filtering: Disabled,
+---(more 76%)---
+
+  MAC-REWRITE Error: None, Loopback: Disabled, Source filtering: Disabled,
   Flow control: Disabled, Minimum links needed: 1, Minimum bandwidth needed: 1bps
   Device flags   : Present Running
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
@@ -810,7 +831,9 @@ Physical interface: gre, Enabled, Physical link is Up
   Device flags   : Present Running
   Interface flags: Point-To-Point SNMP-Traps
     Input packets : 0
----(more 84%)---                                            Output packets: 0
+---(more 84%)---
+
+    Output packets: 0
 
 Physical interface: ipip, Enabled, Physical link is Up
   Interface index: 11, SNMP ifIndex: 9
@@ -883,7 +906,9 @@ Physical interface: me0, Enabled, Physical link is Down
     Input packets : 0
     Output packets: 0
     Protocol eth-switch
----(more 92%)---                                              Flags: Is-Primary
+---(more 92%)---
+
+      Flags: Is-Primary
 
 Physical interface: mtun, Enabled, Physical link is Up
   Interface index: 65, SNMP ifIndex: 12
@@ -956,17 +981,19 @@ Physical interface: vme, Enabled, Physical link is Down
   Link type      : Full-Duplex
   Link flags     : None
   Current address: 12:35:67:89:68:42, Hardware address: 12:35:67:89:68:42
----(more 99%)---                                          Last flapped   : Never
+---(more 99%)---
+
+  Last flapped   : Never
     Input packets : 0
     Output packets: 0
 
 {master:1}
-user@swXX> show interfaces terse 
+user@swXX> show interfaces terse
 Interface               Admin Link Proto    Local                 Remote
 vcp-255/1/0             up    up
-vcp-255/1/0.32768       up    up  
+vcp-255/1/0.32768       up    up
 vcp-255/1/1             up    up
-vcp-255/1/1.32768       up    up  
+vcp-255/1/1.32768       up    up
 ge-0/0/0                up    down
 ge-0/0/0.0              up    down eth-switch
 ge-0/0/1                up    up
@@ -1024,18 +1051,20 @@ ae3.0                   up    up   eth-switch
 ae4                     up    down
 ae4.0                   up    down eth-switch
 bme0                    up    up
-bme0.32768              up    up   inet     128.0.0.1/2     
-                                            128.0.0.17/2    
-                                            128.0.0.32/2    
-                                   tnp      0x11            
+bme0.32768              up    up   inet     128.0.0.1/2
+                                            128.0.0.17/2
+                                            128.0.0.32/2
+                                   tnp      0x11
 bme0.32769              down  up   eth-switch
 dsc                     up    up
 gre                     up    up
 ipip                    up    up
 jsrv                    up    up
-jsrv.1                  up    up   inet     128.0.0.127/2   
+jsrv.1                  up    up   inet     128.0.0.127/2
 lo0                     up    up
----(more)---                                        lo0.16384               up    up   inet     127.0.0.1           --> 0/0
+---(more)---
+
+lo0.16384               up    up   inet     127.0.0.1           --> 0/0
 lsi                     up    up
 me0                     up    down
 me0.0                   up    down eth-switch
@@ -1050,14 +1079,15 @@ vlan.102                up    up   inet     192.0.2.49/28
 vme                     up    down
 
 {master:1}
-user@swXX> show interfaces brief
+
+user@swXX> show interfaces brief
 Physical interface: vcp-255/1/0, Enabled, Physical link is Up
   Link-level type: Virtual-Chassis-Interface, MTU: 1514, LAN-PHY mode, Speed: 1000mbps,
   Media type: Copper
   Device flags   : Present Running
   Link flags     : None
 
-  Logical interface vcp-255/1/0.32768 
+  Logical interface vcp-255/1/0.32768
     Flags: Encapsulation: Unspecified
 
 Physical interface: vcp-255/1/1, Enabled, Physical link is Up
@@ -1066,7 +1096,7 @@ Physical interface: vcp-255/1/1, Enabled, Physical link is Up
   Device flags   : Present Running
   Link flags     : None
 
-  Logical interface vcp-255/1/1.32768 
+  Logical interface vcp-255/1/1.32768
     Flags: Encapsulation: Unspecified
 
 Physical interface: ge-0/0/0, Enabled, Physical link is Down
@@ -1078,7 +1108,7 @@ Physical interface: ge-0/0/0, Enabled, Physical link is Down
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-  Logical interface ge-0/0/0.0 
+  Logical interface ge-0/0/0.0
     Flags: Device-Down SNMP-Traps 0x40004000 Encapsulation: ENET2
     eth-switch
 
@@ -1091,7 +1121,7 @@ Physical interface: ge-0/0/1, Enabled, Physical link is Up
   Interface flags: SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-  Logical interface ge-0/0/1.0 
+  Logical interface ge-0/0/1.0
     Flags: Up SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
@@ -1104,7 +1134,7 @@ Physical interface: ge-0/0/2, Enabled, Physical link is Down
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-  Logical interface ge-0/0/2.0 
+  Logical interface ge-0/0/2.0
     Flags: Device-Down SNMP-Traps 0x40004000 Encapsulation: ENET2
     eth-switch
 
@@ -1117,20 +1147,22 @@ Physical interface: ge-0/0/3, Enabled, Physical link is Up
   Interface flags: SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-  Logical interface ge-0/0/3.0 
+  Logical interface ge-0/0/3.0
     Flags: Up SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
 Physical interface: ge-0/0/4, Enabled, Physical link is Up
   Link-level type: Ethernet, MTU: 1514, LAN-PHY mode, Speed: Auto, Duplex: Auto,
   Loopback: Disabled, Source filtering: Disabled, Flow control: Enabled,
----(more)---                                          Auto-negotiation: Enabled, Remote fault: Online, Media type: Copper,
+---(more)---
+
+  Auto-negotiation: Enabled, Remote fault: Online, Media type: Copper,
   IEEE 802.3az Energy Efficient Ethernet: Disabled
   Device flags   : Present Running
   Interface flags: SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-  Logical interface ge-0/0/4.0 
+  Logical interface ge-0/0/4.0
     Flags: Up SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
@@ -1143,7 +1175,7 @@ Physical interface: ge-0/0/5, Enabled, Physical link is Down
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-  Logical interface ge-0/0/5.0 
+  Logical interface ge-0/0/5.0
     Flags: Device-Down 0x4000 Encapsulation: ENET2
     aenet
 
@@ -1156,7 +1188,7 @@ Physical interface: ge-0/0/6, Enabled, Physical link is Up
   Interface flags: SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-  Logical interface ge-0/0/6.0 
+  Logical interface ge-0/0/6.0
     Flags: Up 0x4000 Encapsulation: ENET2
     aenet
 
@@ -1169,7 +1201,7 @@ Physical interface: ge-0/0/7, Enabled, Physical link is Down
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-  Logical interface ge-0/0/7.0 
+  Logical interface ge-0/0/7.0
     Flags: Device-Down SNMP-Traps 0x40004000 Encapsulation: ENET2
     eth-switch
 
@@ -1182,7 +1214,7 @@ Physical interface: ge-0/0/8, Enabled, Physical link is Down
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-  Logical interface ge-0/0/8.0 
+  Logical interface ge-0/0/8.0
     Flags: Device-Down SNMP-Traps 0x40004000 Encapsulation: ENET2
     eth-switch
 
@@ -1195,9 +1227,11 @@ Physical interface: ge-0/0/9, Enabled, Physical link is Down
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-  Logical interface ge-0/0/9.0 
+  Logical interface ge-0/0/9.0
     Flags: Device-Down 0x4000 Encapsulation: ENET2
----(more)---                                            aenet
+---(more)---
+
+    aenet
 
 Physical interface: ge-0/0/10, Enabled, Physical link is Down
   Link-level type: Ethernet, MTU: 1514, LAN-PHY mode, Speed: 1000mbps, Duplex: Auto,
@@ -1208,7 +1242,7 @@ Physical interface: ge-0/0/10, Enabled, Physical link is Down
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-  Logical interface ge-0/0/10.0 
+  Logical interface ge-0/0/10.0
     Flags: Device-Down 0x4000 Encapsulation: ENET2
     aenet
 
@@ -1221,7 +1255,7 @@ Physical interface: ge-0/0/11, Enabled, Physical link is Up
   Interface flags: SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-  Logical interface ge-0/0/11.0 
+  Logical interface ge-0/0/11.0
     Flags: Up SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
@@ -1234,7 +1268,7 @@ Physical interface: ge-1/0/0, Enabled, Physical link is Up
   Interface flags: SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-  Logical interface ge-1/0/0.0 
+  Logical interface ge-1/0/0.0
     Flags: Up SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
@@ -1247,7 +1281,7 @@ Physical interface: ge-1/0/1, Enabled, Physical link is Up
   Interface flags: SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-  Logical interface ge-1/0/1.0 
+  Logical interface ge-1/0/1.0
     Flags: Up SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
@@ -1260,7 +1294,7 @@ Physical interface: ge-1/0/2, Enabled, Physical link is Up
   Interface flags: SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-  Logical interface ge-1/0/2.0 
+  Logical interface ge-1/0/2.0
     Flags: Up SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
@@ -1270,10 +1304,12 @@ Physical interface: ge-1/0/3, Enabled, Physical link is Down
   Auto-negotiation: Enabled, Remote fault: Online, Media type: Copper,
   IEEE 802.3az Energy Efficient Ethernet: Disabled
   Device flags   : Present Running
----(more)---                                          Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
+---(more)---
+
+  Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-  Logical interface ge-1/0/3.0 
+  Logical interface ge-1/0/3.0
     Flags: Device-Down SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
@@ -1286,7 +1322,7 @@ Physical interface: ge-1/0/4, Enabled, Physical link is Up
   Interface flags: SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-  Logical interface ge-1/0/4.0 
+  Logical interface ge-1/0/4.0
     Flags: Up SNMP-Traps 0x40004000 Encapsulation: ENET2
     eth-switch
 
@@ -1299,7 +1335,7 @@ Physical interface: ge-1/0/5, Enabled, Physical link is Down
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-  Logical interface ge-1/0/5.0 
+  Logical interface ge-1/0/5.0
     Flags: Device-Down SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
@@ -1312,7 +1348,7 @@ Physical interface: ge-1/0/6, Enabled, Physical link is Up
   Interface flags: SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-  Logical interface ge-1/0/6.0 
+  Logical interface ge-1/0/6.0
     Flags: Up SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
@@ -1325,7 +1361,7 @@ Physical interface: ge-1/0/7, Enabled, Physical link is Down
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-  Logical interface ge-1/0/7.0 
+  Logical interface ge-1/0/7.0
     Flags: Device-Down SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
@@ -1338,12 +1374,14 @@ Physical interface: ge-1/0/8, Enabled, Physical link is Down
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-  Logical interface ge-1/0/8.0 
+  Logical interface ge-1/0/8.0
     Flags: Device-Down SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
 Physical interface: ge-1/0/9, Enabled, Physical link is Down
----(more)---                                          Link-level type: Ethernet, MTU: 1514, LAN-PHY mode, Speed: Auto, Duplex: Auto,
+---(more)---
+
+  Link-level type: Ethernet, MTU: 1514, LAN-PHY mode, Speed: Auto, Duplex: Auto,
   Loopback: Disabled, Source filtering: Disabled, Flow control: Enabled,
   Auto-negotiation: Enabled, Remote fault: Online, Media type: Copper,
   IEEE 802.3az Energy Efficient Ethernet: Disabled
@@ -1351,7 +1389,7 @@ Physical interface: ge-1/0/9, Enabled, Physical link is Down
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-  Logical interface ge-1/0/9.0 
+  Logical interface ge-1/0/9.0
     Flags: Device-Down SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
@@ -1364,7 +1402,7 @@ Physical interface: ge-1/0/10, Enabled, Physical link is Up
   Interface flags: SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-  Logical interface ge-1/0/10.0 
+  Logical interface ge-1/0/10.0
     Flags: Up SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
@@ -1377,7 +1415,7 @@ Physical interface: ge-1/0/11, Enabled, Physical link is Down
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
   Link flags     : None
 
-  Logical interface ge-1/0/11.0 
+  Logical interface ge-1/0/11.0
     Flags: Device-Down SNMP-Traps 0x40004000 Encapsulation: ENET2
     eth-switch
 
@@ -1387,7 +1425,7 @@ Physical interface: ae0, Enabled, Physical link is Down
   Device flags   : Present Running
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
 
-  Logical interface ae0.0 
+  Logical interface ae0.0
     Flags: Hardware-Down Device-Down SNMP-Traps 0x40004000 Encapsulation: ENET2
     eth-switch
 
@@ -1397,7 +1435,7 @@ Physical interface: ae1, Enabled, Physical link is Down
   Device flags   : Present Running
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
 
-  Logical interface ae1.0 
+  Logical interface ae1.0
     Flags: Hardware-Down Device-Down SNMP-Traps 0x4000 Encapsulation: ENET2
     eth-switch
 
@@ -1407,7 +1445,7 @@ Physical interface: ae3, Enabled, Physical link is Up
   Device flags   : Present Running
   Interface flags: SNMP-Traps Internal: 0x4000
 
-  Logical interface ae3.0 
+  Logical interface ae3.0
     Flags: Up SNMP-Traps 0x40004000 Encapsulation: ENET2
     eth-switch
 
@@ -1416,8 +1454,10 @@ Physical interface: ae4, Enabled, Physical link is Down
   Source filtering: Disabled, Flow control: Disabled
   Device flags   : Present Running
   Interface flags: Hardware-Down SNMP-Traps Internal: 0x4000
----(more)---                                        
-  Logical interface ae4.0 
+---(more)---
+
+
+  Logical interface ae4.0
     Flags: Hardware-Down Device-Down SNMP-Traps 0x40004000 Encapsulation: ENET2
     eth-switch
 
@@ -1426,14 +1466,14 @@ Physical interface: bme0, Enabled, Physical link is Up
   Speed: Unspecified
   Device flags   : Present Running
 
-  Logical interface bme0.32768 
+  Logical interface bme0.32768
     Flags: Up Encapsulation: ENET2
-    inet  128.0.0.1/2     
-          128.0.0.17/2    
-          128.0.0.32/2    
-    tnp   0x11            
+    inet  128.0.0.1/2
+          128.0.0.17/2
+          128.0.0.32/2
+    tnp   0x11
 
-  Logical interface bme0.32769 
+  Logical interface bme0.32769
     Flags: Down 0x20000000 LinkAddress 0-0 Encapsulation: unknown
     eth-switch
 
@@ -1457,9 +1497,9 @@ Physical interface: jsrv, Enabled, Physical link is Up
   Type: VLAN, Link-level type: VLAN, MTU: 1518, Clocking: Unspecified, Speed: 1000mbps
   Device flags   : Present Running
 
-  Logical interface jsrv.1 
+  Logical interface jsrv.1
     Flags: Up 0x20004000 Encapsulation: unknown
-    inet  128.0.0.127/2   
+    inet  128.0.0.127/2
 
 Physical interface: lo0, Enabled, Physical link is Up
   Type: Loopback, Link-level type: Unspecified, MTU: Unlimited, Clocking: Unspecified,
@@ -1467,7 +1507,7 @@ Physical interface: lo0, Enabled, Physical link is Up
   Device flags   : Present Running Loopback
   Interface flags: SNMP-Traps
 
-  Logical interface lo0.16384 
+  Logical interface lo0.16384
     Flags: Encapsulation: Unspecified
     inet  127.0.0.1        --> 0/0
 
@@ -1482,14 +1522,16 @@ Physical interface: me0, Enabled, Physical link is Down
   Device flags   : Present Running
   Interface flags: Hardware-Down SNMP-Traps
 
-  Logical interface me0.0 
+  Logical interface me0.0
     Flags: Device-Down SNMP-Traps Encapsulation: ENET2
     eth-switch
 
 Physical interface: mtun, Enabled, Physical link is Up
   Type: Multicast-GRE, Link-level type: GRE, MTU: Unlimited, Speed: Unlimited
   Device flags   : Present Running
----(more)---                                          Interface flags: SNMP-Traps
+---(more)---
+
+  Interface flags: SNMP-Traps
 
 Physical interface: pimd, Enabled, Physical link is Up
   Type: PIMD, Link-level type: PIM-Decapsulator, MTU: Unlimited, Speed: Unlimited
@@ -1509,7 +1551,7 @@ Physical interface: vlan, Enabled, Physical link is Up
   Type: VLAN, Link-level type: VLAN, MTU: 8018, Clocking: Unspecified, Speed: 1000mbps
   Device flags   : Present Running
 
-  Logical interface vlan.102 
+  Logical interface vlan.102
     Flags: Up SNMP-Traps 0x4000 Encapsulation: ENET2
     inet  192.0.2.49/28
     inet6 f00:ba7::5/120
@@ -1520,7 +1562,9 @@ Physical interface: vme, Enabled, Physical link is Down
   Speed: 1000mbps
   Device flags   : Present Running
   Interface flags: Hardware-Down SNMP-Traps
----(more 100%)---                                        
+---(more 100%)---
+
+
 
 Physical interface: xe-0/0/0, Enabled, Physical link is Up
   Interface index: 135, SNMP ifIndex: 509
@@ -1547,7 +1591,7 @@ Physical interface: xe-0/0/0, Enabled, Physical link is Up
   Interface transmit statistics: Disabled
 
 {master:1}
-jmaslak@swXX> show interfaces diagnostics optics 
+jmaslak@swXX> show interfaces diagnostics optics
 Physical interface: ge-0/1/1
     Laser bias current                        :  9.502 mA
     Laser output power                        :  0.2760 mW / -5.59 dBm
@@ -1626,7 +1670,9 @@ Physical interface: ge-1/1/1
     Laser bias current high warning threshold :  90.000 mA
     Laser bias current low warning threshold  :  0.100 mA
     Laser output power high alarm threshold   :  0.6310 mW / -2.00 dBm
----(more)---                                            Laser output power low alarm threshold    :  0.1000 mW / -10.00 dBm
+---(more)---
+
+    Laser output power low alarm threshold    :  0.1000 mW / -10.00 dBm
     Laser output power high warning threshold :  0.5010 mW / -3.00 dBm
     Laser output power low warning threshold  :  0.1250 mW / -9.03 dBm
     Module temperature high alarm threshold   :  90 degrees C / 194 degrees F
@@ -1641,22 +1687,24 @@ Physical interface: ge-1/1/1
     Laser rx power low alarm threshold        :  0.0126 mW / -19.00 dBm
     Laser rx power high warning threshold     :  1.0000 mW / 0.00 dBm
     Laser rx power low warning threshold      :  0.0158 mW / -18.01 dBm
----(more 100%)---                                        
+---(more 100%)---
+
+
 {master:1}
-jmaslak@swXX> exit 
+jmaslak@swXX> exit
 
 --- JUNOS 20.2R3.9 Kernel 32-bit  JNPR-11.0-20210212.420a184_buil
 {master:0}
-foobar@xxxx.xxxxxx> show interfaces terse 
+foobar@xxxx.xxxxxx> show interfaces terse
 Interface               Admin Link Proto    Local                 Remote
 ge-0/0/0                up    down
 ge-0/0/0.0              up    down eth-switch
 pfe-0/0/0               up    up
-pfe-0/0/0.16383         up    up   inet    
-                                   inet6   
+pfe-0/0/0.16383         up    up   inet
+                                   inet6
 pfh-0/0/0               up    up
-pfh-0/0/0.16383         up    up   inet    
-pfh-0/0/0.16384         up    up   inet    
+pfh-0/0/0.16383         up    up   inet
+pfh-0/0/0.16384         up    up   inet
 ge-0/0/1                up    down
 ge-0/0/1.0              up    down eth-switch
 ge-0/0/2                up    up
@@ -1683,7 +1731,9 @@ ge-0/0/12               up    up
 ge-0/0/12.0             up    up   eth-switch
 ge-0/0/13               up    up
 ge-0/0/13.0             up    up   eth-switch
----(more)---                                        ge-0/0/14               up    down
+---(more)---
+
+ge-0/0/14               up    down
 ge-0/0/14.0             up    down eth-switch
 ge-0/0/15               up    down
 ge-0/0/15.0             up    down eth-switch
@@ -1706,21 +1756,23 @@ ge-0/0/23.0             up    down eth-switch
 ge-0/1/0                up    up
 ge-0/1/0.0              up    up   eth-switch
 bme0                    up    up
-bme0.0                  up    up   inet     128.0.0.1/2     
-                                            128.0.0.4/2     
-                                            128.0.0.16/2    
-                                            128.0.0.63/2    
+bme0.0                  up    up   inet     128.0.0.1/2
+                                            128.0.0.4/2
+                                            128.0.0.16/2
+                                            128.0.0.63/2
 cbp0                    up    up
 dsc                     up    up
 esi                     up    up
 gre                     up    up
 ipip                    up    up
 irb                     up    up
-irb.80                  up    up   inet     10.1.2.3/25  
+irb.80                  up    up   inet     10.1.2.3/25
 jsrv                    up    up
----(more 84%)---                                        jsrv.1                  up    up   inet     128.0.0.127/2   
+---(more 84%)---
+
+jsrv.1                  up    up   inet     128.0.0.127/2
 lo0                     up    up
-lo0.16385               up    up   inet    
+lo0.16385               up    up   inet
 lsi                     up    up
 me0                     up    down
 me0.0                   up    down eth-switch
@@ -1751,15 +1803,26 @@ irb                     up    up
 pime                    up    up
 pp0                     up    up
 ppd0                    up    up
-ppe0                    up    up        
+ppe0                    up    up
 rbeb                    up    up
 st0                     up    up
-st0.1000                up    down inet     192.0.2.1/31 
+st0.1000                up    down inet     192.0.2.1/31
 
 
 {master:0}
-foobar@xxxx.xxxxxx> exit 
+foobar@xxxx.xxxxxx> exit
 
     Laser receiver power                      :  0.0000 mW / - Inf dBm
     Laser receiver power                      :  0.2520 mW / -5.99 dBm
 
+jmaslak@sw02> show version
+fpc0:
+--------------------------------------------------------------------------
+Hostname: sw02
+Model: ex2200-c-12p-2g
+Junos: 15.1R5.5
+JUNOS EX  Software Suite [15.1R5.5]
+JUNOS FIPS mode utilities [15.1R5.5]
+JUNOS Online Documentation [15.1R5.5]
+JUNOS EX 2200 Software Suite [15.1R5.5]
+JUNOS Web Management Platform Package [15.1R5.5]

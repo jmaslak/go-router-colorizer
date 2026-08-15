@@ -50,6 +50,10 @@ var junosRules = []rule{
 	whole(`^(    Laser receiver power \s+:\s+`+pNum+` mW / `+pLight+`\sdBm)$`, info),
 	whole(`^(    Receiver signal average optical power \s+:\s+`+pNum+` mW / `+pLowLight+`\sdBm)$`, red),
 	whole(`^(    Receiver signal average optical power \s+:\s+`+pNum+` mW / `+pLight+`\sdBm)$`, info),
+
+	// "show version".
+	whole(`^(Model: [^\n]+)$`, info),
+	whole(`^(Junos: [^\n]+)$`, info),
 }
 
 // vyosRules cover the VyOS/FRR output that the Arista and Cisco rules do not
