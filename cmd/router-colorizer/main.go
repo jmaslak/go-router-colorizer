@@ -54,6 +54,8 @@ func main() {
 		return
 	}
 
+	notifyUpdateAvailable(os.Stderr)
+
 	if *cmdName != "" {
 		os.Exit(runCmd(*cmdName, flag.Args(), *delay))
 	}

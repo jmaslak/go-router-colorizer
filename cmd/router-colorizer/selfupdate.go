@@ -55,6 +55,7 @@ func selfUpdate() error {
 
 	latest := strings.TrimPrefix(rel.TagName, "v")
 	if version != "dev" && latest == strings.TrimPrefix(version, "v") {
+		writeUpdateCache(updateCache{CheckedAt: time.Now(), Latest: rel.TagName})
 		fmt.Printf("router-colorizer %s is already the latest version\n", version)
 		return nil
 	}
@@ -92,6 +93,8 @@ func selfUpdate() error {
 	if err := installExecutable(bin); err != nil {
 		return err
 	}
+
+	writeUpdateCache(updateCache{CheckedAt: time.Now(), Latest: rel.TagName})
 
 	fmt.Printf("router-colorizer updated to %s\n", rel.TagName)
 	return nil
@@ -139,6 +142,101 @@ func checksumFor(checksums []byte, name string) (string, error) {
 	}
 	return "", fmt.Errorf("no checksum found for %s", name)
 }
+
+// updateCheckInterval is how long a cached "latest release" result is trusted
+// before notifyUpdateAvailable refreshes it from GitHub.
+const updateCheckInterval = 24 * time.Hour
+
+// updateCache is the on-disk record of the last time we asked GitHub for the
+// latest release, so most runs can report staleness without a network call.
+type updateCache struct {
+	CheckedAt time.Time `json:"checked_at"`
+	Latest    string    `json:"latest"`
+}
+
+// updateCachePath is a package variable so tests can point it at a temp file
+// instead of the real user cache directory.
+var updateCachePath = defaultUpdateCachePath
+
+func defaultUpdateCachePath() (string, error) {
+	dir, err := os.UserCacheDir()
+	if err != nil {
+		return "", err
+	}
+	return filepath.Join(dir, "router-colorizer", "update-check.json"), nil
+}
+
+func readUpdateCache() (updateCache, bool) {
+	path, err := updateCachePath()
+	if err != nil {
+		return updateCache{}, false
+	}
+	data, err := os.ReadFile(path)
+	if err != nil {
+		return updateCache{}, false
+	}
+	var c updateCache
+	if err := json.Unmarshal(data, &c); err != nil {
+		return updateCache{}, false
+	}
+	return c, true
+}
+
+func writeUpdateCache(c updateCache) {
+	path, err := updateCachePath()
+	if err != nil {
+		return
+	}
+	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+		return
+	}
+	data, err := json.Marshal(c)
+	if err != nil {
+		return
+	}
+	_ = os.WriteFile(path, data, 0o644)
+}
+
+// refreshUpdateCache asks GitHub for the latest release and records it, so
+// the next invocation can report staleness without hitting the network.
+func refreshUpdateCache() {
+	rel, err := fetchLatestRelease()
+	if err != nil {
+		// Best-effort: a transient network failure just means the next run
+		// tries again. Nothing worth reporting to a user piping router
+		// output through us.
+		return
+	}
+	writeUpdateCache(updateCache{CheckedAt: time.Now(), Latest: rel.TagName})
+}
+
+// notifyUpdateAvailable prints a one-line notice to w if a cached "latest
+// release" is newer than the running version, then refreshes the cache in
+// the background if it is missing or older than updateCheckInterval. It
+// never blocks on the network, so it is safe to call unconditionally at
+// startup of a tool that may sit in a pipeline indefinitely.
+func notifyUpdateAvailable(w io.Writer) {
+	if version == "dev" {
+		return
+	}
+
+	c, ok := readUpdateCache()
+	if ok && c.Latest != "" {
+		latest := strings.TrimPrefix(c.Latest, "v")
+		if latest != strings.TrimPrefix(version, "v") {
+			fmt.Fprintf(w, "router-colorizer: update available: %s -> run 'router-colorizer -selfupdate' to install\n", c.Latest)
+		}
+	}
+
+	if !ok || time.Since(c.CheckedAt) > updateCheckInterval {
+		scheduleRefresh()
+	}
+}
+
+// scheduleRefresh kicks off refreshUpdateCache without blocking the caller.
+// It is a package variable so tests can replace it and avoid touching the
+// real network.
+var scheduleRefresh = func() { go refreshUpdateCache() }
 
 // installExecutable overwrites the running binary with bin. It is a package
 // variable so tests can redirect it at a throwaway file instead of the test

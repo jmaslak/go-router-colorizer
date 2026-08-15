@@ -4,6 +4,8 @@
 package main
 
 import (
+	"bytes"
+	"encoding/json"
 	"fmt"
 	"net/http"
 	"net/http/httptest"
@@ -11,6 +13,7 @@ import (
 	"path/filepath"
 	"runtime"
 	"testing"
+	"time"
 )
 
 func TestChecksumFor(t *testing.T) {
@@ -119,5 +122,132 @@ func TestSelfUpdate(t *testing.T) {
 	}
 	if string(got) != binContent {
 		t.Errorf("selfUpdate: target contains %q, want %q", got, binContent)
+	}
+}
+
+func withUpdateCachePath(t *testing.T) string {
+	t.Helper()
+
+	path := filepath.Join(t.TempDir(), "update-check.json")
+	orig := updateCachePath
+	updateCachePath = func() (string, error) { return path, nil }
+	t.Cleanup(func() { updateCachePath = orig })
+	return path
+}
+
+func TestNotifyUpdateAvailable_NoCacheNoNotice(t *testing.T) {
+	withUpdateCachePath(t)
+	origVersion := version
+	version = "1.0.0"
+	defer func() { version = origVersion }()
+
+	origSchedule := scheduleRefresh
+	refreshed := false
+	scheduleRefresh = func() { refreshed = true }
+	defer func() { scheduleRefresh = origSchedule }()
+
+	var buf bytes.Buffer
+	notifyUpdateAvailable(&buf)
+
+	if !refreshed {
+		t.Error("notifyUpdateAvailable: expected a refresh to be scheduled for a cold cache")
+	}
+
+	if buf.Len() != 0 {
+		t.Errorf("notifyUpdateAvailable: got %q, want no output on a cold cache", buf.String())
+	}
+}
+
+func TestNotifyUpdateAvailable_DevVersionSkipsCheck(t *testing.T) {
+	path := withUpdateCachePath(t)
+	origVersion := version
+	version = "dev"
+	defer func() { version = origVersion }()
+
+	var buf bytes.Buffer
+	notifyUpdateAvailable(&buf)
+
+	if buf.Len() != 0 {
+		t.Errorf("notifyUpdateAvailable: got %q, want no output for a dev build", buf.String())
+	}
+	if _, err := os.Stat(path); err == nil {
+		t.Error("notifyUpdateAvailable: expected no cache file to be written for a dev build")
+	}
+}
+
+func TestNotifyUpdateAvailable_StaleCacheNotifies(t *testing.T) {
+	path := withUpdateCachePath(t)
+	origVersion := version
+	version = "1.0.0"
+	defer func() { version = origVersion }()
+
+	data, err := json.Marshal(updateCache{CheckedAt: time.Now(), Latest: "v9.9.9"})
+	if err != nil {
+		t.Fatalf("marshaling cache: %v", err)
+	}
+	if err := os.WriteFile(path, data, 0o644); err != nil {
+		t.Fatalf("seeding cache: %v", err)
+	}
+
+	var buf bytes.Buffer
+	notifyUpdateAvailable(&buf)
+
+	if !bytes.Contains(buf.Bytes(), []byte("v9.9.9")) {
+		t.Errorf("notifyUpdateAvailable: got %q, want it to mention v9.9.9", buf.String())
+	}
+	if !bytes.Contains(buf.Bytes(), []byte("-selfupdate")) {
+		t.Errorf("notifyUpdateAvailable: got %q, want it to mention -selfupdate", buf.String())
+	}
+}
+
+func TestNotifyUpdateAvailable_UpToDateCacheIsSilent(t *testing.T) {
+	path := withUpdateCachePath(t)
+	origVersion := version
+	version = "9.9.9"
+	defer func() { version = origVersion }()
+
+	data, err := json.Marshal(updateCache{CheckedAt: time.Now(), Latest: "v9.9.9"})
+	if err != nil {
+		t.Fatalf("marshaling cache: %v", err)
+	}
+	if err := os.WriteFile(path, data, 0o644); err != nil {
+		t.Fatalf("seeding cache: %v", err)
+	}
+
+	var buf bytes.Buffer
+	notifyUpdateAvailable(&buf)
+
+	if buf.Len() != 0 {
+		t.Errorf("notifyUpdateAvailable: got %q, want no output when already up to date", buf.String())
+	}
+}
+
+func TestRefreshUpdateCache(t *testing.T) {
+	path := withUpdateCachePath(t)
+
+	mux := http.NewServeMux()
+	mux.HandleFunc("/latest", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprint(w, `{"tag_name":"v2.3.4","assets":[]}`)
+	})
+	srv := httptest.NewServer(mux)
+	defer srv.Close()
+
+	origURL, origClient := releasesURL, httpClient
+	releasesURL = srv.URL + "/latest"
+	httpClient = srv.Client()
+	defer func() { releasesURL, httpClient = origURL, origClient }()
+
+	refreshUpdateCache()
+
+	data, err := os.ReadFile(path)
+	if err != nil {
+		t.Fatalf("reading cache: %v", err)
+	}
+	var c updateCache
+	if err := json.Unmarshal(data, &c); err != nil {
+		t.Fatalf("unmarshaling cache: %v", err)
+	}
+	if c.Latest != "v2.3.4" {
+		t.Errorf("refreshUpdateCache: cached latest = %q, want %q", c.Latest, "v2.3.4")
 	}
 }
