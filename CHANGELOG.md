@@ -4,6 +4,18 @@ All notable changes to this project are documented here. The format is based on
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project uses
 [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
+## 0.4.0
+
+### Added
+
+- A once-a-day check is performed to determine if `router-colorizer` needs
+  to be updated.  If it does, the user is notified.
+- Arista, Cisco, Juniper, and VyOS "show version" colorization.
+
+### Changed
+
+- No longer underline the first digit of 4 digit numbers (like years).
+
 ## 0.3.0
 
 ### Added
