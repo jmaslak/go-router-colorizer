@@ -116,7 +116,7 @@ var (
 
 		// "show version" (Arista).
 		whole(`^(Arista [0-9A-Z\-]+)$`, info),
-		whole(`^(Serial number: [^\n]+)$`, info),
+		whole(`^(Serial number: [A-Z][A-Z0-9]+)$`, info),
 		whole(`^(Software image version: [^\n]+)$`, info),
 		whole(`^(Uptime: [^\n]+$)`, info),
 		whole(`^((?:Total|Free) memory: [^\n]+)$`, info),
@@ -124,7 +124,7 @@ var (
 		// "show version" (Cisco).
 		whole(`^(Cisco [A-Za-z]+ Software, [^\n]+)$`, info),
 		whole(`^([A-Za-z0-9_\-\.]+ uptime is [^\n]+)$`, info),
-		whole(`^(System restarted at : [^\n]+)$`, info),
+		whole(`^(System restarted at [^\n]+)$`, info),
 		whole(`^(Last reload reason: [^\n]+)$`, info),
 		whole(`^(License Level: [^\n]+)$`, info),
 		whole(`^(Model number \s+: [^\n]+)$`, info),

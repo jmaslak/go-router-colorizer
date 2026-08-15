@@ -531,7 +531,7 @@ BOOTLDR: C3750E Boot Loader (C3750X-HBOOT-M) Version 15.0(2r)SE, RELEASE SOFTWAR
 
 [36msw09 uptime is 1 year, 12 weeks, 3 days, 20 hours, 11 minutes[0m
 System returned to ROM by power-on
-System restarted at 20:13:55 UTC Mon May 19 2025
+[36mSystem restarted at 20:13:55 UTC Mon May 19 2025[0m
 System image file is "flash:c3750e-universalk9-mz.152-4.E10.bin"
 [36mLast reload reason: power-on[0m
 

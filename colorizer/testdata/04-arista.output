@@ -2043,7 +2043,7 @@ Protocol version: 1
 [32mState: synced[0m
 [1;31mState: idle[0m
 Session ID: [4m45[24m070
-[36mSerial number: [4m26[24m493[0m
+Serial number: [4m26[24m493
 Last update sync: 0:02:46 ago
 Last full sync: 34 days, 4:15:05 ago
 Last serial query: 0:02:46 ago
