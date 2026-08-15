@@ -122,7 +122,7 @@ var (
 		whole(`^((?:Total|Free) memory: [^\n]+)$`, info),
 
 		// "show version" (Cisco).
-		whole(`^(Cisco [A-Za-z]+ Software, [^\n]+)$`, info),
+		whole(`^(Cisco [A-Za-z ]+ Software, [^\n]+)$`, info),
 		whole(`^([A-Za-z0-9_\-\.]+ uptime is [^\n]+)$`, info),
 		whole(`^(System restarted at [^\n]+)$`, info),
 		whole(`^(Last reload reason: [^\n]+)$`, info),
