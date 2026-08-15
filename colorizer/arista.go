@@ -129,6 +129,9 @@ var (
 		whole(`^(License Level: [^\n]+)$`, info),
 		whole(`^(Model number \s+: [^\n]+)$`, info),
 		whole(`^(System serial number \s+: [^\n]+)$`, info),
+
+		// Generic bad command error (Arista).
+		whole(`^(% Invalid input)$`, red),
 	}
 )
 

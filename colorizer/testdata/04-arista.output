@@ -1,6 +1,6 @@
 Last login: Tue Aug 17 12:05:09 2021 from [30m[100m192.0.2.12[0m
 [5nkswXX#\swXX#bogusinput
-% Invalid input
+[1;31m% Invalid input[0m
 kswXX#\swXX#show ip bgp neighswXX#show ip bgp neighbors 
 [?1h=[36mBGP neighbor is [30m[100m192.0.2.12[0m, remote AS [4m65[24m000, internal link[0m
   BGP version 4, remote router ID [90m[47m0.0.0.0[0m, VRF default
@@ -2081,4 +2081,7 @@ Image optimization: Strata-4GB
 [36mUptime: 64 weeks, 4 days, 19 hours and 33 minutes[0m
 [36mTotal memory: 3[4m982[24m512 kB[0m
 [36mFree memory: 2[4m017[24m756 kB[0m
+
+sw08#hsow version
+[1;31m% Invalid input[0m
 
