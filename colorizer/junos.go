@@ -67,4 +67,7 @@ var vyosRules = []rule{
 	whole(`^(  `+pInt+` accepted prefixes[^\n]+)$`, info),
 	whole(`^(Local host: [^\n]+)$`, info),
 	whole(`^(Foreign host: [^\n]+)$`, info),
+
+	// Show version
+	whole(`^(Version:          [^\n]+)$`, info),
 }

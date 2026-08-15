@@ -67,7 +67,7 @@ Read thread: on  Write thread: on  FD used: 33[m
 [K[?1l>user@vyo.s123:~$ logout
 
 jmaslak@fw1.gld1:~$ show version
-Version:          VyOS 2026.12.31-1111-rolling
+[36mVersion:          VyOS 2026.12.31-1111-rolling[0m
 Release train:    rolling
 Release flavor:   generic
 
