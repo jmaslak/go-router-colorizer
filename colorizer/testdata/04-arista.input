@@ -2064,3 +2064,21 @@ foo.bar#show platform jericho2 tcam summary
 
 Error in authentication
 
+sw08#show version
+Arista DCS-7050QX-32S-F
+Hardware version: 01.31
+Serial number: JPE11111111
+Hardware MAC address: 444c.aaaa.bbbb
+System MAC address: 444c.aaaa.bbbb
+
+Software image version: 4.28.12M
+Architecture: i686
+Internal build version: 4.28.12M-38134581.42812M
+Internal build ID: ab5a5450-e910-4903-b635-8c1003df3269
+Image format version: 3.0
+Image optimization: Strata-4GB
+
+Uptime: 64 weeks, 4 days, 19 hours and 33 minutes
+Total memory: 3982512 kB
+Free memory: 2017756 kB
+

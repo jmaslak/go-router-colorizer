@@ -111,7 +111,15 @@ var (
 		whole(`^(Connection:\sActive\s.*)$`, green),
 		whole(`^(Connection:\s.*)$`, red),
 
+		// Authentication error.
 		whole(`^(Error in authentication)$`, red),
+
+		// "show version".
+		whole(`^(Arista [0-9A-Z\-]+$)`, info),
+		whole(`^(Serial number: [^\n]+$)`, info),
+		whole(`^(Software image version: [^\n]+$)`, info),
+		whole(`^(Uptime: [^\n]+$)`, info),
+		whole(`^((?:Total|Free) memory: [^\n]+$)`, info),
 	}
 )
 

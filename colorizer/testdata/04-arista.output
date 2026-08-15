@@ -2043,7 +2043,7 @@ Protocol version: 1
 [32mState: synced[0m
 [1;31mState: idle[0m
 Session ID: [4m45[24m070
-Serial number: [4m26[24m493
+[36mSerial number: [4m26[24m493[0m
 Last update sync: 0:02:46 ago
 Last full sync: 34 days, 4:15:05 ago
 Last serial query: 0:02:46 ago
@@ -2063,4 +2063,22 @@ foo.bar#show platform jericho2 tcam summary
      15                 dbMacSystem              -
 
 [1;31mError in authentication[0m
+
+sw08#show version
+[36mArista DCS-7050QX-32S-F[0m
+Hardware version: 01.31
+[36mSerial number: JPE11[4m111[24m111[0m
+Hardware MAC address: 444c.aaaa.bbbb
+System MAC address: 444c.aaaa.bbbb
+
+[36mSoftware image version: 4.28.12M[0m
+Architecture: i686
+Internal build version: 4.28.12M-38[4m134[24m581.42812M
+Internal build ID: ab5a5450-e910-4903-b635-8c1003df3269
+Image format version: 3.0
+Image optimization: Strata-4GB
+
+[36mUptime: 64 weeks, 4 days, 19 hours and 33 minutes[0m
+[36mTotal memory: 3[4m982[24m512 kB[0m
+[36mFree memory: 2[4m017[24m756 kB[0m
 
