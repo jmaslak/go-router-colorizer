@@ -174,6 +174,27 @@ latency.
 
 [godoc]: https://pkg.go.dev/github.com/jmaslak/go-router-colorizer/colorizer
 
+## Why
+
+This tool was conceived to solve some neurodiversity-related challenges
+the author has on her job. Network device CLIs typically output a wall
+of text, and may present numbers such as 10000000 with no chunking,
+making them hard to parse quickly. With her neurodivergence, and
+tendency to see the trees rather than the focus (thus skimming can be
+difficult), a means of pulling out important information from the less
+(usually) important information is helpful and can speed processing.
+
+The author's neurodivergence also makes it difficult to parse some of this
+output, and makes her prone to typos. The typos, in particular, can have
+significant impact, particularly at 2:00 AM while on-call!  For this,
+she drew from synesthesia, a neurodivergence combination of senses that
+is popularly known as, for instance, causing certain number to be
+strongly associated mentally with certain colors. The author is not a
+synesthete, but benefits from the artificial synesthesia this program
+applies, by colorizing different kinds of important information, making
+numbers easier to read, and associating IP addresses with different
+colors, she can work on network devices with a higher level of accuracy.
+
 ## How it works
 
 Every line is run past a list of rules, in order. A rule is a regular
