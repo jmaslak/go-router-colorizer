@@ -164,8 +164,8 @@ TCP Socket Information:
     Congestion Window (cwnd): 1
     Slow-start Threshold (ssthresh): 7
 
-[36mBGP neighbor is [90m[41m192.0.2.3[0m, remote AS [4m65[24m000, internal link[0m
-  BGP version 4, remote router ID [90m[41m192.0.2.3[0m, VRF default
+[36mBGP neighbor is [93m[41m192.0.2.3[0m, remote AS [4m65[24m000, internal link[0m
+  BGP version 4, remote router ID [93m[41m192.0.2.3[0m, VRF default
   Last read 00:00:20, last write 00:00:46
   Hold time is 180, keepalive interval is 60 seconds
   Configured hold time is 180, keepalive interval is 60 seconds
@@ -233,7 +233,7 @@ TCP Socket Information:
 Local AS is [4m65[24m000, local router ID [30m[45m192.0.2.24[0m
 TTL is 255
 [36mLocal TCP address is [30m[45m192.0.2.24[0m, local port is [4m43[24m489[0m
-[36mRemote TCP address is [90m[41m192.0.2.3[0m, remote port is 179[0m
+[36mRemote TCP address is [93m[41m192.0.2.3[0m, remote port is 179[0m
 ! Sending extended community not configured, updates will be sent without extended communities or route targets
 TCP Socket Information:
   TCP state is ESTABLISHED

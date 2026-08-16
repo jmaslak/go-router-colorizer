@@ -1,4 +1,4 @@
-Last login: Mon Aug 16 14:48:18 2021 from [90m[41m192.0.2.18[0m
+Last login: Mon Aug 16 14:48:18 2021 from [93m[41m192.0.2.18[0m
 
 JUNOS tip:
 Use '#' in the beginning of a line in command scripts to cause the
@@ -963,7 +963,7 @@ user@swXX> show interfaces
     Protocol inet, MTU: 1500
       Flags: Is-Primary, User-MTU
       Addresses, Flags: Is-Default Is-Preferred Is-Primary
-        Destination: [30m[47m192.0.2.48/28[0m, Local: [37m[41m192.0.2.49[0m, Broadcast: [90m[41m192.0.2.63[0m
+        Destination: [30m[47m192.0.2.48/28[0m, Local: [37m[41m192.0.2.49[0m, Broadcast: [93m[41m192.0.2.63[0m
     Protocol inet6, MTU: 1500
     Max nh cache: [4m20[24m000, New hold nh limit: [4m20[24m000, Curr nh cnt: 0, Curr new hold cnt: 0,
     NH drop cnt: 0
