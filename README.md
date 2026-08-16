@@ -16,6 +16,17 @@ It also colors every IP address by hashing it, and underlines alternating
 groups of three digits in long numbers. Anything it does not recognize passes
 through untouched, so it is safe to leave in a pipeline permanently.
 
+The same `show interface` output, without and with the colorizer:
+
+![show interface output in plain white-on-black text](docs/before-colorizer.png)
+
+![the same output colorized: the up interface and zero error counters are green, descriptions and traffic rates are cyan, the line with 15 output discards is red, and long counters have alternating digit groups underlined](docs/after-colorizer.png)
+
+The red line shows an interface with discards, which in the plain version looks
+similar to every zero around it. Cyan is used for informational lines, while
+yellow is used for potentially concerning values. You can also notice the
+underlines, which makes the "BW 10000000" value much more readable.
+
 This is a Go port of [App::RouterColorizer][perl], which has now
 replaced the Perl version. The port was made utilizing a LLM for machine
 translation between languages.
