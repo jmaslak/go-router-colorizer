@@ -37,7 +37,7 @@ var bgColors = []string{
 	"\x1b[35m\x1b[47m",  // magenta on white
 	"\x1b[90m\x1b[47m",  // gray on white
 	"\x1b[30m\x1b[41m",  // black on red
-	"\x1b[90m\x1b[41m",  // gray on red
+	"\x1b[93m\x1b[41m",  // gray on red
 	"\x1b[37m\x1b[41m",  // white on red
 	"\x1b[30m\x1b[42m",  // black on green
 	"\x1b[30m\x1b[43m",  // black on yellow (orange)

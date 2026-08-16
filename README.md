@@ -116,6 +116,8 @@ copy of the wrong address shows up as a change in color: if `1.2.3.4` is
 usually white on blue and one instance is black on red, it is not the same
 address. Both IPv4 and IPv6 are recognized, with or without a prefix length.
 
+![sixteen consecutive addresses, 192.0.2.0 through 192.0.2.15, each with its own foreground and background color combination — even adjacent addresses differing by one digit look completely different](docs/ips.png)
+
 **Long numbers** get alternating groups of three digits underlined, so that
 1000000 can be told from 10000000 without counting. This helps anyone who finds
 long digit strings hard to read, which includes a lot of people staring at
