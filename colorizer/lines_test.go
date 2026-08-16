@@ -91,7 +91,7 @@ func TestFormatTextPreservesStructure(t *testing.T) {
 		},
 		{
 			"a space backspaced over draws nothing",
-			"Status: Ready \x08\n",
+			"Status \x08: Ready\n",
 			green + "Status: Ready" + reset + "\n",
 		},
 		{

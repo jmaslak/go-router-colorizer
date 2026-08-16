@@ -1820,7 +1820,7 @@ TCP Socket Information:
   Broadcast address is [90m[47m255.255.255.255[0m
   IP MTU 1500 bytes (default)
 [32m  Up 197 days, 20 hours, 55 minutes, 48 seconds[0m
-[K[?1l>kswXX#\swXX#  
+[K[?1l>kswXX#\swXX#   
 kswXX#\swXX#
 kswXX#\swXX#show int status
 [?1h=Port       Name                                    Status       Vlan     Duplex Speed  Type          Flags Encapsulation

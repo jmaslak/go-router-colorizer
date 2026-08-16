@@ -28,11 +28,17 @@
 // on the same input.
 package colorizer
 
-import "strings"
+import (
+	"regexp"
+	"strings"
+)
 
 // morePrompt is the pager prompt Arista EOS emits, which is redrawn and erased
 // in the middle of the output it is paging.
 const morePrompt = "\x1b[3m --More-- \x1b[23m\x1b[K\r\x1b[K"
+
+// Unnecessary backspace removal for some Arista output
+var re_unnecessary_bs *regexp.Regexp = regexp.MustCompile(` \x08([^\x08\n\r])`)
 
 // FormatText returns text with ANSI color escapes added.
 //
@@ -84,7 +90,7 @@ func formatLine(text string) string {
 	line = trimMorePrompt(body)
 
 	// A space that is immediately backspaced over draws nothing.
-	line = strings.ReplaceAll(line, " \x08", "")
+	line = re_unnecessary_bs.ReplaceAllString(line, "$1")
 
 	trailer := ""
 	if strings.HasSuffix(line, "\r") {
