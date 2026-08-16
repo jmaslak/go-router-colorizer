@@ -20,6 +20,16 @@ You want to help? That's great!
 - **You will be credited** unless you ask otherwise. If the credit is wrong,
   send a note or a PR.
 
+## LLM Policy
+
+Because this was converted from Perl to Go using an LLM, it would be
+hypocritical to deny LLM-assisted submissions. However, LLM-assisted
+PRs and bug reports should be noted as such, and you are expected to
+actually review the code produced (for PRs) and validate any issues LLMs
+find in the code. Do not submit a PR or issue just to get credit without
+understanding the code or issue you are submitting--I should not be the
+first human to read the code!
+
 ## Things that would help
 
 - Support for other vendors. The rules were written against Arista, Cisco,
