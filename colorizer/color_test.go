@@ -114,7 +114,7 @@ func TestPalettesAreComplete(t *testing.T) {
 	// We need an odd number of IP colors due to how we build the hash of
 	// IP numbers. If an even number is used, it's possible that not all colors
 	// will be used for bare IPs.
-	if len(defaultPalette.ip)%2 == 1 {
+	if len(defaultPalette.ip)%2 != 1 {
 		t.Errorf("the default palette has %d IP colors, want an odd number",
 			len(defaultPalette.ip))
 	}
