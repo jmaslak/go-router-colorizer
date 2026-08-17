@@ -103,12 +103,12 @@ router-colorizer -cmd ssh -- router.example.com
 
 The colors assume a terminal with a **dark background**.
 
-| Color  | Meaning                                                                |
-| ------ | ---------------------------------------------------------------------- |
-| green  | A good value: an interface that is up, a BGP session established, error counters at zero. |
+| Color | Meaning |
+| --- | --- |
+| green | A good value: an interface that is up, a BGP session established, error counters at zero. |
 | orange | Neither good nor bad: an administratively disabled interface, an acknowledged alarm. |
-| red    | An error: an interface down unexpectedly, nonzero error counters, a failed authentication. |
-| cyan   | Notable but not a verdict: descriptions, rates, route maps, LLDP neighbors. |
+| red | An error: an interface down unexpectedly, nonzero error counters, a failed authentication. |
+| cyan | Notable but not a verdict: descriptions, rates, route maps, LLDP neighbors. |
 
 **IP addresses** get a colored background chosen by hashing the address and its
 prefix length. A given address always looks the same, so a transposition or a
@@ -122,6 +122,21 @@ address. Both IPv4 and IPv6 are recognized, with or without a prefix length.
 1000000 can be told from 10000000 without counting. This helps anyone who finds
 long digit strings hard to read, which includes a lot of people staring at
 counters at 2am.
+
+### Color palettes
+
+`-palette deuteranopia` (or its shorthand `--cb`) selects a palette that does
+not lean on telling red from green, for red/green colorblind users:
+
+```sh
+ssh router.example.com | router-colorizer --cb
+```
+
+"Good" is bright blue instead of green, so the good/error contrast is blue
+versus bold red rather than green versus red, and the IP address backgrounds
+use only blue, cyan, yellow, magenta, white, and gray. A palette may define
+any number of IP colors; both built-in palettes define fifteen, so switching
+between them recolors addresses but never regroups them.
 
 ### Supported devices
 
@@ -143,21 +158,21 @@ passed through unchanged, never garbled.
 package main
 
 import (
-	"fmt"
-	"os"
+    "fmt"
+    "os"
 
-	"github.com/jmaslak/go-router-colorizer/colorizer"
+    "github.com/jmaslak/go-router-colorizer/colorizer"
 )
 
 func main() {
-	// A string at a time.
-	fmt.Print(colorizer.FormatText("Ethernet1 is up, line protocol is up\n"))
+    // A string at a time.
+    fmt.Print(colorizer.FormatText("Ethernet1 is up, line protocol is up\n"))
 
-	// Or a stream, colorized as it arrives.
-	if err := colorizer.Filter(os.Stdout, os.Stdin, colorizer.DefaultFlushDelay); err != nil {
-		fmt.Fprintln(os.Stderr, err)
-		os.Exit(1)
-	}
+    // Or a stream, colorized as it arrives.
+    if err := colorizer.Filter(os.Stdout, os.Stdin, colorizer.DefaultFlushDelay); err != nil {
+        fmt.Fprintln(os.Stderr, err)
+        os.Exit(1)
+    }
 }
 ```
 
@@ -224,7 +239,7 @@ The interesting files:
 | `ciena.go`      | Ciena rules, which are mostly tabular.                       |
 | `ip.go`         | Finding and coloring addresses.                              |
 | `numbers.go`    | Underlining digit groups.                                    |
-| `stream.go`     | `Filter`, including when to give up on a partial line.        |
+| `stream.go`     | `Filter`, including when to give up on a partial line.       |
 | `parallel.go`   | Dividing a large text at line endings across goroutines.     |
 
 To teach it a new line, add a rule to the table for that vendor, and add the
@@ -247,24 +262,25 @@ a failure names the line that changed.
 
 ## Throughput
 
-Colorizing is about 4.5 MB/s per core on a 2025 Macbook Pro. That is far more
+Colorizing is about 6 MB/s per core on a 2025 Macbook Pro. That is far more
 than most sessions produce, so throughput only matters when piping a large
 capture, and for that the work is divided across cores. On a 16-core
 Macbook, 820 KB of captured Arista output:
 
 | | Time | Throughput |
 | --- | --- | --- |
-| App::RouterColorizer (Perl) | 1.03 s | 0.8 MB/s |
-| this, one core | 0.19 s | 4.3 MB/s |
-| this, all cores | 0.048 s | 17 MB/s |
+| App::RouterColorizer (Perl) | 0.87 s | 0.97 MB/s |
+| this, one core | 0.14 s | 6.0 MB/s |
+| this, all cores | 0.019 s | 44 MB/s |
 
-All three produce identical bytes. The division happens per block of input, so
-it never changes what a live session feels like.
+The two Go rows produce identical bytes; the division happens at line endings,
+so it never changes what a live session feels like. The Perl output no longer
+matches byte for byte, because the rule sets have evolved separately.
 
 Per line, the time goes almost entirely into matching the rule patterns — about
 half of it inside `regexp` — so the remaining lever is testing each line against
-fewer of the 141 patterns, not allocating less. Colorizing a screenful of output
-allocates about 5,000 objects and 575 KB.
+fewer of the 152 patterns, not allocating less. Colorizing the 2,000-line
+benchmark capture allocates about 11,500 objects and 850 KB.
 
 ## Bugs
 

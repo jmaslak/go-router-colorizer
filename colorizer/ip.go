@@ -52,7 +52,7 @@ func colorizeAddresses(line string, match func(string, int) int, hash func(strin
 			b.Grow(len(line) + 16)
 		}
 		b.WriteString(line[last:pos])
-		b.WriteString(colorize(addr, bgColors[hash(addr)%uint64(len(bgColors))]))
+		b.WriteString(colorizeEscape(addr, active.ip[hash(addr)%uint64(len(active.ip))]))
 		last, pos = end, end
 	}
 	if last == 0 {

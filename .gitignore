@@ -14,3 +14,6 @@
 
 # AI stuff
 .claude
+
+# Editor
+.vscode

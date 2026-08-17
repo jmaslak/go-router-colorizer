@@ -20,7 +20,9 @@
 //   - Long runs of digits, which get alternating groups of three underlined so
 //     that 1000000 can be told from 10000000 at a glance.
 //
-// The colors assume a terminal with a dark background.
+// The colors assume a terminal with a dark background. They come from a
+// palette selected with SetPalette; the default leans on red versus green, and
+// "deuteranopia" avoids that axis for red/green colorblind users.
 //
 // FormatText colorizes a string, Filter colorizes a stream, and
 // FormatTextParallel colorizes a large string across several goroutines. Lines

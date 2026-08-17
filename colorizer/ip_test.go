@@ -143,6 +143,11 @@ func TestHashStability(t *testing.T) {
 	}
 }
 
+// ipColor renders an IPv4 address the way the active palette highlights it.
+func ipColor(addr string) string {
+	return colorizeEscape(addr, active.ip[hashIPv4(addr)%uint64(len(active.ip))])
+}
+
 func TestColorizeAddressesInContext(t *testing.T) {
 	tests := []struct{ in, want string }{
 		{
@@ -151,13 +156,12 @@ func TestColorizeAddressesInContext(t *testing.T) {
 		},
 		{
 			"peer 1.2.3.4 up",
-			"peer " + colorize("1.2.3.4", bgColors[hashIPv4("1.2.3.4")%15]) + " up",
+			"peer " + ipColor("1.2.3.4") + " up",
 		},
 		{
 			// Both addresses are colorized, and each keeps its own color.
 			"1.2.3.4 -> 1.2.3.5",
-			colorize("1.2.3.4", bgColors[hashIPv4("1.2.3.4")%15]) + " -> " +
-				colorize("1.2.3.5", bgColors[hashIPv4("1.2.3.5")%15]),
+			ipColor("1.2.3.4") + " -> " + ipColor("1.2.3.5"),
 		},
 	}
 	for _, tt := range tests {

@@ -30,19 +30,19 @@ type rule struct {
 // refers to is dropped from the output, which a handful of rules rely on to
 // trim trailing whitespace.
 type paint struct {
-	group int    // 1-based submatch index
-	color string // ANSI prefix, or "" to emit the submatch unchanged
+	group int   // 1-based submatch index
+	color color // color role, or "" to emit the submatch unchanged
 }
 
 // whole builds a rule that colorizes submatch 1 of pattern.
-func whole(pattern, color string) rule {
-	return rule{re: mustCompile(pattern, 1), paints: []paint{{1, color}}}
+func whole(pattern string, c color) rule {
+	return rule{re: mustCompile(pattern, 1), paints: []paint{{1, c}}}
 }
 
 // group builds a rule that colorizes each submatch of pattern with the
 // corresponding color, where an empty color emits that submatch unchanged.
 // One color per submatch must be given.
-func group(pattern string, colors ...string) rule {
+func group(pattern string, colors ...color) rule {
 	re := mustCompile(pattern, len(colors))
 	paints := make([]paint, len(colors))
 	for i, c := range colors {
@@ -55,13 +55,13 @@ func group(pattern string, colors ...string) rule {
 // patterns capture alternating column separators and column bodies: the
 // odd-numbered submatches (the "|" separators) are emitted unchanged and the
 // even-numbered ones (the column bodies) are colorized.
-func alternate(pattern, color string) rule {
+func alternate(pattern string, body color) rule {
 	re := regexp.MustCompile(pattern)
 	paints := make([]paint, re.NumSubexp())
 	for i := range paints {
-		c := ""
+		c := color("")
 		if i%2 == 1 { // 0-based index 1 is submatch 2
-			c = color
+			c = body
 		}
 		paints[i] = paint{i + 1, c}
 	}

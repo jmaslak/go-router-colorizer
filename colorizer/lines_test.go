@@ -72,32 +72,32 @@ func TestFormatTextPreservesStructure(t *testing.T) {
 		{
 			"line endings survive colorization",
 			"Status: Ready\r\n",
-			green + "Status: Ready" + reset + "\r\n",
+			colorize("Status: Ready", green) + "\r\n",
 		},
 		{
 			"a line without an ending is still colorized",
 			"Status: Ready",
-			green + "Status: Ready" + reset,
+			colorize("Status: Ready", green),
 		},
 		{
 			"cursor control is left outside the color",
 			"\x1b[KStatus: Ready\n",
-			"\x1b[K" + green + "Status: Ready" + reset + "\n",
+			"\x1b[K" + colorize("Status: Ready", green) + "\n",
 		},
 		{
 			"the pager prompt is removed",
 			"\x1b[3m --More-- \x1b[23m\x1b[K\r\x1b[KStatus: Ready\n",
-			green + "Status: Ready" + reset + "\n",
+			colorize("Status: Ready", green) + "\n",
 		},
 		{
 			"a space backspaced over draws nothing",
 			"Status \x08: Ready\n",
-			green + "Status: Ready" + reset + "\n",
+			colorize("Status: Ready", green) + "\n",
 		},
 		{
 			"each line is colorized on its own",
 			"Status: Ready\nStatus: Busy\n",
-			green + "Status: Ready" + reset + "\n" + info + "Status: Busy" + reset + "\n",
+			colorize("Status: Ready", green) + "\n" + colorize("Status: Busy", info) + "\n",
 		},
 	}
 	for _, tt := range tests {
@@ -114,7 +114,7 @@ func TestFormatTextPreservesStructure(t *testing.T) {
 func TestFirstRuleWins(t *testing.T) {
 	tests := []struct {
 		in    string
-		color string
+		color color
 	}{
 		{"Status: Ready", green},
 		{"Status: anything else", info},
@@ -136,7 +136,7 @@ func TestFirstRuleWins(t *testing.T) {
 func TestInterfaceCounters(t *testing.T) {
 	tests := []struct {
 		in    string
-		color string
+		color color
 	}{
 		{"     0 input errors, 0 CRC, 0 alignment, 0 symbol", green},
 		{"     0 input errors, 7 CRC, 0 alignment, 0 symbol", red},
@@ -166,7 +166,8 @@ func TestColorizeNested(t *testing.T) {
 	// color where the inner one ends, or the rest of the line goes plain.
 	inner := colorize("value", green)
 	got := colorize("field "+inner+" trailing", red)
-	want := red + "field " + green + "value" + red + " trailing" + reset
+	redEsc, greenEsc := active.fg[red], active.fg[green]
+	want := redEsc + "field " + greenEsc + "value" + redEsc + " trailing" + reset
 	if got != want {
 		t.Errorf("colorize(%q, red) = %q, want %q", "field "+inner+" trailing", got, want)
 	}

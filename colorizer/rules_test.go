@@ -5,9 +5,9 @@ package colorizer
 
 import "testing"
 
-// colorizedWith reports whether FormatText painted the whole line in color.
-func colorizedWith(line, color string) bool {
-	return FormatText(line) == colorize(line, color)
+// colorizedWith reports whether FormatText painted the whole line in c.
+func colorizedWith(line string, c color) bool {
+	return FormatText(line) == colorize(line, c)
 }
 
 // The severity column of "alarm show" is padded differently depending on the

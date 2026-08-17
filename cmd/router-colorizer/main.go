@@ -39,8 +39,26 @@ func main() {
 	update := flag.Bool("selfupdate", false, "update to the latest release and exit")
 	cmdName := flag.String("cmd", "",
 		"run this command, passing it any arguments not handled by router-colorizer, and colorize its output")
+	paletteName := flag.String("palette", "default",
+		`color palette to use: "default" or "deuteranopia" (red/green colorblind friendly)`)
+	cb := flag.Bool("cb", false, "colorblind mode: shorthand for -palette deuteranopia")
 	flag.Usage = usage
 	flag.Parse()
+
+	paletteSet := false
+	flag.Visit(func(f *flag.Flag) {
+		if f.Name == "palette" {
+			paletteSet = true
+		}
+	})
+	name, err := resolvePalette(*paletteName, paletteSet, *cb)
+	if err == nil {
+		err = colorizer.SetPalette(name)
+	}
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "router-colorizer: %v\n", err)
+		os.Exit(2)
+	}
 
 	if *showVersion {
 		fmt.Printf("router-colorizer %s\n", version)
@@ -76,6 +94,19 @@ func main() {
 		fmt.Fprintf(os.Stderr, "router-colorizer: %v\n", err)
 		os.Exit(1)
 	}
+}
+
+// resolvePalette combines the -palette and -cb flags into the palette to use,
+// where paletteSet says whether -palette was given explicitly. -cb is shorthand
+// for the colorblind palette, so the two conflict when they disagree.
+func resolvePalette(name string, paletteSet, cb bool) (string, error) {
+	if cb && paletteSet && name != "deuteranopia" {
+		return "", fmt.Errorf("-cb is shorthand for -palette deuteranopia and conflicts with -palette %s", name)
+	}
+	if cb {
+		return "deuteranopia", nil
+	}
+	return name, nil
 }
 
 // runCmd runs name with args, colorizing its standard output and standard
