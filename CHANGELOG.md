@@ -8,7 +8,7 @@ All notable changes to this project are documented here. The format is based on
 
 ### Updated
 
-- Updated compiled version to go 1.27
+- Updated compiler version to go 1.26
 
 ## 1.1.0
 
