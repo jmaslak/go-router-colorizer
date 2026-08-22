@@ -1064,7 +1064,7 @@ Interface               Admin Link Proto    Local                 Remote
 [32mlo0                     up    up[0m
 ---(more)---
 
-[32mlo0.16384               up    up   inet     [30m[45m127.0.0.1[0m           --> 0/0[0m
+[32mlo0.16384               up    up   inet     [30m[45m127.0.0.1[0m[32m           --> 0/0[0m
 [32mlsi                     up    up[0m
 [1;31mme0                     up    down[0m
 [1;31mme0.0                   up    down eth-switch[0m
@@ -1793,7 +1793,7 @@ Interface               Admin Link Proto    Local                 Remote
 [32msp-0/0/0                up    up[0m
 [32msp-0/0/0.0              up    up   inet[0m
                                    inet6
-[32msp-0/0/0.16383          up    up   inet     [30m[100m10.0.0.1[0m            --> [30m[100m10.0.0.16[0m[0m
+[32msp-0/0/0.16383          up    up   inet     [30m[100m10.0.0.1[0m[32m            --> [30m[100m10.0.0.16[0m[0m
 [32mesi                     up    up[0m
 [32mfti0                    up    up[0m
 [1;31mfxp0                    up    down[0m

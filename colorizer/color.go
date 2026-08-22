@@ -5,7 +5,8 @@ package colorizer
 
 import (
 	"fmt"
-	"sort"
+	"maps"
+	"slices"
 	"strings"
 )
 
@@ -118,11 +119,7 @@ var active = defaultPalette
 func SetPalette(name string) error {
 	p, ok := palettes[name]
 	if !ok {
-		names := make([]string, 0, len(palettes))
-		for n := range palettes {
-			names = append(names, n)
-		}
-		sort.Strings(names)
+		names := slices.Sorted(maps.Keys(palettes))
 		return fmt.Errorf("unknown palette %q (valid palettes: %s)", name, strings.Join(names, ", "))
 	}
 	active = p
@@ -145,7 +142,44 @@ func colorize(text string, c color) string {
 	return colorizeEscape(text, active.fg[c])
 }
 
-// colorizeEscape renders text in color, given as a raw escape sequence.
+// colorizeEscape renders text in color, given as a raw escape sequence,
+// preserving pre-existing color after this text.
 func colorizeEscape(text, color string) string {
-	return color + strings.Replace(text, reset, color, 1) + reset
+	return color + strings.ReplaceAll(text, reset, color) + reset
+}
+
+// sgrAt returns the length of the SGR escape sequence at pos, or zero if there
+// is not one there. SGR ("select graphic rendition") is the only kind of
+// escape that decides what color the text after it is drawn in, so it is the
+// only kind worth tracking across a line.
+func sgrAt(s string, pos int) int {
+	if !strings.HasPrefix(s[pos:], "\x1b[") {
+		return 0
+	}
+	for i := pos + 2; i < len(s); i++ {
+		switch c := s[i]; {
+		case isDigit(c) || c == ';':
+			continue
+		case c == 'm':
+			return i + 1 - pos
+		default:
+			return 0
+		}
+	}
+	return 0
+}
+
+// applySGR returns the escapes in force after esc is applied to those already
+// in force. A zero parameter -- which "\x1b[m" abbreviates -- clears
+// everything set before it; anything else adds to it.
+func applySGR(inForce, esc string) string {
+	params := esc[len("\x1b[") : len(esc)-1]
+	switch {
+	case params == "" || params == "0":
+		return ""
+	case strings.HasPrefix(params, "0;"):
+		return esc
+	default:
+		return inForce + esc
+	}
 }

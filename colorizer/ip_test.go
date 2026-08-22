@@ -28,8 +28,11 @@ func TestMatchIPv4(t *testing.T) {
 		{"1.2.3.256", ""},
 		{"1.2.3.4567", ""},
 		{"1.2.3", ""},
-		{"1.2.3.4.5", "1.2.3.4"},
 		{"9999", ""},
+		{"1.2.3.4.5", ""},
+		{"1.3.6.1.4.1.30065.1.3011.7050.32", ""},
+		{"1.2.3.4.", "1.2.3.4"},
+		{"1.2.3.4/32.", "1.2.3.4/32"},
 	}
 
 	for _, tt := range tests {
@@ -40,6 +43,28 @@ func TestMatchIPv4(t *testing.T) {
 		}
 		if got != tt.want {
 			t.Errorf("matchIPv4(%q, 0) = %q, want %q", tt.text, got, tt.want)
+		}
+	}
+}
+
+// An address cannot start in the middle of a longer dotted-decimal string,
+// which is how the fields of an SNMP OID avoid being colorized one by one as
+// the scan walks past them.
+func TestMatchIPv4NotATokenStart(t *testing.T) {
+	tests := []struct {
+		text string
+		pos  int
+	}{
+		{"5192.168.1.1", 1},        // digits glued to the front
+		{"1.3.6.1.4.1.9.9.42", 8},  // a field in the middle of an OID
+		{"1.3.6.1.4.1.9.9.42", 10}, // and the last four fields of one
+		{"10.0.0.1.5.6.7.8", 9},    // the tail of a longer string
+	}
+
+	for _, tt := range tests {
+		if end := matchIPv4(tt.text, tt.pos); end >= 0 {
+			t.Errorf("matchIPv4(%q, %d) = %q, want no match",
+				tt.text, tt.pos, tt.text[tt.pos:end])
 		}
 	}
 }

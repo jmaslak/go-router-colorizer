@@ -19,6 +19,7 @@ import (
 	"flag"
 	"fmt"
 	"io"
+	"log"
 	"os"
 	"os/exec"
 	"sync"
@@ -33,12 +34,15 @@ import (
 var version = "dev"
 
 func main() {
+	log.SetFlags(0)
+	log.SetPrefix("router-colorizer: ")
+
 	delay := flag.Duration("flush-delay", colorizer.DefaultFlushDelay,
 		"how long to wait for the rest of a partial line before writing it")
 	showVersion := flag.Bool("version", false, "print the version and exit")
 	update := flag.Bool("selfupdate", false, "update to the latest release and exit")
 	cmdName := flag.String("cmd", "",
-		"run this command, passing it any arguments not handled by router-colorizer, and colorize its output")
+		"run this command, passing it any arguments after --, and colorize its output")
 	paletteName := flag.String("palette", "default",
 		`color palette to use: "default" or "deuteranopia" (red/green colorblind friendly)`)
 	cb := flag.Bool("cb", false, "colorblind mode: shorthand for -palette deuteranopia")
@@ -52,11 +56,13 @@ func main() {
 		}
 	})
 	name, err := resolvePalette(*paletteName, paletteSet, *cb)
-	if err == nil {
-		err = colorizer.SetPalette(name)
-	}
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "router-colorizer: %v\n", err)
+		log.Print(err)
+		os.Exit(2)
+	}
+	err = colorizer.SetPalette(name)
+	if err != nil {
+		log.Print(err)
 		os.Exit(2)
 	}
 
@@ -66,8 +72,7 @@ func main() {
 	}
 	if *update {
 		if err := selfUpdate(); err != nil {
-			fmt.Fprintf(os.Stderr, "router-colorizer: %v\n", err)
-			os.Exit(1)
+			log.Fatal(err)
 		}
 		return
 	}
@@ -79,8 +84,7 @@ func main() {
 	}
 
 	if flag.NArg() > 0 {
-		fmt.Fprintf(os.Stderr, "router-colorizer: unexpected argument %q; input is read from standard input\n",
-			flag.Arg(0))
+		log.Printf("unexpected argument %q; input is read from standard input", flag.Arg(0))
 		flag.Usage()
 		os.Exit(2)
 	}
@@ -91,8 +95,7 @@ func main() {
 		if errors.Is(err, io.ErrClosedPipe) || errors.Is(err, os.ErrClosed) {
 			return
 		}
-		fmt.Fprintf(os.Stderr, "router-colorizer: %v\n", err)
-		os.Exit(1)
+		log.Fatal(err)
 	}
 }
 
@@ -117,16 +120,16 @@ func runCmd(name string, args []string, delay time.Duration) int {
 
 	stdout, err := cmd.StdoutPipe()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "router-colorizer: %v\n", err)
+		log.Print(err)
 		return 1
 	}
 	stderr, err := cmd.StderrPipe()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "router-colorizer: %v\n", err)
+		log.Print(err)
 		return 1
 	}
 	if err := cmd.Start(); err != nil {
-		fmt.Fprintf(os.Stderr, "router-colorizer: %v\n", err)
+		log.Print(err)
 		return 1
 	}
 
@@ -149,7 +152,7 @@ func runCmd(name string, args []string, delay time.Duration) int {
 
 	for _, filterErr := range []error{stdoutErr, stderrErr} {
 		if filterErr != nil && !errors.Is(filterErr, io.ErrClosedPipe) && !errors.Is(filterErr, os.ErrClosed) {
-			fmt.Fprintf(os.Stderr, "router-colorizer: %v\n", filterErr)
+			log.Print(filterErr)
 			return 1
 		}
 	}
@@ -158,7 +161,7 @@ func runCmd(name string, args []string, delay time.Duration) int {
 		return exitErr.ExitCode()
 	}
 	if waitErr != nil {
-		fmt.Fprintf(os.Stderr, "router-colorizer: %v\n", waitErr)
+		log.Print(waitErr)
 		return 1
 	}
 	return 0

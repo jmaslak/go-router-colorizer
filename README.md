@@ -262,25 +262,28 @@ a failure names the line that changed.
 
 ## Throughput
 
-Colorizing is about 6 MB/s per core on a 2025 Macbook Pro. That is far more
+Colorizing is about 6 MB/s per core on a 2025 MacBook Pro. That is far more
 than most sessions produce, so throughput only matters when piping a large
 capture, and for that the work is divided across cores. On a 16-core
-Macbook, 820 KB of captured Arista output:
+MacBook, 824 KB of captured Arista output:
 
 | | Time | Throughput |
 | --- | --- | --- |
-| App::RouterColorizer (Perl) | 0.87 s | 0.97 MB/s |
-| this, one core | 0.14 s | 6.0 MB/s |
-| this, all cores | 0.019 s | 44 MB/s |
+| App::RouterColorizer (Perl) | 0.81 s | 1.0 MB/s |
+| this, one core | 0.14 s | 5.9 MB/s |
+| this, all cores | 0.018 s | 47 MB/s |
 
 The two Go rows produce identical bytes; the division happens at line endings,
 so it never changes what a live session feels like. The Perl output no longer
-matches byte for byte, because the rule sets have evolved separately.
+matches byte for byte, because the rule sets have evolved separately: the two
+disagree on 124 of the capture's 2,087 lines.
 
 Per line, the time goes almost entirely into matching the rule patterns — about
 half of it inside `regexp` — so the remaining lever is testing each line against
 fewer of the 152 patterns, not allocating less. Colorizing the 2,000-line
-benchmark capture allocates about 11,500 objects and 850 KB.
+benchmark capture allocates about 11,500 objects and 830 KB.
+
+`scripts/benchmark.sh` measures every number above and prints the table.
 
 ## Bugs
 

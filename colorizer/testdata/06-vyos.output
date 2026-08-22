@@ -7,7 +7,7 @@ Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
 Last login: Tue Aug 17 19:07:08 2021 from sandbox.antelope.net
 user@vyo.s123:~$ show ip bgp neighbors [30m[45m192.0.2.174[0m
-[?1h=[36mBGP neighbor is [30m[45m192.0.2.174[0m, remote AS [4m65[24m000, local AS [4m65[24m001, external link[m[0m
+[?1h=[36mBGP neighbor is [30m[45m192.0.2.174[0m[36m, remote AS [4m65[24m000, local AS [4m65[24m001, external link[m[0m
  Member of peer-group FOOBAR for session parameters[m
   BGP version 4, remote router ID [30m[41m192.0.2.17[0m, local router ID [35m[47m192.0.2.30[0m[m
 [32m  BGP state = Established, up for 3d10h02m[m[0m
@@ -50,8 +50,8 @@ user@vyo.s123:~$ show ip bgp neighbors [30m[45m192.0.2.174[0m
 [m
   Connections established 4516; dropped 4515[m
   Last reset 3d10h04m,  No AFI/SAFI activated for peer[m
-[36mLocal host: [37m[44m192.0.2.173[0m, Local port: 179[m[0m
-[36mForeign host: [30m[45m192.0.2.174[0m, Foreign port: [4m34[24m351[m[0m
+[36mLocal host: [37m[44m192.0.2.173[0m[36m, Local port: 179[m[0m
+[36mForeign host: [30m[45m192.0.2.174[0m[36m, Foreign port: [4m34[24m351[m[0m
 Nexthop: [37m[44m192.0.2.173[0m[m
 Nexthop global: [31m[43mf00:ba7::1:1[0m[m
 Nexthop local: [31m[43m::[0m[m

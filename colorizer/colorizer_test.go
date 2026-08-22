@@ -11,9 +11,7 @@ import (
 )
 
 // TestGolden checks each line of captured device output against the
-// colorization recorded for it. The cases are shared with the Perl
-// implementation this package was ported from, one line per test, so that a
-// difference points at the line that changed rather than at the file.
+// colorization recorded for it.
 func TestGolden(t *testing.T) {
 	inputs, err := filepath.Glob(filepath.Join("testdata", "*.input"))
 	if err != nil {

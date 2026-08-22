@@ -4,7 +4,7 @@
 package colorizer
 
 import (
-	"strings"
+	"slices"
 	"testing"
 )
 
@@ -30,7 +30,7 @@ func TestNextLine(t *testing.T) {
 			line, rest = nextLine(rest)
 			got = append(got, line)
 		}
-		if strings.Join(got, "|") != strings.Join(tt.lines, "|") {
+		if !slices.Equal(got, tt.lines) {
 			t.Errorf("splitting %q gave %q, want %q", tt.in, got, tt.lines)
 		}
 	}

@@ -36,10 +36,21 @@ func colorizeIPv6(line string) string {
 
 // colorizeAddresses walks line left to right, colorizing every address that
 // match reports, and returns the result. Text between addresses is untouched.
+//
+// Addresses are colorized after the rules have run, so one can land inside
+// text a rule has already put a color on. An address closes its own color with
+// a reset, which ends the rule's color as well, so whatever the rule left in
+// force is written again after the address.
 func colorizeAddresses(line string, match func(string, int) int, hash func(string) uint64) string {
 	var b strings.Builder
 	last := 0
+	inForce := "" // the escapes a rule has left in force at pos
 	for pos := 0; pos < len(line); {
+		if n := sgrAt(line, pos); n > 0 {
+			inForce = applySGR(inForce, line[pos:pos+n])
+			pos += n
+			continue
+		}
 		end := match(line, pos)
 		if end <= pos { // no match here, or an empty one
 			pos++
@@ -53,6 +64,9 @@ func colorizeAddresses(line string, match func(string, int) int, hash func(strin
 		}
 		b.WriteString(line[last:pos])
 		b.WriteString(colorizeEscape(addr, active.ip[hash(addr)%uint64(len(active.ip))]))
+		if inForce != "" && hasTextAfter(line, end) {
+			b.WriteString(inForce)
+		}
 		last, pos = end, end
 	}
 	if last == 0 {
@@ -62,9 +76,34 @@ func colorizeAddresses(line string, match func(string, int) int, hash func(strin
 	return b.String()
 }
 
+// hasTextAfter reports whether anything after pos would actually be drawn. A
+// tail of nothing but escapes has no text left to put back a color for.
+func hasTextAfter(s string, pos int) bool {
+	for pos < len(s) {
+		n := sgrAt(s, pos)
+		if n == 0 {
+			return true
+		}
+		pos += n
+	}
+	return false
+}
+
 // matchIPv4 reports the end of the IPv4 address or prefix starting at pos in
 // s, or -1 if there is none.
+//
+// A candidate has to be a token of its own, which is what keeps the leading
+// four fields of a longer dotted-decimal string from being read as an
+// address: an SNMP OID such as 1.3.6.1.4.1.30065 begins with one, and so does
+// whatever is left of an address with digits glued to the front of it.
 func matchIPv4(s string, pos int) int {
+	// Anything that could continue an address cannot precede one.
+	if pos > 0 {
+		if c := s[pos-1]; isDigit(c) || c == '.' {
+			return -1
+		}
+	}
+
 	end := pos
 	for octet := range 4 {
 		if octet > 0 {
@@ -80,8 +119,15 @@ func matchIPv4(s string, pos int) int {
 		end += run
 	}
 	end = skipPrefixLen(s, end, ipv4PrefixLen)
-	if end < len(s) && isDigit(s[end]) {
-		return -1
+
+	// Nor can it follow one. A "." only continues the address when a digit
+	// follows it, so a sentence that ends in an address still holds one. A
+	// "/" is left alone deliberately: Junos writes a session endpoint as
+	// "address/port", and a URL path reads the same way.
+	if end < len(s) {
+		if c := s[end]; isDigit(c) || (c == '.' && end+1 < len(s) && isDigit(s[end+1])) {
+			return -1
+		}
 	}
 	return end
 }
