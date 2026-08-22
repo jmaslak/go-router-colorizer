@@ -154,8 +154,7 @@ func runCmd(name string, args []string, delay time.Duration) int {
 		}
 	}
 
-	var exitErr *exec.ExitError
-	if errors.As(waitErr, &exitErr) {
+	if exitErr, ok := errors.AsType[*exec.ExitError](waitErr); ok {
 		return exitErr.ExitCode()
 	}
 	if waitErr != nil {
