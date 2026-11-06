@@ -2006,6 +2006,14 @@ Port      (Celsius)  (Volts)   (mA)      (dBm)     (dBm)     Last Update
 [1;31mEt50/10    37.88      3.30      0.00     -30.00    -30.00    0:00:00 ago[0m
 [1;31mEt50/11    37.88      3.30      0.00     -30.00    -30.00    0:00:00 ago[0m
 [1;31mEt50/12    37.88      3.30      0.00     -30.00    -30.00    0:00:00 ago[0m
+                                       Bias    Optical  Optical
+                     Temp      Voltage Current Tx Power Rx Power
+Slot         Channel (Celsius) (Volts) (mA)    (dBm)    (dBm)    Last Update
+------------ ------- --------- ------- ------- -------- -------- -----------
+[36mEthernet9/30       1 39.47     3.32    90.01   2.88     -8.20    0:00:02 ago[0m
+[36mEthernet9/30       2 39.47     3.32    92.24   3.64     -7.34    0:00:02 ago[0m
+[36mEthernet9/30       3 39.47     3.32    120.00  2.72     -6.03    0:00:02 ago[0m
+[36mEthernet9/30       4 39.47     3.32    120.00  2.60     -9.66    0:00:02 ago[0m
 [K[?1l>kswXX#\swXX#exit
 sw08#show spanning-tree
 VL1

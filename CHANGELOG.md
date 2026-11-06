@@ -4,6 +4,22 @@ All notable changes to this project are documented here. The format is based on
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project uses
 [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.3.0
+
+### Added
+
+- Arista `show interfaces transceiver` output with a channel column is
+  colorized like the output without one.
+
+### Changed
+
+- Colorization is about eight times faster and allocates about a quarter as
+  many objects, with byte for byte identical output. Each rule now carries a
+  cheap necessary condition for its pattern, derived from the pattern itself,
+  so a line reaches the regular expression engine only for the few rules that
+  could match it. On the benchmark capture, one core went from 5.9 MB/s to
+  47 MB/s.
+
 ## 1.2.0
 
 ### Fixed

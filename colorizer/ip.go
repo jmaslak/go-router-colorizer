@@ -23,6 +23,11 @@ var (
 // colorizeIPv4 gives every IPv4 address or prefix in line its own background
 // color.
 func colorizeIPv4(line string) string {
+	// Every form of an IPv4 address is dotted, so a line without a dot has
+	// nothing to look at, and most lines do not have one.
+	if strings.IndexByte(line, '.') < 0 {
+		return line
+	}
 	return colorizeAddresses(line, matchIPv4, hashIPv4)
 }
 
@@ -31,6 +36,11 @@ func colorizeIPv4(line string) string {
 // hex digits look enough like ordinary words that matching them mid-token
 // would colorize things that are not addresses.
 func colorizeIPv6(line string) string {
+	// Every form of an IPv6 address has a colon in it, and most lines have
+	// no colon at all.
+	if strings.IndexByte(line, ':') < 0 {
+		return line
+	}
 	return colorizeAddresses(line, matchIPv6, hashIPv6)
 }
 
@@ -63,7 +73,7 @@ func colorizeAddresses(line string, match func(string, int) int, hash func(strin
 			b.Grow(len(line) + 16)
 		}
 		b.WriteString(line[last:pos])
-		b.WriteString(colorizeEscape(addr, active.ip[hash(addr)%uint64(len(active.ip))]))
+		writeColorized(&b, addr, active.ip[hash(addr)%uint64(len(active.ip))])
 		if inForce != "" && hasTextAfter(line, end) {
 			b.WriteString(inForce)
 		}
@@ -148,6 +158,17 @@ func matchIPv6(s string, pos int) int {
 		if c := s[pos-1]; isWord(c) || c == ':' || c == '-' {
 			return -1
 		}
+	}
+
+	// Every form starts either with "::" or with a group of one to four hex
+	// digits followed by a colon, so one look decides whether any of the
+	// thirty-six forms below is worth trying.
+	if run := hexRun(s, pos); run == 0 {
+		if !strings.HasPrefix(s[pos:], "::") {
+			return -1
+		}
+	} else if run > 4 || pos+run >= len(s) || s[pos+run] != ':' {
+		return -1
 	}
 
 	if end, ok := matchIPv6Form(s, pos, 8, -1); ok {

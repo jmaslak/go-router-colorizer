@@ -142,10 +142,38 @@ func colorize(text string, c color) string {
 	return colorizeEscape(text, active.fg[c])
 }
 
+// writeColorize writes what colorize returns to b.
+func writeColorize(b *strings.Builder, text string, c color) {
+	writeColorized(b, text, active.fg[c])
+}
+
 // colorizeEscape renders text in color, given as a raw escape sequence,
 // preserving pre-existing color after this text.
 func colorizeEscape(text, color string) string {
-	return color + strings.ReplaceAll(text, reset, color) + reset
+	var b strings.Builder
+	b.Grow(len(text) + len(color) + len(reset))
+	writeColorized(&b, text, color)
+	return b.String()
+}
+
+// writeColorized writes what colorizeEscape returns to b. Both callers that
+// colorize part of a line are already assembling one, and going through a
+// string of its own would allocate for every piece of every line.
+func writeColorized(b *strings.Builder, text, color string) {
+	b.WriteString(color)
+	for {
+		i := strings.Index(text, reset)
+		if i < 0 {
+			break
+		}
+		// A reset inside the text would end this color early, so put it
+		// back in force after each one.
+		b.WriteString(text[:i])
+		b.WriteString(color)
+		text = text[i+len(reset):]
+	}
+	b.WriteString(text)
+	b.WriteString(reset)
 }
 
 // sgrAt returns the length of the SGR escape sequence at pos, or zero if there

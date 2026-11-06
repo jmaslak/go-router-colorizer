@@ -233,6 +233,7 @@ The interesting files:
 | --------------- | ------------------------------------------------------------ |
 | `colorizer.go`  | Splitting a stream into lines, and the order things run in.  |
 | `rules.go`      | The rule type and how a rule rewrites a line.                |
+| `prefilter.go`  | The cheap test that decides whether to run a rule's pattern. |
 | `patterns.go`   | Regular expression fragments shared between rules.           |
 | `arista.go`     | Arista EOS and Cisco IOS rules, and interface counter lines. |
 | `junos.go`      | Juniper Junos and VyOS rules.                                |
@@ -262,26 +263,32 @@ a failure names the line that changed.
 
 ## Throughput
 
-Colorizing is about 6 MB/s per core on a 2025 MacBook Pro. That is far more
+Colorizing is about 47 MB/s per core on a 2025 MacBook Pro. That is far more
 than most sessions produce, so throughput only matters when piping a large
 capture, and for that the work is divided across cores. On a 16-core
 MacBook, 824 KB of captured Arista output:
 
 | | Time | Throughput |
 | --- | --- | --- |
-| App::RouterColorizer (Perl) | 0.81 s | 1.0 MB/s |
-| this, one core | 0.14 s | 5.9 MB/s |
-| this, all cores | 0.018 s | 47 MB/s |
+| App::RouterColorizer (Perl) | 0.82 s | 1.0 MB/s |
+| this, one core | 0.018 s | 47 MB/s |
+| this, all cores | 0.0028 s | 302 MB/s |
 
 The two Go rows produce identical bytes; the division happens at line endings,
 so it never changes what a live session feels like. The Perl output no longer
 matches byte for byte, because the rule sets have evolved separately: the two
 disagree on 124 of the capture's 2,087 lines.
 
-Per line, the time goes almost entirely into matching the rule patterns — about
-half of it inside `regexp` — so the remaining lever is testing each line against
-fewer of the 152 patterns, not allocating less. Colorizing the 2,000-line
-benchmark capture allocates about 11,500 objects and 830 KB.
+Per line, the time still goes mostly into deciding which of the 152 rule
+patterns apply, but a line reaches `regexp` only for the few that could match
+it. Each rule carries a necessary condition for its pattern, derived from the
+pattern itself: the text a match must begin the line with, and the text it must
+contain somewhere. Checking those conditions and running the patterns that
+survive them now cost about the same as each other, and a little under half the
+total between them. The remaining lever is not checking every rule's condition
+on every line — bucketing them by the byte a line starts with — rather than
+making the conditions cheaper. Colorizing the 2,000-line benchmark capture
+allocates about 2,850 objects and 412 KB.
 
 `scripts/benchmark.sh` measures every number above and prints the table.
 

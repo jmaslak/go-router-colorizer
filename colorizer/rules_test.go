@@ -94,6 +94,42 @@ func TestInterfaceUpLine(t *testing.T) {
 	}
 }
 
+// Multi-lane Arista optics add a channel column to "show interfaces
+// transceiver" and print the full interface name.
+func TestAristaTransceiverChannels(t *testing.T) {
+	tests := []struct {
+		line string
+		want color
+	}{
+		{"Ethernet9/30       1 39.47     3.32    90.01   2.88     -8.20    0:00:02 ago", info},
+		{"Ethernet9/30       3 39.47     3.32    120.00  2.72     -6.03    0:00:02 ago", info},
+		{"Et9/30             1 39.47     3.32    90.01   2.88     -8.20    0:00:02 ago", info},
+		{"Ethernet9/30       4 39.47     3.32    120.00  2.60     -30.00   0:00:02 ago", red},
+		{"Ethernet9/30       4 39.47     3.32    120.00  2.60     - Inf    0:00:02 ago", red},
+		// Only the receive level counts: a dim transmitter is not red.
+		{"Ethernet9/30       4 39.47     3.32    0.00    -30.00   -8.20    0:00:02 ago", info},
+		{"Ethernet9/30       1 N/A       N/A     N/A     N/A      N/A      N/A", orange},
+	}
+	for _, tt := range tests {
+		if !colorizedWith(tt.line, tt.want) {
+			t.Errorf("FormatText(%q) = %q, want it %v", tt.line, FormatText(tt.line), tt.want)
+		}
+	}
+
+	// The form without a channel column is unaffected by the one with it.
+	for _, tt := range []struct {
+		line string
+		want color
+	}{
+		{"Et49/1     45.55      3.29      5.62     0.81      -4.46     0:00:03 ago", info},
+		{"Et49/8     45.55      3.29      6.15     1.02      -30.00    0:00:03 ago", red},
+	} {
+		if !colorizedWith(tt.line, tt.want) {
+			t.Errorf("FormatText(%q) = %q, want it %v", tt.line, FormatText(tt.line), tt.want)
+		}
+	}
+}
+
 // Every rule table has to compile, and each pattern has to have exactly the
 // submatches its paints refer to. The rule constructors check this as the
 // tables are built, so merely reaching this test proves it, but name the

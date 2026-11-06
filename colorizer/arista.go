@@ -87,6 +87,12 @@ var (
 		whole(`^(`+pIntShort+`(?:\s+`+pLight+`){5}\s+\S+\sago)$`, info),
 		whole(`^(`+pIntShort+`(?:\s+N/A){6}\s*)$`, orange),
 
+		// "show interfaces transceiver" (Arista), multi-lane form: the same
+		// columns, after a channel column.
+		whole(`^(`+pIntChannel+`(?:\s+`+pLight+`){4}\s+`+pLowLight+`\s+\S+\sago)$`, red),
+		whole(`^(`+pIntChannel+`(?:\s+`+pLight+`){5}\s+\S+\sago)$`, info),
+		whole(`^(`+pIntChannel+`(?:\s+N/A){6}\s*)$`, orange),
+
 		// "show interfaces transceiver detail" (Cisco). Trailing whitespace
 		// is matched but not captured, so it is trimmed from the output.
 		whole(`^(`+pIntShort+`(?:\s+`+pLight+`){3}\s+`+pLowLight+`)\s+$`, red),
@@ -145,6 +151,9 @@ var (
 var (
 	interfaceCounters = regexp.MustCompile(`^     ((?:` + pInt + ` [^, ][^,]+, )*` + pInt + ` [^, ][^,]+)$`)
 
+	// This pattern is not a rule, so it gets its prefilter directly.
+	interfaceCountersPre = newPrefilter(interfaceCounters.String())
+
 	// ttyLine matches the lines of "show users"-style output, which look
 	// like counter lines but are not.
 	ttyLine = regexp.MustCompile(`^\s+` + pInt + ` ` + pTTYTypes)
@@ -157,11 +166,17 @@ var (
 )
 
 func colorizeInterfaceCounters(line string) string {
-	if ttyLine.MatchString(line) {
+	if !interfaceCountersPre.match(line) {
 		return line
 	}
 	m := interfaceCounters.FindStringSubmatchIndex(line)
 	if m == nil {
+		return line
+	}
+	// Checked second because it only ever rejects: a line that is not a
+	// counter line is returned unchanged either way, and almost no line is
+	// one, so this pattern is worth running only on the few that are.
+	if ttyLine.MatchString(line) {
 		return line
 	}
 

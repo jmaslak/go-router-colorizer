@@ -22,8 +22,17 @@ import (
 //   - Rules that colorize different columns of the same line do stack, because
 //     each one only rewrites the columns it captured.
 type rule struct {
+	// pre is a cheap necessary condition for re to match, checked first so
+	// that the lines the rule has nothing to say about -- nearly all of
+	// them -- never reach the regular expression engine.
+	pre    prefilter
 	re     *regexp.Regexp
 	paints []paint
+}
+
+// newRule pairs a compiled pattern with the paints that render its submatches.
+func newRule(re *regexp.Regexp, paints []paint) rule {
+	return rule{pre: newPrefilter(re.String()), re: re, paints: paints}
 }
 
 // A paint renders one submatch of a rule's pattern. Matched text that no paint
@@ -36,7 +45,7 @@ type paint struct {
 
 // whole builds a rule that colorizes submatch 1 of pattern.
 func whole(pattern string, c color) rule {
-	return rule{re: mustCompile(pattern, 1), paints: []paint{{1, c}}}
+	return newRule(mustCompile(pattern, 1), []paint{{1, c}})
 }
 
 // group builds a rule that colorizes each submatch of pattern with the
@@ -48,7 +57,7 @@ func group(pattern string, colors ...color) rule {
 	for i, c := range colors {
 		paints[i] = paint{i + 1, c}
 	}
-	return rule{re: re, paints: paints}
+	return newRule(re, paints)
 }
 
 // alternate builds a rule for the table-shaped output of the Ciena CLI, whose
@@ -65,7 +74,7 @@ func alternate(pattern string, body color) rule {
 		}
 		paints[i] = paint{i + 1, c}
 	}
-	return rule{re: re, paints: paints}
+	return newRule(re, paints)
 }
 
 // mustCompile compiles pattern and panics unless it has exactly want
@@ -81,7 +90,10 @@ func mustCompile(pattern string, want int) *regexp.Regexp {
 
 // apply rewrites the first match of r in line. Lines that do not match are
 // returned unchanged.
-func (r rule) apply(line string) string {
+func (r *rule) apply(line string) string {
+	if !r.pre.match(line) {
+		return line
+	}
 	m := r.re.FindStringSubmatchIndex(line)
 	if m == nil {
 		return line
@@ -98,7 +110,7 @@ func (r rule) apply(line string) string {
 		if p.color == "" {
 			b.WriteString(line[start:end])
 		} else {
-			b.WriteString(colorize(line[start:end], p.color))
+			writeColorize(&b, line[start:end], p.color)
 		}
 	}
 	b.WriteString(line[m[1]:])
@@ -107,8 +119,8 @@ func (r rule) apply(line string) string {
 
 // applyAll runs every rule against line, in order.
 func applyAll(line string, rules []rule) string {
-	for _, r := range rules {
-		line = r.apply(line)
+	for i := range rules {
+		line = rules[i].apply(line)
 	}
 	return line
 }

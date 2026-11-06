@@ -53,6 +53,10 @@ const (
 	// output, "Et1" in tabular output.
 	pInterface = `(?:[A-Z]\S+)`
 	pIntShort  = `(?:[A-Z][a-z][0-9]\S*)`
+	// pIntChannel is the first two columns of the multi-lane form of
+	// "show interfaces transceiver": an interface, in full or in short,
+	// and a channel number.
+	pIntChannel = `(?:[A-Z][a-z]+[0-9]\S*\s+` + pInt + `)`
 )
 
 // Interface names as Junos renders them.

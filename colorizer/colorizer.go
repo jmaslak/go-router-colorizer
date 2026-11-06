@@ -54,7 +54,7 @@ func FormatText(text string) string {
 	b.Grow(len(text) + len(text)/4)
 	for len(text) > 0 {
 		chunk, rest := nextLine(text)
-		b.WriteString(formatLine(chunk))
+		formatLine(&b, chunk)
 		text = rest
 	}
 	return b.String()
@@ -78,8 +78,11 @@ func nextLine(text string) (line, rest string) {
 	return text[:end], text[end:]
 }
 
-// formatLine colorizes a single line, which may carry its line ending.
-func formatLine(text string) string {
+// formatLine colorizes a single line, which may carry its line ending, and
+// writes it to b. It writes rather than returns because the line it builds is
+// only ever appended to the text being colorized, and joining the pieces here
+// would allocate a string per line to copy and discard.
+func formatLine(b *strings.Builder, text string) {
 	line, eol := text, ""
 	if strings.HasSuffix(line, "\n") {
 		line, eol = line[:len(line)-1], "\n"
@@ -91,8 +94,12 @@ func formatLine(text string) string {
 	preamble, body := splitPreamble(line)
 	line = trimMorePrompt(body)
 
-	// A space that is immediately backspaced over draws nothing.
-	line = reUnnecessaryBackspace.ReplaceAllString(line, "$1")
+	// A space that is immediately backspaced over draws nothing. Almost no
+	// line contains a backspace, so the scan for one stands in for running
+	// the pattern.
+	if strings.IndexByte(line, '\x08') >= 0 {
+		line = reUnnecessaryBackspace.ReplaceAllString(line, "$1")
+	}
 
 	trailer := ""
 	if strings.HasSuffix(line, "\r") {
@@ -114,10 +121,10 @@ func formatLine(text string) string {
 	line = colorizeIPv6(line)
 	line = colorizeNumbers(line)
 
-	if preamble == "" && trailer == "" && eol == "" {
-		return line
-	}
-	return preamble + line + trailer + eol
+	b.WriteString(preamble)
+	b.WriteString(line)
+	b.WriteString(trailer)
+	b.WriteString(eol)
 }
 
 // splitPreamble splits off the leading terminal control sequences of a line,
@@ -126,6 +133,11 @@ func formatLine(text string) string {
 // sequence: it belongs to the pager prompt that trimMorePrompt removes.
 func splitPreamble(line string) (preamble, rest string) {
 	const italicsOff = "\x1b[23m"
+
+	// A line with no escape in it has no preamble, which is the common case.
+	if strings.IndexByte(line, '\x1b') < 0 {
+		return "", line
+	}
 
 	for i := len(line) - 1; i >= 0; i-- {
 		if line[i] != '\x1b' {
