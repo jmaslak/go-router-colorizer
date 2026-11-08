@@ -657,5 +657,16 @@ wdm03*$ chassis power show
 | IPv6 Operational State     |[1;31m Down                         [0m|
 | IPv4 Address (User)        | [30m[47m0.0.0.0/0[0m                    |
 | IPv4 Address (Oper)        | [30m[100m192.0.2.12/32[0m                |
-| IPv6 Addr/Mask(Oper)       | [35m[47mfe80::200:5eff:fe00:5301/64[0m  |
+| IPv6 Addr/Mask(Oper)       | [30m[43mfe80::200:ffff:ffff:ffff/64[0m  |
 +----------------------------+------------------------------+
++----------------------------------------- INTERFACE PORTS ------------------------------------------+
+|              |              |   Admin      |  Operational |                    |         |         |
+|   Name       |   Type       |   State      |     State    |  MAC address       | Speed   | Duplex  |
++--------------+--------------+--------------+--------------+--------------------+---------+---------+
+| ifp0-ilan-1  | ILAN         |[1;31m Disabled     [0m|[1;31m Down         [0m| 00:00:00:00:00:00  | 1G      | Full    |
+| ifp0-ilan-2  | ILAN         |[1;31m Disabled     [0m|[1;31m Down         [0m| 00:00:00:00:00:00  | 1G      | Full    |
+| ifp0-dcn-1   | DCN          |[1;31m Disabled     [0m|[32m Up [0m          | 00:00:00:00:00:00  | 1G      | Full    |
+| ifp0-dcn-1   | DCN          |[32m Enabled [0m     |[32m Up [0m          | 00:00:00:00:00:00  | 1G      | Full    |
+| ifp0-1-11    | OSC          |[32m Enabled [0m     |[32m Up [0m          | 00:00:00:00:00:00  | 1G      | Full    |
+| ifp0-2-1     | GCC0         |[32m Enabled [0m     |[32m Up [0m          | 00:00:00:00:00:00  | 13M     | Full    |
++--------------+--------------+--------------+--------------+--------------------+---------+---------+

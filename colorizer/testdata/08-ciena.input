@@ -657,5 +657,16 @@ wdm03*$ chassis power show
 | IPv6 Operational State     | Down                         |
 | IPv4 Address (User)        | 0.0.0.0/0                    |
 | IPv4 Address (Oper)        | 192.0.2.12/32                |
-| IPv6 Addr/Mask(Oper)       | fe80::200:5eff:fe00:5301/64  |
+| IPv6 Addr/Mask(Oper)       | fe80::200:ffff:ffff:ffff/64  |
 +----------------------------+------------------------------+
++----------------------------------------- INTERFACE PORTS ------------------------------------------+
+|              |              |   Admin      |  Operational |                    |         |         |
+|   Name       |   Type       |   State      |     State    |  MAC address       | Speed   | Duplex  |
++--------------+--------------+--------------+--------------+--------------------+---------+---------+
+| ifp0-ilan-1  | ILAN         | Disabled     | Down         | 00:00:00:00:00:00  | 1G      | Full    |
+| ifp0-ilan-2  | ILAN         | Disabled     | Down         | 00:00:00:00:00:00  | 1G      | Full    |
+| ifp0-dcn-1   | DCN          | Disabled     | Up           | 00:00:00:00:00:00  | 1G      | Full    |
+| ifp0-dcn-1   | DCN          | Enabled      | Up           | 00:00:00:00:00:00  | 1G      | Full    |
+| ifp0-1-11    | OSC          | Enabled      | Up           | 00:00:00:00:00:00  | 1G      | Full    |
+| ifp0-2-1     | GCC0         | Enabled      | Up           | 00:00:00:00:00:00  | 13M     | Full    |
++--------------+--------------+--------------+--------------+--------------------+---------+---------+

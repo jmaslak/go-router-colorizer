@@ -4,14 +4,26 @@ All notable changes to this project are documented here. The format is based on
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project uses
 [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.4.1
+
+### Added
+
+- The Ciena interface port show table colorizes Admin State green when Enabled
+  and red otherwise, and Operational State green when Up and red otherwise.
+
+## 1.4.0
+
+### Added
+
+- Ciena "Oper State", "IPv4 Operational State", and "IPv6 Operational State"
+  rows are colorized green when Up and red otherwise.
+
 ## 1.3.0
 
 ### Added
 
 - Arista `show interfaces transceiver` output with a channel column is
   colorized like the output without one.
-- Ciena "Oper State", "IPv4 Operational State", and "IPv6 Operational State"
-  rows are colorized green when Up and red otherwise.
 
 ### Changed
 

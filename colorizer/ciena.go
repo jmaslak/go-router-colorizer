@@ -13,6 +13,7 @@ const (
 	cienaCell  = `([^|]+)`
 	cienaIndex = `(\|\s+[0-9]*\s*\|)`
 	cienaBar   = `(\|)`
+	cienaMAC   = `[0-9a-fA-F]{2}(?::[0-9a-fA-F]{2}){5}`
 )
 
 // cienaRules cover Ciena WDM and packet-optical devices.
@@ -31,6 +32,16 @@ var cienaRules = []rule{
 	// so it cannot match a cell the "Up" rule has already colorized.
 	group(`^(\|\s?(?:Oper|IPv4 Operational|IPv6 Operational) State \s+\|)( Up )([^\n]+)$`, "", green, ""),
 	group(`^(\|\s?(?:Oper|IPv4 Operational|IPv6 Operational) State \s+\|)( [^|]+)([^\n]+)$`, "", red, ""),
+
+	// "interface port show": Name | Type | Admin State | Operational State |
+	// MAC address | Speed | Duplex. The MAC address column identifies the
+	// table. Each state column is colorized by its own pair of rules, which
+	// stack because each rewrites only its own column; as above, each
+	// catch-all requires the cell to open with a space.
+	group(`^(\|[^|]+\|[^|]+\|)( Enabled )(\s*\|[^|]+\|\s*`+cienaMAC+`\s*\|[^\n]*)$`, "", green, ""),
+	group(`^(\|[^|]+\|[^|]+\|)( [^|]+)(\|[^|]+\|\s*`+cienaMAC+`\s*\|[^\n]*)$`, "", red, ""),
+	group(`^(\|[^|]+\|[^|]+\|[^|]+\|)( Up )(\s*\|\s*`+cienaMAC+`\s*\|[^\n]*)$`, "", green, ""),
+	group(`^(\|[^|]+\|[^|]+\|[^|]+\|)( [^|]+)(\|\s*`+cienaMAC+`\s*\|[^\n]*)$`, "", red, ""),
 
 	// "xcvr show xcvr N/N".
 	group(`^`+cienaBar+`( Tx Power \(dBm\)\s*)`+cienaBar+`(\s+`+pVeryLowLight+`\s+)([^\n]+)$`,
