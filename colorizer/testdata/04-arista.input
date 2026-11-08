@@ -2093,3 +2093,5 @@ Free memory: 2017756 kB
 sw08#hsow version
 % Invalid input
 
+State: A = Active, P = Passive; S=ShortTimeout, L=LongTimeout;
+

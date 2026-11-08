@@ -130,6 +130,21 @@ func TestAristaTransceiverChannels(t *testing.T) {
 	}
 }
 
+// An RPKI cache state is colorized, but a legend that also starts with
+// "State:" is not.
+func TestAristaRPKIState(t *testing.T) {
+	if !colorizedWith("State: synced", green) {
+		t.Errorf("FormatText(%q) = %q, want it green", "State: synced", FormatText("State: synced"))
+	}
+	if !colorizedWith("State: idle", red) {
+		t.Errorf("FormatText(%q) = %q, want it red", "State: idle", FormatText("State: idle"))
+	}
+	legend := "State: A = Active, P = Passive; S=ShortTimeout, L=LongTimeout;"
+	if out := FormatText(legend); out != legend {
+		t.Errorf("FormatText(%q) = %q, want it left alone", legend, out)
+	}
+}
+
 // Every rule table has to compile, and each pattern has to have exactly the
 // submatches its paints refer to. The rule constructors check this as the
 // tables are built, so merely reaching this test proves it, but name the

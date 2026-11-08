@@ -20,6 +20,11 @@ All notable changes to this project are documented here. The format is based on
   could match it. On the benchmark capture, one core went from 5.9 MB/s to
   47 MB/s.
 
+### Fixed
+
+- The LACP legend line "State: A = Active, P = Passive; ..." on Arista is no
+  longer colorized red as if it were an RPKI cache state.
+
 ## 1.2.0
 
 ### Fixed

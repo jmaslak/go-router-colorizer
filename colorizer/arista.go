@@ -111,9 +111,11 @@ var (
 		whole(`^(`+pIntShort+`\s+`+pSTPTypes+`\s+`+pSTPWarn+`\s+[0-9]+\s+[0-9]+\.[0-9]+\s+P2p.*)$`, orange),
 		whole(`^(`+pIntShort+`\s+`+pSTPTypes+`\s+`+pSTPBad+`\s+[0-9]+\s+[0-9]+\.[0-9]+\s+P2p.*)$`, red),
 
-		// "show bgp rpki cache" (Arista).
+		// "show bgp rpki cache" (Arista). A state is lowercase words; this
+		// keeps legends that start with "State:", such as the one in
+		// "show lacp neighbor", from being taken for one.
 		whole(`^(State:\ssynced)$`, green),
-		whole(`^(State:\s.*)$`, red),
+		whole(`^(State:\s[a-z][a-z ]*)$`, red),
 		whole(`^(Connection:\sActive\s.*)$`, green),
 		whole(`^(Connection:\s.*)$`, red),
 

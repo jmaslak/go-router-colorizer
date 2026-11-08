@@ -2093,3 +2093,5 @@ Image optimization: Strata-4GB
 sw08#hsow version
 [1;31m% Invalid input[0m
 
+State: A = Active, P = Passive; S=ShortTimeout, L=LongTimeout;
+
