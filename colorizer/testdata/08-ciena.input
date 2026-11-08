@@ -643,3 +643,19 @@ wdm03*$ chassis power show
 | PSU-2  | Enabled  | Faulted | AC/240VDC | Waveserver Ai AC/DC Power Module | ABCDEFGH      |    186-1510-901/001  |
 +--------+----------+--------+---------+----------------------------------+---------------+----------------------+
 
++------------ INTERFACE STATE - if0-1-11 -------------------+
+| Parameter                  |   Value                      |
++----------------------------+------------------------------+
+| Name                       | if0-1-11                     |
+| Admin State                | Enabled                      |
+| Oper State                 | Down                         |
+| Interface Port             | ifp0-1-11                    |
+| Metric                     | 5                            |
+| IPv4 Neighbor router ID    |                              |
+| IPv4 Operational State     | Up                           |
+| IPv6 Neighbor router ID    | 0.0.0.0                      |
+| IPv6 Operational State     | Down                         |
+| IPv4 Address (User)        | 0.0.0.0/0                    |
+| IPv4 Address (Oper)        | 192.0.2.12/32                |
+| IPv6 Addr/Mask(Oper)       | fe80::200:5eff:fe00:5301/64  |
++----------------------------+------------------------------+

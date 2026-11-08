@@ -10,6 +10,8 @@ All notable changes to this project are documented here. The format is based on
 
 - Arista `show interfaces transceiver` output with a channel column is
   colorized like the output without one.
+- Ciena "Oper State", "IPv4 Operational State", and "IPv6 Operational State"
+  rows are colorized green when Up and red otherwise.
 
 ### Changed
 

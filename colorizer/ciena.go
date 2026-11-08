@@ -26,6 +26,12 @@ var cienaRules = []rule{
 	group(`^(\|\s?Operational State \s+\|)(\s?Initializing )([^\n]+)$`, "", orange, ""),
 	group(`^(\|\s?Operational State \s+\|)`+cienaCell+`([^\n]+)$`, "", red, ""),
 
+	// "Oper State" and the per-family operational states, as reported by
+	// "interface show". The catch-all requires the cell to open with a space,
+	// so it cannot match a cell the "Up" rule has already colorized.
+	group(`^(\|\s?(?:Oper|IPv4 Operational|IPv6 Operational) State \s+\|)( Up )([^\n]+)$`, "", green, ""),
+	group(`^(\|\s?(?:Oper|IPv4 Operational|IPv6 Operational) State \s+\|)( [^|]+)([^\n]+)$`, "", red, ""),
+
 	// "xcvr show xcvr N/N".
 	group(`^`+cienaBar+`( Tx Power \(dBm\)\s*)`+cienaBar+`(\s+`+pVeryLowLight+`\s+)([^\n]+)$`,
 		"", info, "", red, ""),
