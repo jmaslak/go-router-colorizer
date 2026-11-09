@@ -14,6 +14,14 @@ const (
 	cienaIndex = `(\|\s+[0-9]*\s*\|)`
 	cienaBar   = `(\|)`
 	cienaMAC   = `[0-9a-fA-F]{2}(?::[0-9a-fA-F]{2}){5}`
+
+	// "ntp show" row fragments: the four columns before Admin State, the
+	// Oper State column between Admin State and Server State, the three
+	// columns after Server State, and one unpadded, uncolorized cell value.
+	cienaNTPHead = `^(\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|)`
+	cienaNTPMid  = `(\s*\|[^|]*\|)`
+	cienaNTPTail = `(\s*\|[^|]*\|[^|]*\|\s*-?[0-9]+\.[0-9]+\|[^\n]*)$`
+	cienaNTPWord = `([^|\s\x1b](?:[^|]*[^|\s])?)`
 )
 
 // cienaRules cover Ciena WDM and packet-optical devices.
@@ -42,6 +50,17 @@ var cienaRules = []rule{
 	group(`^(\|[^|]+\|[^|]+\|)( [^|]+)(\|[^|]+\|\s*`+cienaMAC+`\s*\|[^\n]*)$`, "", red, ""),
 	group(`^(\|[^|]+\|[^|]+\|[^|]+\|)( Up )(\s*\|\s*`+cienaMAC+`\s*\|[^\n]*)$`, "", green, ""),
 	group(`^(\|[^|]+\|[^|]+\|[^|]+\|)( [^|]+)(\|\s*`+cienaMAC+`\s*\|[^\n]*)$`, "", red, ""),
+
+	// "ntp show": IP Address | Host Name | Auth | Config State | Admin State |
+	// Oper State | Server State | Server Condition | Auth State | Offset (ms).
+	// The column count and the numeric offset identify the table. An enabled
+	// server is green when reachable and has its server state red otherwise;
+	// a server that is not enabled has both states orange. These cells have
+	// no leading space, so cienaNTPWord refuses a cell that opens with an
+	// escape instead, which keeps the later rules off a colorized row.
+	group(cienaNTPHead+`(Ena)`+cienaNTPMid+`(Reach)`+cienaNTPTail, "", green, "", green, ""),
+	group(cienaNTPHead+`(Ena)`+cienaNTPMid+cienaNTPWord+cienaNTPTail, "", green, "", red, ""),
+	group(cienaNTPHead+cienaNTPWord+cienaNTPMid+cienaNTPWord+cienaNTPTail, "", orange, "", orange, ""),
 
 	// "xcvr show xcvr N/N".
 	group(`^`+cienaBar+`( Tx Power \(dBm\)\s*)`+cienaBar+`(\s+`+pVeryLowLight+`\s+)([^\n]+)$`,

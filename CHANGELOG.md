@@ -4,6 +4,14 @@ All notable changes to this project are documented here. The format is based on
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project uses
 [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.5.0
+
+### Added
+
+- The Ciena `ntp show` table colorizes enabled servers' Admin State green, and
+  their Server State green when Reach and red otherwise. For a server whose
+  Admin State is not Ena, both columns are orange.
+
 ## 1.4.1
 
 ### Added

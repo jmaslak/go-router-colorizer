@@ -670,3 +670,18 @@ wdm03*$ chassis power show
 | ifp0-1-11    | OSC          | Enabled      | Up           | 00:00:00:00:00:00  | 1G      | Full    |
 | ifp0-2-1     | GCC0         | Enabled      | Up           | 00:00:00:00:00:00  | 13M     | Full    |
 +--------------+--------------+--------------+--------------+--------------------+---------+---------+
++------------------------------------------------------------ NTP SERVER CONFIGURATION -------------------------------------------------------------+
+|                                       |                                       |             |  Config |Admin|Oper |Server| Server  |Auth | Offset |
+| IP Address                            | Host Name                             |    Auth     |  State  |State|State|State |Condition|State| (ms)   |
++---------------------------------------+---------------------------------------+-------------+---------+-----+-----+------+---------+-----+--------+
+|203.0.113.226                          |203.0.113.226                          |None         |user     |Ena  |Up   |Reach |Outlyer  |None |   1.795|
+|203.0.113.72                           |203.0.113.72                           |None         |user     |Ena  |Up   |Unrch |Reject   |None |   0.000|
+|198.51.100.44                          |198.51.100.44                          |None         |user     |Ena  |Up   |Unrch |Reject   |None |   0.000|
+|198.51.100.3                           |198.51.100.3                           |None         |user     |Ena  |Up   |Reach |Selected |None |   0.599|
+|198.51.100.1                           |198.51.100.1                           |None         |user     |Ena  |Up   |Reach |Outlyer  |None |   0.246|
+|203.0.113.8                            |203.0.113.8                            |None         |user     |Ena  |Up   |Reach |Candidat |None |   2.477|
+|203.0.113.186                          |203.0.113.186                          |None         |user     |Ena  |Up   |Reach |Candidat |None |  -6.235|
+|192.0.2.4                              |192.0.2.4                              |None         |user     |Ena  |Up   |Unrch |Reject   |None |   0.000|
+|192.0.2.5                              |192.0.2.5                              |None         |user     |Dis  |Down |Unrch |Reject   |None |   0.000|
+|192.0.2.6                              |192.0.2.6                              |None         |user     |Dis  |Down |Reach |Reject   |None |   0.000|
++---------------------------------------+---------------------------------------+-------------+---------+-----+-----+------+---------+-----+--------+
